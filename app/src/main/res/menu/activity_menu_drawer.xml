@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_favoritos"
+            android:icon="@drawable/ic_favoritos"
+            android:title="@string/favoritos_drawer" />
+        <item
+            android:id="@+id/nav_pesquisar"
+            android:icon="@drawable/ic_pesquisar"
+            android:title="@string/pesquisar_drawer" />
+        <item
+            android:id="@+id/sair"
+            android:icon="@drawable/ic_sair"
+            android:title="@string/sair" />
+    </group>
+</menu>
