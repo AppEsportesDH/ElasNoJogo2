@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import br.com.elasnojogo.R;
+import br.com.elasnojogo2.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,7 +25,7 @@ public class VisualizarEvento extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_visualizarevento, container, false);
+        return inflater.inflate(R.layout.fragment_visualizar_evento, container, false);
     }
 
 }

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import br.com.elasnojogo.R;
+import br.com.elasnojogo2.R;
 
 public class SplashActivity extends AppCompatActivity {
 

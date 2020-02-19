@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 
 import br.com.elasnojogo.Interface.FavoritosView;
 import br.com.elasnojogo.Model.DadosEvento;
-import br.com.elasnojogo.R;
+import br.com.elasnojogo2.R;
 
 
 /**

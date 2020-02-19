@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_watercolor"
     android:fitsSystemWindows="true"
-    tools:openDrawer="end">
+    tools:openDrawer="end"
+    tools:context="br.com.elasnojogo.Views.HomeActivity">
 
     <include
         layout="@layout/app_bar_menu"
@@ -22,8 +23,6 @@
         app:headerLayout="@layout/nav_header_menu"
         app:menu="@menu/activity_menu_drawer" />
 
-
-    <?xml version="1.0" encoding="utf-8"?>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

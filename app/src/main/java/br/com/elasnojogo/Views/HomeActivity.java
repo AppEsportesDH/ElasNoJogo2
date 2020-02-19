@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import br.com.elasnojogo.R;
+import br.com.elasnojogo2.R;
 
 public class HomeActivity extends AppCompatActivity {
     private TextView sms;
@@ -15,11 +15,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Bundle bundle = getIntent().getExtras();
-        String email = bundle.getString("Email");
 
         sms = findViewById(R.id.textViewMensagem);
 
-        sms.setText(getString(R.string.mensagem_home, email));
+        sms.setText(getString(R.string.mensagem_home));
 
 
     }

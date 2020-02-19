@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_watercolor"
-    tools:context=".views.CadastroActivity">
+    tools:context="br.com.elasnojogo.Views.CadastroActivity">
 
     <ImageView
         android:id="@+id/imageView5"

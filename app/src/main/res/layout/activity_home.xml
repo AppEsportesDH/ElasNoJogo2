@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background_watercolor"
-        tools:context=".views.HomeActivity">
+        tools:context="br.com.elasnojogo.Views.HomeActivity">
 
         <TextView
             android:id="@+id/textViewMensagem"

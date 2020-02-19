@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundwatercolor"
-    tools:context=".views.HomeActivity">
+    tools:context="br.com.elasnojogo.Views.HomeActivity">
 
     <TextView
         android:id="@+id/favoritos"
@@ -36,7 +36,7 @@
         android:background="@color/container"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/favoritos"/>
+        app:layout_constraintTop_toBottomOf="@+id/favoritos" />
 
     <TextView
         android:id="@+id/nome_evento"
@@ -45,14 +45,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginRight="81dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/lato"
         android:text="@string/nome_evento"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/local"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/container1_favoritos"
         app:layout_constraintTop_toBottomOf="@+id/favoritos" />
 
@@ -77,10 +74,10 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/lato"
+
         android:text="@string/data"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/container1_favoritos"
-
         app:layout_constraintTop_toBottomOf="@+id/local" />
 
     <LinearLayout
@@ -93,7 +90,7 @@
         android:background="@color/container"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container1_favoritos"/>
+        app:layout_constraintTop_toBottomOf="@+id/container1_favoritos" />
 
     <TextView
         android:id="@+id/local2"
@@ -195,7 +192,7 @@
         android:background="@color/container"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container3_favoritos"/>
+        app:layout_constraintTop_toBottomOf="@+id/container3_favoritos" />
 
     <TextView
         android:id="@+id/nome_evento4"

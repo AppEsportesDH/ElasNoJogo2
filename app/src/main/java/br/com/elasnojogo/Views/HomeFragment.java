@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import br.com.elasnojogo.R;
+import br.com.elasnojogo2.R;
 
 
 /**

@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import br.com.elasnojogo.R;
+import br.com.elasnojogo2.R;
 
 
 public class LoginActivity extends AppCompatActivity {
