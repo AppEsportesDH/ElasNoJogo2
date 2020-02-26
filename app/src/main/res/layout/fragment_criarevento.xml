@@ -1,33 +1,9 @@
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_watercolor"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="end"
-    tools:context="br.com.elasnojogo.Views.HomeActivity">
-
-    <include
-        layout="@layout/app_bar_menu"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_menu"
-        app:menu="@menu/activity_menu_drawer" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/backgroundwatercolor"
-        tools:context=".views.HomeActivity">
+        android:background="@drawable/backgroundwatercolor">
 
         <TextView
             android:id="@+id/criarevento"
@@ -283,4 +259,3 @@
             app:srcCompat="@drawable/logo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.drawerlayout.widget.DrawerLayout>

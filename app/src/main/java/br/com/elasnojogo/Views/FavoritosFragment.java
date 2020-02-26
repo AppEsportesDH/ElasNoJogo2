@@ -31,31 +31,21 @@ public class FavoritosFragment extends Fragment implements FavoritosView {
         // Required empty public constructor
     }
 
-    @Override
-    public void onAttach (Context activity){
-        super.onAttach(activity);
-        if(!(activity instanceof FavoritosView)){
-            throw new RuntimeException();
-        }
-        mListener = (FavoritosView) activity;
-    }
+//    @Override
+//    public void onAttach (Context activity){
+//        super.onAttach(activity);
+//        if(!(activity instanceof FavoritosView)){
+//            throw new RuntimeException();
+//        }
+//        mListener = (FavoritosView) activity;
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_favoritos, container, false);
-        favorito = v.findViewById(R.id.favoritos);
+        return inflater.inflate(R.layout.fragment_favoritos, container, false);
 
-        favorito.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(mListener != null){
-
-                }
-            }
-        });
-        return v;
     }
 
 }

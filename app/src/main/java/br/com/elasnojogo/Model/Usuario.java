@@ -1,4 +1,4 @@
-package br.com.elasnojogo.Views;
+package br.com.elasnojogo.Model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
