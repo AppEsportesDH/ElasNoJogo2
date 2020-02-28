@@ -68,16 +68,11 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        replaceFragment(new HomeFragment());
     }
 
-
-
-
-
-        private void replaceFragment(Fragment fragment){
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
-        }
-
-
-
+    private void replaceFragment(Fragment fragment){
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+    }
 }
