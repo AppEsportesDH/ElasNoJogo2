@@ -15,7 +15,7 @@
             android:icon="@drawable/ic_pesquisar"
             android:title="@string/pesquisar_drawer" />
         <item
-            android:id="@+id/sair"
+            android:id="@+id/nav_sair"
             android:icon="@drawable/ic_sair"
             android:title="@string/sair" />
     </group>

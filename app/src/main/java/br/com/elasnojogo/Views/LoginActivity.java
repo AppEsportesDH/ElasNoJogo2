@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         botao_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//A Activity de Menu ainda será criada
+
                 String email1 = email.getText().toString();
                 String senha1 = senha.getText().toString();
 

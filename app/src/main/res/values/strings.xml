@@ -62,6 +62,7 @@
     <string name="pesquisar_drawer">Pesquisar</string>
     <string name="sair">Sair</string>
     <string name="favoritar">FAVORITAR</string>
+    <string name="elas_no_jogo">Elas no jogo</string>
 
     <string-array name="lista_identificacao">
         <item>mulher cis</item>
