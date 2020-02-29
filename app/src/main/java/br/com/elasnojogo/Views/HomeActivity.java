@@ -75,4 +75,9 @@ public class HomeActivity extends AppCompatActivity {
     private void replaceFragment(Fragment fragment){
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }

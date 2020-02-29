@@ -24,6 +24,7 @@ public class HomeFragment extends Fragment implements EventoListener {
 
     private RecyclerView recyclerViewEventos;
     private EventoRecyclerViewAdapter adapter;
+    private Button buttonCriarEvento;
 
     public static final String EVENTO_CHAVE = "evento";
 
@@ -36,11 +37,19 @@ public class HomeFragment extends Fragment implements EventoListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        recyclerViewEventos = view.findViewById(R.id.recycler_view_eventos);
+        initViews(view);
+
         adapter = new EventoRecyclerViewAdapter(getListaEventos(), this);
         recyclerViewEventos.setAdapter(adapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewEventos.setLayoutManager(layoutManager);
 
-        recyclerViewEventos.setLayoutManager(new LinearLayoutManager(getContext()));
+        buttonCriarEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceFragment(new EventoFragment());
+            }
+        });
 
         return view;
     }
@@ -52,22 +61,27 @@ public class HomeFragment extends Fragment implements EventoListener {
     private List<DadosEvento> getListaEventos() {
         List<DadosEvento> eventos = new ArrayList<>();
 
-        eventos.add(new DadosEvento("Empoderamento feminino no futebol", "SP", "20/02/2020"));
-        eventos.add(new DadosEvento("Empoderamento feminino no basquete", "SP", "20/02/2020"));
-        eventos.add(new DadosEvento("Empoderamento feminino no volei", "SP", "20/02/2020"));
-        eventos.add(new DadosEvento("Empoderamento feminino no nado", "SP", "20/02/2020"));
-        eventos.add(new DadosEvento("Empoderamento feminino no automobilismo", "SP", "20/02/2020"));
+        eventos.add(new DadosEvento(R.drawable.contraataque_post_mulheres_esporte_01_ls,"Empoderamento feminino no futebol", "SP", "20/10/2021"));
+        eventos.add(new DadosEvento(R.drawable.contraataque_post_mulheres_esporte_01_ls,"Empoderamento feminino no basquete", "MG", "21/01/2022"));
+        eventos.add(new DadosEvento(R.drawable.contraataque_post_mulheres_esporte_01_ls,"Empoderamento feminino no volei", "RJ", "22/02/2023"));
+        eventos.add(new DadosEvento(R.drawable.contraataque_post_mulheres_esporte_01_ls,"Empoderamento feminino no nado", "BH", "23/03/2024"));
+        eventos.add(new DadosEvento(R.drawable.contraataque_post_mulheres_esporte_01_ls,"Empoderamento feminino no automobilismo", "SC", "24/04/2025"));
 
         return eventos;
     }
 
     @Override
     public void enviaEvento(DadosEvento dadosEvento) {
-        Fragment fragment = new EventoFragment();
+        Fragment fragment = new VisualizarEvento();
         Bundle bundle = new Bundle();
         bundle.putParcelable(EVENTO_CHAVE, dadosEvento);
         fragment.setArguments(bundle);
 
         replaceFragment(fragment);
+    }
+
+    private void initViews(View view) {
+        buttonCriarEvento = view.findViewById(R.id.criarevento_btn);
+        recyclerViewEventos = view.findViewById(R.id.recycler_view_eventos);
     }
 }

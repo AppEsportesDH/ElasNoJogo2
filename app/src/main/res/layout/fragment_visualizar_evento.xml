@@ -7,8 +7,8 @@
         android:layout_height="match_parent"
         android:background="@drawable/backgroundwatercolor">
 
-        <LinearLayout
-            android:id="@+id/container1_visualizarfragment"
+        <ImageView
+            android:id="@+id/imageView_evento"
             android:layout_width="380dp"
             android:layout_height="200dp"
             android:layout_marginStart="16dp"
@@ -33,7 +33,7 @@
             android:text="@string/nome_evento"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/container1_visualizarfragment" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView_evento" />
 
         <TextView
             android:id="@+id/local_visualizarfragment"
@@ -110,6 +110,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/logo" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
