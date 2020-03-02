@@ -22,78 +22,88 @@
             android:text="@string/meus_eventos"
             android:textColor="@color/textoPesquisa"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/container1_home"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view_eventos"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/container1_home"
-            android:layout_width="380dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@color/container"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+    <!--        <LinearLayout-->
+<!--            android:id="@+id/container1_home"-->
+<!--            android:layout_width="380dp"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginLeft="16dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:layout_marginRight="16dp"-->
+<!--            android:background="@color/container"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textView">-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="380dp"
-                android:layout_height="200dp">
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:layout_width="380dp"-->
+<!--                android:layout_height="200dp">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/brancotransparente"
-                    android:fontFamily="@font/lato"
-                    android:text="@string/nome_evento"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.005"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.550" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@color/brancotransparente"-->
+<!--                    android:fontFamily="@font/lato"-->
+<!--                    android:text="@string/nome_evento"-->
+<!--                    android:textColor="@color/colorAccent"-->
+<!--                    android:textSize="18sp"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintHorizontal_bias="0.005"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintVertical_bias="0.550" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/brancotransparente"
-                    android:fontFamily="@font/lato"
-                    android:text="@string/local"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.005"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.750" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@color/brancotransparente"-->
+<!--                    android:fontFamily="@font/lato"-->
+<!--                    android:text="@string/local"-->
+<!--                    android:textColor="@color/colorAccent"-->
+<!--                    android:textSize="18sp"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintHorizontal_bias="0.005"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintVertical_bias="0.750" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/brancotransparente"
-                    android:fontFamily="@font/lato"
-                    android:text="@string/data"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.005"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.950" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@color/brancotransparente"-->
+<!--                    android:fontFamily="@font/lato"-->
+<!--                    android:text="@string/data"-->
+<!--                    android:textColor="@color/colorAccent"-->
+<!--                    android:textSize="18sp"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintHorizontal_bias="0.005"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintVertical_bias="0.950" />-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--        </LinearLayout>-->
 
-        <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_eventos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -107,7 +117,7 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/container2_home"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/container1_home" />
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_eventos" />
 
         <LinearLayout
             android:id="@+id/container2_home"
@@ -135,7 +145,7 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/container2_home"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/container1_home"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_eventos"
             app:layout_constraintVertical_bias="1.0" />
 
         <LinearLayout

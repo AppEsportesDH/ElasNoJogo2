@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.widget.Button;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class DadosEvento implements Parcelable {
     private String nomeEvento;
     private String localEvento;
@@ -14,6 +16,12 @@ public class DadosEvento implements Parcelable {
     private Button cadastrarEventos;
     private int adicionarImagem;
 
+    public DadosEvento(int adicionarImagem, String nomeEvento, String localEvento, String dataEvento) {
+        this.adicionarImagem = adicionarImagem;
+        this.nomeEvento = nomeEvento;
+        this.localEvento = localEvento;
+        this.dataEvento = dataEvento;
+    }
 
     public DadosEvento(String nomeEvento, String localEvento, String categoriaEvento, String horarioEvento,
                        String dataEvento, String checksSegurança, Button cadastrarEventos, int adicionarImagem) {
