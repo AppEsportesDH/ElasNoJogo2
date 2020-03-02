@@ -14,7 +14,12 @@ public class DadosEvento implements Parcelable {
     private Button cadastrarEventos;
     private int adicionarImagem;
 
-
+    public DadosEvento(int adicionarImagem, String nomeEvento, String localEvento, String dataEvento) {
+        this.adicionarImagem = adicionarImagem;
+        this.nomeEvento = nomeEvento;
+        this.localEvento = localEvento;
+        this.dataEvento = dataEvento;
+    }
     public DadosEvento(String nomeEvento, String localEvento, String categoriaEvento, String horarioEvento,
                        String dataEvento, String checksSegurança, Button cadastrarEventos, int adicionarImagem) {
         this.nomeEvento       = nomeEvento;
