@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/backgroundwatercolor"
     tools:context="br.com.elasnojogo.Views.FavoritosFragment">
 
@@ -13,12 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="32dp"
         android:fontFamily="@font/lato_bold"
-        android:text="@string/favoritos"
         android:textColor="@color/colorText"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView_favoritos"
@@ -26,58 +25,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-     <ImageView
-            android:id="@+id/imageView_favoritos"
-            android:layout_width="180dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="32dp"
-            android:background="@color/container"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/favoritos" />
+    <ImageView
+        android:id="@+id/imageView_favoritos"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"
+        android:background="@color/container"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favoritos" />
 
-        <TextView
-            android:id="@+id/text_view_nomeevento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/lato"
-            android:text="@string/nome_evento"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/text_view_local"
-            app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
-            app:layout_constraintTop_toBottomOf="@+id/favoritos" />
+    <TextView
+        android:id="@+id/text_view_nomeevento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/nome_evento"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
+        app:layout_constraintTop_toBottomOf="@+id/favoritos" />
 
-        <TextView
-            android:id="@+id/text_view_local"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/lato"
-            android:text="@string/local"
-            android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
-            app:layout_constraintTop_toBottomOf="@+id/text_view_nomeevento"/>
+    <TextView
+        android:id="@+id/text_view_local"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/local"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_nomeevento" />
 
-        <TextView
-            android:id="@+id/text_view_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/lato"
+    <TextView
+        android:id="@+id/text_view_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/lato"
 
-            android:text="@string/data"
-            android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
-            app:layout_constraintTop_toBottomOf="@+id/text_view_local" />
+        android:text="@string/data"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_local" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

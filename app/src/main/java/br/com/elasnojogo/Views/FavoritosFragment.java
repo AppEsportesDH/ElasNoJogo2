@@ -48,7 +48,7 @@ public class FavoritosFragment extends Fragment implements FavoritosView {
 
         recyclerViewFavorito.setAdapter(adapter);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerViewFavorito.setLayoutManager(layoutManager);
 
         return view;
