@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/lato_bold"
         android:text="@string/favoritos"
-        android:textColor="@color/colorText"
+        android:textColor="@color/textoPesquisa"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/recycler_view_favoritos"
         app:layout_constraintEnd_toEndOf="parent"
