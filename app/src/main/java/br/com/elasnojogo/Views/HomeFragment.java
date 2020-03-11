@@ -61,11 +61,9 @@ public class HomeFragment extends Fragment implements EventoListener {
     private List<DadosEvento> getListaEventos() {
         List<DadosEvento> eventos = new ArrayList<>();
 
-        eventos.add(new DadosEvento(R.drawable.contraataque_post_mulheres_esporte_01_ls,"Empoderamento feminino no futebol", "SP", "20/10/2021"));
-        eventos.add(new DadosEvento(R.drawable.contraataque_post_mulheres_esporte_01_ls,"Empoderamento feminino no basquete", "MG", "21/01/2022"));
-        eventos.add(new DadosEvento(R.drawable.contraataque_post_mulheres_esporte_01_ls,"Empoderamento feminino no volei", "RJ", "22/02/2023"));
-        eventos.add(new DadosEvento(R.drawable.contraataque_post_mulheres_esporte_01_ls,"Empoderamento feminino no nado", "BH", "23/03/2024"));
-        eventos.add(new DadosEvento(R.drawable.contraataque_post_mulheres_esporte_01_ls,"Empoderamento feminino no automobilismo", "SC", "24/04/2025"));
+        eventos.add(new DadosEvento(R.drawable.futebol,"Fut das Migas", "Digital House - São Paulo", "20/10/2021"));
+        eventos.add(new DadosEvento(R.drawable.volei,"Liga de Volei Feminino", "Avenida Paulista, 123", "21/01/2022"));
+        eventos.add(new DadosEvento(R.drawable.corrida,"Corrida na ZN", "Avenida do Estado", "22/02/2023"));
 
         return eventos;
     }

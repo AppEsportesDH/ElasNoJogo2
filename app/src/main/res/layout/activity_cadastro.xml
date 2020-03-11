@@ -25,7 +25,7 @@
         android:layout_marginTop="16dp"
         android:text="CADASTRE-SE"
         android:textColor="#071D4F"
-        android:textSize="36sp"
+        android:textSize="30sp"
         android:typeface="sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

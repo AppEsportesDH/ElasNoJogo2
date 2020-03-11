@@ -16,25 +16,26 @@
         android:background="@drawable/backgroundwatercolor"
         tools:context="br.com.elasnojogo.Views.HomeFragment">
 
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/lato_bold"
             android:text="@string/meus_eventos"
             android:textColor="@color/textoPesquisa"
-            android:textSize="20sp"
+            android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/recycler_view_eventos"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_eventos"
