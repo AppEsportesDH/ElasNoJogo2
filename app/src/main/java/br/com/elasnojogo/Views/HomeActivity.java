@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, R.string.open_drawer, R.string.close_drawer);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -54,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.toolbar, R.id.nav_favoritos, R.id.nav_pesquisar, R.id.nav_sair).setDrawerLayout(drawer).build();
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_favoritos, R.id.nav_pesquisar, R.id.nav_sair).setDrawerLayout(drawer).build();
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="br.com.elasnojogo.Views.HomeActivity" />
+            android:name="br.com.elasnojogo.Views.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="br.com.elasnojogo.Views.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
