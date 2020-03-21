@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundwatercolor"
+    tools:context="br.com.elasnojogo.Views.FavoritosFragment">
+
+    <TextView
+        android:id="@+id/favoritos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="@string/favoritos"
+        android:textColor="@color/textoPesquisa"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_view_favoritos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_favoritos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favoritos" />
+
+    <!--    <LinearLayout-->
+<!--        android:id="@+id/container1_favoritos"-->
+<!--        android:layout_width="180dp"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginLeft="32dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:background="@color/container"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/favoritos" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/nome_evento"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        android:fontFamily="@font/lato"-->
+<!--        android:text="@string/nome_evento"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/local"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/container1_favoritos"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/favoritos" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/local"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:fontFamily="@font/lato"-->
+<!--        android:text="@string/local"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/container1_favoritos"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/nome_evento" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/data"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:fontFamily="@font/lato"-->
+
+<!--        android:text="@string/data"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/container1_favoritos"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/local" />-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/container2_favoritos"-->
+<!--        android:layout_width="180dp"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginLeft="32dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:background="@color/container"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/container1_favoritos" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/local2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:fontFamily="@font/lato"-->
+<!--        android:text="@string/local"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/container2_favoritos"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/nome_evento2" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/nome_evento2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="64dp"-->
+<!--        android:fontFamily="@font/lato"-->
+<!--        android:text="@string/nome_evento"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/container2_favoritos"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/data" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/data2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:fontFamily="@font/lato"-->
+<!--        android:text="@string/data"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/container2_favoritos"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/local2" />-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/container3_favoritos"-->
+<!--        android:layout_width="180dp"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginLeft="32dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:background="@color/container"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/container2_favoritos"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/nome_evento3"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="64dp"-->
+<!--        android:fontFamily="@font/lato"-->
+<!--        android:text="@string/nome_evento"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/container3_favoritos"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/data2" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/local3"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:fontFamily="@font/lato"-->
+<!--        android:text="@string/local"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/container3_favoritos"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/nome_evento3" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/data3"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:fontFamily="@font/lato"-->
+<!--        android:text="@string/data"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/container3_favoritos"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/local3" />-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/container4_favoritos"-->
+<!--        android:layout_width="180dp"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginLeft="32dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:background="@color/container"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/container3_favoritos" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/nome_evento4"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="64dp"-->
+<!--        android:fontFamily="@font/lato"-->
+<!--        android:text="@string/nome_evento"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/container4_favoritos"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/data3" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/local4"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:fontFamily="@font/lato"-->
+<!--        android:text="@string/local"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/container4_favoritos"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/nome_evento4" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/data4"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:fontFamily="@font/lato"-->
+<!--        android:text="@string/data"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/container4_favoritos"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/local4" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
