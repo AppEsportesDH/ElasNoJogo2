@@ -15,7 +15,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
                     android:fontFamily="@font/lato_bold"
@@ -23,6 +22,7 @@
                     android:textColor="@color/textoPesquisa"
                     android:textSize="30sp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.475"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
@@ -37,13 +37,16 @@
                     android:layout_marginRight="16dp"
                     android:background="@color/container"
                     android:fontFamily="@font/lato"
+                    android:paddingStart="@dimen/fab_margin"
                     android:text="@string/nome_do_evento"
                     android:textColor="@color/branco"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toTopOf="@+id/editText_data"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/criarevento" />
+                    app:layout_constraintTop_toBottomOf="@+id/criarevento"
+                    android:paddingLeft="@dimen/fab_margin" />
 
                 <EditText
                     android:id="@+id/editText_data"
@@ -54,11 +57,13 @@
                     android:background="@color/container"
                     android:fontFamily="@font/lato"
                     android:text="@string/data_evento"
+                    android:paddingStart="@dimen/fab_margin"
                     android:textColor="@color/branco"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toTopOf="@+id/editText_local"
                     app:layout_constraintStart_toStartOf="@+id/edit_text_nomeevento"
-                    app:layout_constraintTop_toBottomOf="@+id/edit_text_nomeevento" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_nomeevento"
+                    android:paddingLeft="@dimen/fab_margin" />
 
                 <EditText
                     android:id="@+id/editText_horário"
@@ -69,11 +74,13 @@
                     android:background="@color/container"
                     android:fontFamily="@font/lato"
                     android:text="@string/horario_evento"
+                    android:paddingStart="@dimen/fab_margin"
                     android:textColor="@color/branco"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toTopOf="@+id/editText_local"
                     app:layout_constraintEnd_toEndOf="@+id/edit_text_nomeevento"
-                    app:layout_constraintTop_toBottomOf="@+id/edit_text_nomeevento" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_nomeevento"
+                    android:paddingLeft="@dimen/fab_margin" />
 
                 <EditText
                     android:id="@+id/editText_local"
@@ -87,11 +94,13 @@
                     android:background="@color/container"
                     android:fontFamily="@font/lato"
                     android:text="@string/local_evento"
+                    android:paddingStart="@dimen/fab_margin"
                     android:textColor="@color/branco"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editText_data" />
+                    app:layout_constraintTop_toBottomOf="@+id/editText_data"
+                    android:paddingLeft="@dimen/fab_margin" />
 
                 <EditText
                     android:id="@+id/editText_categoria"
@@ -105,11 +114,13 @@
                     android:background="@color/container"
                     android:fontFamily="@font/lato"
                     android:text="@string/categoria_evento"
+                    android:paddingStart="@dimen/fab_margin"
                     android:textColor="@color/branco"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editText_local" />
+                    app:layout_constraintTop_toBottomOf="@+id/editText_local"
+                    android:paddingLeft="@dimen/fab_margin" />
 
                 <Button
                     android:id="@+id/inserir_imagem_btn"
@@ -201,25 +212,26 @@
 
                 <Button
                     android:id="@+id/administradoras_btn"
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="294dp"
+                    android:layout_height="35dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="28dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
                     android:background="@color/container"
                     android:fontFamily="@font/lato_bold"
                     android:text="@string/add_adm"
                     android:textColor="@color/branco"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.494"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/checkBox_les" />
 
                 <Button
                     android:id="@+id/cadastrar_evento_bnt"
-                    android:layout_width="230dp"
+                    android:layout_width="210dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
@@ -227,7 +239,7 @@
                     android:fontFamily="@font/lato_bold"
                     android:text="@string/cadastrar_evento"
                     android:textColor="@color/branco"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/administradoras_btn"
                     app:layout_constraintStart_toStartOf="@+id/administradoras_btn"
