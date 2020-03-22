@@ -29,12 +29,14 @@
         android:id="@+id/imageView_favoritos"
         android:layout_width="180dp"
         android:layout_height="120dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="32dp"
         android:background="@color/container"
         android:orientation="horizontal"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/favoritos" />
@@ -45,10 +47,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="70dp"
         android:fontFamily="@font/lato"
         android:text="@string/nome_evento"
-        android:textSize="18sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
         app:layout_constraintTop_toBottomOf="@+id/favoritos" />
 
@@ -58,10 +60,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/lato"
         android:text="@string/local"
-        android:textSize="18sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
         app:layout_constraintTop_toBottomOf="@+id/text_view_nomeevento" />
 
@@ -71,11 +73,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/lato"
+        android:layout_marginTop="4dp"
 
+        android:fontFamily="@font/lato"
         android:text="@string/data"
-        android:textSize="18sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
         app:layout_constraintTop_toBottomOf="@+id/text_view_local" />
 
