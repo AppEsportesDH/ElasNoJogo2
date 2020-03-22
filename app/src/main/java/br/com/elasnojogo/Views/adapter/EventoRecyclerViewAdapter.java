@@ -1,16 +1,13 @@
-package br.com.elasnojogo.adapter;
+package br.com.elasnojogo.Views.adapter;
 
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.EventListener;
 import java.util.List;
 
 import br.com.elasnojogo.Interface.EventoListener;
@@ -69,7 +66,7 @@ public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecycl
         }
 
         public void onBind(DadosEvento dadosEvento) {
-            image.setImageResource(R.drawable.futebol);
+            image.setImageResource(dadosEvento.getAdicionarImagem());
             nomeEvento.setText(dadosEvento.getNomeEvento());
             localEvento.setText(dadosEvento.getLocalEvento());
             dataEvento.setText(dadosEvento.getDataEvento());

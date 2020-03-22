@@ -63,6 +63,7 @@
     <string name="sair">Sair</string>
     <string name="favoritar">FAVORITAR</string>
     <string name="elas_no_jogo">Elas no jogo</string>
+    <string name="imagem_categoria">Imagem Categoria</string>
 
     <string-array name="lista_identificacao">
         <item>mulher cis</item>

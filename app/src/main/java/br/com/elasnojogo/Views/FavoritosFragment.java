@@ -1,6 +1,5 @@
 package br.com.elasnojogo.Views;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,7 +16,7 @@ import java.util.List;
 
 import br.com.elasnojogo.Interface.FavoritosView;
 import br.com.elasnojogo.Model.DadosEvento;
-import br.com.elasnojogo.adapter.FavoritoRecyclerViewAdapter;
+import br.com.elasnojogo.Views.adapter.FavoritoRecyclerViewAdapter;
 import br.com.elasnojogo2.R;
 
 
