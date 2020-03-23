@@ -12,6 +12,7 @@
     <color name="vinho">#B45057</color>
     <color name="btn">#9C444B</color>
     <color name="container">#9A9C444B</color>
+    <color name="containerClaro">#C8F6C9D4</color>
     <color name="textoPesquisa">#071D4F</color>
 
 </resources>
