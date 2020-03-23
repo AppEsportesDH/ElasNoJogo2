@@ -8,13 +8,11 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/backgroundwatercolor"
         tools:context="br.com.elasnojogo.Views.HomeFragment">
-
 
         <TextView
             android:id="@+id/textViewSaudacao"
@@ -47,169 +45,25 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view_Sports"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-        <LinearLayout
 
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_Sports"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+
             android:layout_marginTop="8dp"
-            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/criarevento_btn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_view_eventos">
-
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recycler_view_eventos">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginRight="4dp"
-                    android:fontFamily="@font/lato_bold"
-                    android:text="@string/categoria"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/textoPesquisa"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toTopOf="@+id/container2_home"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recycler_view_eventos" />
-
-                <LinearLayout
-                    android:id="@+id/container2_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="110dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="4dp"
-                    android:background="@color/container"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginRight="4dp"
-                    android:fontFamily="@font/lato_bold"
-                    android:text="@string/categoria"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/textoPesquisa"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toTopOf="@+id/container2_home"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recycler_view_eventos"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <LinearLayout
-                    android:id="@+id/container3_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="110dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="4dp"
-                    android:background="@color/container"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="8dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/linearLayout"
-                tools:layout_editor_absoluteY="346dp">
-
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginRight="8dp"
-                    android:fontFamily="@font/lato_bold"
-                    android:text="@string/categoria"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/textoPesquisa"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/container2_home" />
-
-                <LinearLayout
-                    android:id="@+id/container4_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="110dp"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="8dp"
-                    android:background="@color/container"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView4"
-                    app:layout_constraintVertical_bias="0.0" />
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginRight="8dp"
-                    android:fontFamily="@font/lato_bold"
-                    android:text="@string/categoria"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/textoPesquisa"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/container3_home" />
-
-                <LinearLayout
-                    android:id="@+id/container5_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="110dp"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="8dp"
-                    android:background="@color/container"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView5"
-                    app:layout_constraintVertical_bias="0.0" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_eventos" />
 
         <Button
             android:id="@+id/criarevento_btn"
@@ -217,6 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:background="@color/branco"
             android:drawableRight="@drawable/ic_mais_btn"
             android:drawablePadding="8dp"
@@ -225,12 +80,11 @@
             android:text="@string/criar_evento"
             android:textColor="@color/btn"
             android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_Sports" />
 
         <ImageView
             android:id="@+id/logo"
@@ -252,7 +106,8 @@
             android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_exit" />
+            app:srcCompat="@drawable/ic_exit"
+            tools:ignore="VectorDrawableCompat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

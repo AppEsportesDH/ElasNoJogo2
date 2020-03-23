@@ -1,6 +1,5 @@
-package br.com.elasnojogo.adapter;
+package br.com.elasnojogo.Views.adapter;
 
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.EventListener;
 import java.util.List;
 
 import br.com.elasnojogo.Interface.EventoListener;
 import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo2.R;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecyclerViewAdapter.ViewHolder> {
 

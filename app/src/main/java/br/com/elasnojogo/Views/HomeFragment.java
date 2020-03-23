@@ -1,10 +1,11 @@
 package br.com.elasnojogo.Views;
 
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,7 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -23,13 +23,21 @@ import java.util.List;
 
 import br.com.elasnojogo.Interface.EventoListener;
 import br.com.elasnojogo.Model.DadosEvento;
-import br.com.elasnojogo.adapter.EventoRecyclerViewAdapter;
+import br.com.elasnojogo.Model.Sport;
+import br.com.elasnojogo.ViewModel.SportsViewModel;
+import br.com.elasnojogo.Views.adapter.EventoRecyclerViewAdapter;
+import br.com.elasnojogo.Views.adapter.SportRecyclerViewAdapter;
 import br.com.elasnojogo2.R;
 
 public class HomeFragment extends Fragment implements EventoListener {
 
     private RecyclerView recyclerViewEventos;
+    private RecyclerView recyclerViewSports;
     private EventoRecyclerViewAdapter adapter;
+    private SportsViewModel sportsViewModel;
+    private List<Sport> results = new ArrayList<>();
+    private SportRecyclerViewAdapter sportRecyclerViewAdapter;
+
     private Button buttonCriarEvento;
     private TextView saudacao;
 
@@ -52,6 +60,13 @@ public class HomeFragment extends Fragment implements EventoListener {
         recyclerViewEventos.setLayoutManager(layoutManager);
 
         deixaNomeBold();
+
+        sportsViewModel.getListSports();
+        sportsViewModel.listLiveData.observe(getViewLifecycleOwner(), results1 -> sportRecyclerViewAdapter.setUpdate(results1));
+
+        recyclerViewSports.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        recyclerViewSports.setAdapter(sportRecyclerViewAdapter);
+
 
         buttonCriarEvento.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,5 +114,9 @@ public class HomeFragment extends Fragment implements EventoListener {
         buttonCriarEvento = view.findViewById(R.id.criarevento_btn);
         recyclerViewEventos = view.findViewById(R.id.recycler_view_eventos);
         saudacao = view.findViewById(R.id.textViewSaudacao);
+
+        recyclerViewSports = view.findViewById(R.id.recycler_view_Sports);
+        sportsViewModel = ViewModelProviders.of(this).get(SportsViewModel.class);
+        sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results);
     }
 }
