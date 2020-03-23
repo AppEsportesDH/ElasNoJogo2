@@ -24,7 +24,7 @@
     <string name="salvar">SALVAR</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="favoritos">FAVORITOS</string>
-    <string name="meus_eventos">MEUS EVENTOS</string>
+    <string name="eventos">EVENTOS</string>
     <string name="criarevento">CRIAR EVENTO</string>
     <string name="nome_do_evento">NOME DO EVENTO</string>
     <string name="data_evento">DATA</string>
@@ -33,7 +33,7 @@
     <string name="categoria_evento">CATEGORIA</string>
     <string name="inserir_imagem">INSERIR UMA IMAGEM</string>
     <string name="segurança_evento">Esse evento é seguro para:</string>
-    <string name="check_trans">Mulheres Trans</string>
+    <string name="check_trans">Mulheres trans</string>
     <string name="check_bi">Mulheres bissexuais</string>
     <string name="check_les">Mulheres lésbicas</string>
     <string name="check_naobi">Pessoas não-binárias</string>
@@ -63,6 +63,7 @@
     <string name="sair">Sair</string>
     <string name="favoritar">FAVORITAR</string>
     <string name="elas_no_jogo">Elas no jogo</string>
+    <string name="ola_nome">Olá, Nome</string>
 
     <string-array name="lista_identificacao">
         <item>mulher cis</item>
