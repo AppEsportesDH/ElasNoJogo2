@@ -66,7 +66,7 @@ public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecycl
         }
 
         public void onBind(DadosEvento dadosEvento) {
-            image.setImageResource(R.drawable.futebol);
+            image.setImageResource(dadosEvento.getAdicionarImagem());
             nomeEvento.setText(dadosEvento.getNomeEvento());
             localEvento.setText(dadosEvento.getLocalEvento());
             dataEvento.setText(dadosEvento.getDataEvento());
