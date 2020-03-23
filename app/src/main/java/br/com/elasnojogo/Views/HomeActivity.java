@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawer;
- //   private TextView sms;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +52,7 @@ public class HomeActivity extends AppCompatActivity {
                       startActivity(i);
             }
         });
+
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_favoritos, R.id.nav_pesquisar, R.id.nav_sair).setDrawerLayout(drawer).build();
 

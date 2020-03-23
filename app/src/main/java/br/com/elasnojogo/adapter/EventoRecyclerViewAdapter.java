@@ -54,7 +54,7 @@ public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecycl
     public int getItemCount() { return eventos.size(); }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private CircleImageView image;
+        private ImageView image;
         private TextView nomeEvento;
         private TextView localEvento;
         private TextView dataEvento;

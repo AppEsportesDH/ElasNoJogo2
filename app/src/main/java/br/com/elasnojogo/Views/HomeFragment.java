@@ -1,5 +1,6 @@
 package br.com.elasnojogo.Views;
 
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -7,10 +8,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +31,7 @@ public class HomeFragment extends Fragment implements EventoListener {
     private RecyclerView recyclerViewEventos;
     private EventoRecyclerViewAdapter adapter;
     private Button buttonCriarEvento;
+    private TextView saudacao;
 
     public static final String EVENTO_CHAVE = "evento";
 
@@ -44,6 +51,8 @@ public class HomeFragment extends Fragment implements EventoListener {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerViewEventos.setLayoutManager(layoutManager);
 
+        deixaNomeBold();
+
         buttonCriarEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +61,14 @@ public class HomeFragment extends Fragment implements EventoListener {
         });
 
         return view;
+    }
+
+    private void deixaNomeBold() {
+        String normalText = "Olá, ";
+        String boldText = "Nome";
+        SpannableString str = new SpannableString(normalText + boldText);
+        str.setSpan(new StyleSpan(Typeface.BOLD), 5, str.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        saudacao.setText(str);
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -81,5 +98,6 @@ public class HomeFragment extends Fragment implements EventoListener {
     private void initViews(View view) {
         buttonCriarEvento = view.findViewById(R.id.criarevento_btn);
         recyclerViewEventos = view.findViewById(R.id.recycler_view_eventos);
+        saudacao = view.findViewById(R.id.textViewSaudacao);
     }
 }
