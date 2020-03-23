@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -21,10 +22,6 @@ import br.com.elasnojogo.adapter.FavoritoRecyclerViewAdapter;
 import br.com.elasnojogo2.R;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
-
 public class FavoritosFragment extends Fragment implements FavoritosView {
 
     private LinearLayout favorito;
@@ -32,6 +29,8 @@ public class FavoritosFragment extends Fragment implements FavoritosView {
     public static final String EVENTO_CHAVE = "evento";
     private RecyclerView recyclerViewFavorito;
     private FavoritoRecyclerViewAdapter adapter;
+
+
     public FavoritosFragment() {
         // Required empty public constructor
     }
@@ -43,9 +42,7 @@ public class FavoritosFragment extends Fragment implements FavoritosView {
         View view = inflater.inflate(R.layout.fragment_favoritos, container, false);
 
         recyclerViewFavorito = view.findViewById(R.id.recycler_view_favoritos);
-
         adapter = new FavoritoRecyclerViewAdapter(getListaEventos(), this);
-
         recyclerViewFavorito.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
@@ -61,20 +58,24 @@ public class FavoritosFragment extends Fragment implements FavoritosView {
     private List<DadosEvento> getListaEventos() {
         List<DadosEvento> eventos = new ArrayList<>();
 
-        eventos.add(new DadosEvento(R.drawable.futebol,"Fut das Migas", "Digital House - São Paulo", "20/10/2021"));
-        eventos.add(new DadosEvento(R.drawable.volei,"Liga de Volei Feminino", "Avenida Paulista, 123", "21/01/2022"));
-        eventos.add(new DadosEvento(R.drawable.corrida,"Corrida na ZN", "Avenida do Estado", "22/02/2023"));
+        eventos.add(new DadosEvento(R.drawable.futebol,"Fut das Migas", "Local: Digital House, SP", "Data: 20/10/2021"));
+        eventos.add(new DadosEvento(R.drawable.volei,"Liga de Volei Feminino", "Local: Avenida Paulista, 123", "Data: 21/01/2022"));
+        eventos.add(new DadosEvento(R.drawable.corrida,"Corrida na ZN", "Local: Avenida do Estado", "Data: 22/02/2023"));
 
         return eventos;
     }
 
     @Override
     public void visualizarEvento(DadosEvento dadosEvento) {
-        Fragment fragment = new EventoFragment();
+        Fragment fragment = new VisualizarEvento();
         Bundle bundle = new Bundle();
         bundle.putParcelable(EVENTO_CHAVE, dadosEvento);
         fragment.setArguments(bundle);
 
         replaceFragment(fragment);
+    }
+
+    private void initViews(View view) {
+
     }
 }
