@@ -1,4 +1,4 @@
-package br.com.elasnojogo.adapter;
+package br.com.elasnojogo.Views.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;

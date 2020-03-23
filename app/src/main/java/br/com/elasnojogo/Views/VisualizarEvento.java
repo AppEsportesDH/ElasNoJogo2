@@ -56,8 +56,8 @@ public class VisualizarEvento extends Fragment {
             }
 
             textViewNomeEvento.setText(dadosEvento.getNomeEvento());
-            textViewLocalEvento.setText(dadosEvento.getLocalEvento());
-            textViewDataEvento.setText(dadosEvento.getDataEvento());
+            textViewLocalEvento.setText("Local: " + dadosEvento.getLocalEvento());
+            textViewDataEvento.setText("Data: " + dadosEvento.getDataEvento());
         }
 
         imageViewLogo.setOnClickListener(new View.OnClickListener() {
