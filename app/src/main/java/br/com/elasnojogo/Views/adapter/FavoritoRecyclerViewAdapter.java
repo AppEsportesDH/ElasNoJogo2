@@ -65,7 +65,7 @@ public class FavoritoRecyclerViewAdapter extends RecyclerView.Adapter<FavoritoRe
         }
 
         public void onBind(DadosEvento dadosEvento) {
-            image.setImageResource(R.drawable.futebol);
+            image.setImageResource(dadosEvento.getAdicionarImagem());
             nomeEvento.setText(dadosEvento.getNomeEvento());
             localEvento.setText(dadosEvento.getLocalEvento());
             dataEvento.setText(dadosEvento.getDataEvento());
