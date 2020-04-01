@@ -19,7 +19,7 @@ public interface EventosDAO {
     @Update
     void updateEventos(Evento evento);
 
-    @Query("SELECT * FROM Evento ORDER BY id DESC ")
+    @Query("SELECT * FROM evento ORDER BY id DESC ")
     Flowable<List<Evento>> retornaEventos();
 
 }

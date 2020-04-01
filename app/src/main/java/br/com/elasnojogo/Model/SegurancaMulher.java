@@ -9,7 +9,7 @@ public class SegurancaMulher {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    private long id;
+    private int id;
 
     @ColumnInfo(name = "orientacaoSexual")
     private String orientacaoSexual;
@@ -22,5 +22,11 @@ public class SegurancaMulher {
 
     public void setOrientacaoSexual(String orientacaoSexual) { this.orientacaoSexual = orientacaoSexual; }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 }
