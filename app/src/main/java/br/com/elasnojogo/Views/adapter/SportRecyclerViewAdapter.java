@@ -29,14 +29,14 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_sports_recycler_view, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_sports_recycler_view, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Sport result = resultList.get(position);
-        holder.bind(result);
+        holder.onBind(result);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,9 +53,9 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
     }
 
     public void setUpdate(List<Sport> results) {
-        if (this.resultList.isEmpty()){
+        if (this.resultList.isEmpty()) {
             this.resultList = results;
-        }else {
+        } else {
             this.resultList.addAll(results);
         }
         notifyDataSetChanged();
@@ -65,18 +65,21 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
         TextView nome;
         ImageView img;
 
+        private TextView textViewCategoria;
+        private ImageView imagem;
+        private TextView textViewDescription;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nome = itemView.findViewById(R.id.textViewSport);
             img = itemView.findViewById(R.id.imageViewSport);
         }
-        public void bind(Sport result){
+
+        public void onBind(Sport result) {
             nome.setText(result.getStrSport());
             Picasso.get().load(result.getStrSportThumb()).into(img);
         }
-
-        public void onBind(Sport sport) {
-        }
     }
-
 }
+
+

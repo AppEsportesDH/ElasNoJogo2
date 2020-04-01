@@ -79,7 +79,6 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
             }
         });
 
-
         return view;
     }
 
@@ -125,14 +124,13 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
         sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results);
     }
 
-
     @Override
     public void click(Sport sport) {
         Fragment fragment = new DetalheHomeFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(SPORT, sport);
         fragment.setArguments(bundle);
-
         replaceFragment(fragment);
     }
+
 }

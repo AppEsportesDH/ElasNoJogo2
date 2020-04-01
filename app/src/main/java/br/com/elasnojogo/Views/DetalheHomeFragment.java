@@ -23,20 +23,19 @@ import br.com.elasnojogo2.R;
 
 import static br.com.elasnojogo.Views.HomeFragment.SPORT;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class DetalheHomeFragment extends Fragment {
 
     private TextView textViewCategoria;
     private ImageView imagem;
     private TextView textViewDescription;
 
+    public DetalheHomeFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_detalhe_home, container, false);
 
         initViews(view);
@@ -45,12 +44,12 @@ public class DetalheHomeFragment extends Fragment {
 
             Bundle bundle = getArguments();
 
-            Sport sport = bundle.getParcelable(SPORT);
+            Sport result = bundle.getParcelable(SPORT);
 
-            textViewCategoria.setText(sport.getStrSport());
-            textViewDescription.setText(sport.getStrSportDescription());
+            textViewCategoria.setText(result.getStrSport());
+            textViewDescription.setText(result.getStrSportDescription());
 
-            Picasso.get().load("https://www.thesportsdb.com/images/sports/").into(imagem);
+            Picasso.get().load(result.getStrSportThumb()).into(imagem);
         }
 
         return view;
@@ -60,9 +59,6 @@ public class DetalheHomeFragment extends Fragment {
         textViewCategoria = view.findViewById(R.id.text_view_categoria);
         imagem = view.findViewById(R.id.imageView_detalhe);
         textViewDescription = view.findViewById(R.id.text_view_description);
-    }
-
-    public void onBackPressed() {
     }
 }
 
