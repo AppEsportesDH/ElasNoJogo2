@@ -3,10 +3,16 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import br.com.elasnojogo.Model.Evento;
+import androidx.room.TypeConverters;
 
-@Database(entities = {Evento.class}, version = 1, exportSchema = false)
+import br.com.elasnojogo.Model.Evento;
+import br.com.elasnojogo.Model.SegurancaMulher;
+import br.com.elasnojogo.util.Converters;
+
+@Database(entities = {Evento.class, SegurancaMulher.class}, version = 1, exportSchema = false)
+@TypeConverters({Converters.class})
 public abstract class EventosDataBase extends RoomDatabase {
+
     public static volatile EventosDataBase INSTANCE;
     public abstract EventosDAO eventosDAO() ;
 

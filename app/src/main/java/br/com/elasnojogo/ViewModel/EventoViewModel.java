@@ -32,10 +32,6 @@ public class EventoViewModel extends AndroidViewModel {
 
     public EventoViewModel(@NonNull Application application) {
         super(application);
-
-    }
-    public LiveData<Boolean> getLoading() {
-        return this.loading;
     }
     private void carregaDadosBD() {
         disposable.add(

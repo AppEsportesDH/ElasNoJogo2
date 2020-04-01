@@ -7,6 +7,7 @@ import java.util.List;
 import br.com.elasnojogo.Model.Evento;
 import br.com.elasnojogo.data.EventosDataBase;
 import io.reactivex.Flowable;
+import io.reactivex.Observable;
 
 public class EventoRepository {
 

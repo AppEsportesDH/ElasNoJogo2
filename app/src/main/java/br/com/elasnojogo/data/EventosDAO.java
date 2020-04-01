@@ -1,5 +1,4 @@
 package br.com.elasnojogo.data;
-import android.database.Observable;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -22,4 +21,5 @@ public interface EventosDAO {
 
     @Query("SELECT * FROM Evento ORDER BY id DESC ")
     Flowable<List<Evento>> retornaEventos();
+
 }

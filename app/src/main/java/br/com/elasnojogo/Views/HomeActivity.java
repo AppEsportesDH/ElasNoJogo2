@@ -64,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
               if (id == R.id.nav_home) {
                     replaceFragment(new HomeFragment());
                 } else if (id == R.id.nav_favoritos) {
-                    replaceFragment(new FavoritosFragment());
+                    replaceFragment(new MeusEventosFragment());
                 } else if (id == R.id.nav_pesquisar){
                     replaceFragment(new PesquisaFragment());
                 } else if (id == R.id.nav_sair){
