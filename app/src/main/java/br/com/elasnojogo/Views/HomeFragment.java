@@ -70,6 +70,7 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         recyclerViewSports.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerViewSports.setAdapter(sportRecyclerViewAdapter);
+        sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results, this);
 
 
         buttonCriarEvento.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +122,7 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         recyclerViewSports = view.findViewById(R.id.recycler_view_Sports);
         sportsViewModel = ViewModelProviders.of(this).get(SportsViewModel.class);
-        sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results);
+        //sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results);
     }
 
     @Override

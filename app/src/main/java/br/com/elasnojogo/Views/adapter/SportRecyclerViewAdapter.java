@@ -22,9 +22,14 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
     private List<Sport> resultList;
     private OnClick listener;
 
-    public SportRecyclerViewAdapter(List<Sport> resultList) {
-        this.resultList = resultList;
-    }
+  public SportRecyclerViewAdapter(List<Sport> resultList) {
+      this.resultList = resultList;
+ }
+
+  public SportRecyclerViewAdapter(List<Sport> resultList, OnClick listener) {
+  this.resultList = resultList;
+  this.listener = listener;
+  }
 
     @NonNull
     @Override
