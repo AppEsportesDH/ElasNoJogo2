@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
+import java.util.Objects;
+
 import br.com.elasnojogo.Interface.FavoritosView;
 import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo2.R;
@@ -49,7 +51,7 @@ public class FavoritoRecyclerViewAdapter extends RecyclerView.Adapter<FavoritoRe
     @Override
     public int getItemCount() { return eventos.size(); }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView image;
         private TextView nomeEvento;
         private TextView localEvento;
@@ -63,6 +65,7 @@ public class FavoritoRecyclerViewAdapter extends RecyclerView.Adapter<FavoritoRe
             localEvento = itemView.findViewById(R.id.text_view_local);
             dataEvento = itemView.findViewById(R.id.text_view_data);
         }
+
 
         public void onBind(DadosEvento dadosEvento) {
             image.setImageResource(dadosEvento.getAdicionarImagem());
