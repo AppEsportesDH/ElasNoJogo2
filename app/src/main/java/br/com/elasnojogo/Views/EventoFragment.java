@@ -7,46 +7,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.Checkable;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
-import org.w3c.dom.Text;
-import java.util.ArrayList;
-import java.util.List;
+
 import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo.Interface.EventoView;
-import br.com.elasnojogo.Model.Evento;
-import br.com.elasnojogo.ViewModel.EventoViewModel;
-import br.com.elasnojogo.Views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo2.R;
 
 public class EventoFragment extends Fragment implements EventoView {
 
     private ImageView imageViewLogo;
-    private EditText nomeEvento;
-    private EditText textdata;
-    private EditText textHorario;
-    private EditText textLocal;
-    private EditText textCategoria;
-    private Button inserirImagem;
-    private CheckBox mulherBi;
-    private CheckBox  mulherTrans;
-    private CheckBox mulherLes;
-    private CheckBox pessoaNaoBinaria;
-    private Button cadastrarEvento;
-    private TextView criarEventoText;
-    private TextView segurnacaEvento;
-    private List<Evento> listaEvento = new ArrayList<>();
-    private EventoViewModel viewModel;
-    private EventoRecyclerViewAdapter adapter;
 
-
+    public EventoFragment() {
+        // Required empty public constructor
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,8 +31,15 @@ public class EventoFragment extends Fragment implements EventoView {
 
         initViews(view);
 
-        return view;
+        imageViewLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), HomeActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        return view;
     }
 
     @Override
@@ -71,19 +53,5 @@ public class EventoFragment extends Fragment implements EventoView {
 
     private void initViews(View view) {
         imageViewLogo = view.findViewById(R.id.imageView5);
-        nomeEvento = view.findViewById(R.id.edit_text_nomeEvento);
-        textdata = view.findViewById(R.id.editText_data);
-        textHorario = view.findViewById(R.id.editText_horário);
-        textLocal = view.findViewById(R.id.editText_local);
-        textCategoria = view.findViewById(R.id.editText_categoria);
-        mulherLes = view.findViewById(R.id.checkBox_les);
-        mulherBi = view.findViewById(R.id.checkBox_bi);
-        mulherTrans= view.findViewById(R.id.checkBox_trans);
-        pessoaNaoBinaria= view.findViewById(R.id.checkBox_naobi);
-        cadastrarEvento = view.findViewById(R.id.botao_cadastro);
-        criarEventoText = view.findViewById(R.id.criarevento);
-        segurnacaEvento = view.findViewById(R.id.segurança_evento);
-        inserirImagem = view.findViewById(R.id.inserir_imagem_btn);
-        viewModel = ViewModelProviders.of(this).get(EventoViewModel.class);
     }
 }
