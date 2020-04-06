@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="br.com.elasnojogo.Views.MeusEventosFragment">
+    android:background="@drawable/backgroundwatercolor"
+    tools:context="br.com.elasnojogo.Views.FavoritosFragment">
 
     <TextView
         android:id="@+id/favoritos"

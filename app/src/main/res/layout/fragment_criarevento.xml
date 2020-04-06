@@ -27,7 +27,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
                 <EditText
-                    android:id="@+id/edit_text_nomeEvento"
+                    android:id="@+id/edit_text_nomeevento"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -61,8 +61,8 @@
                     android:textColor="@color/branco"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toTopOf="@+id/editText_local"
-                    app:layout_constraintStart_toStartOf="@+id/edit_text_nomeEvento"
-                    app:layout_constraintTop_toBottomOf="@+id/edit_text_nomeEvento"
+                    app:layout_constraintStart_toStartOf="@+id/edit_text_nomeevento"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_nomeevento"
                     android:paddingLeft="@dimen/fab_margin" />
 
                 <EditText
@@ -78,8 +78,8 @@
                     android:textColor="@color/branco"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toTopOf="@+id/editText_local"
-                    app:layout_constraintEnd_toEndOf="@+id/edit_text_nomeEvento"
-                    app:layout_constraintTop_toBottomOf="@+id/edit_text_nomeEvento"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_text_nomeevento"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_nomeevento"
                     android:paddingLeft="@dimen/fab_margin" />
 
                 <EditText
