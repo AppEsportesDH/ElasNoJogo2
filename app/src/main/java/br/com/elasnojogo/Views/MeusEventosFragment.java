@@ -20,7 +20,7 @@ import br.com.elasnojogo.Views.adapter.FavoritoRecyclerViewAdapter;
 import br.com.elasnojogo2.R;
 
 
-public class FavoritosFragment extends Fragment implements FavoritosView {
+public class MeusEventosFragment extends Fragment implements FavoritosView {
 
     private LinearLayout favorito;
     FavoritosView mListener;
@@ -29,7 +29,7 @@ public class FavoritosFragment extends Fragment implements FavoritosView {
     private FavoritoRecyclerViewAdapter adapter;
 
 
-    public FavoritosFragment() {
+    public MeusEventosFragment() {
         // Required empty public constructor
     }
 
@@ -37,7 +37,7 @@ public class FavoritosFragment extends Fragment implements FavoritosView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_favoritos, container, false);
+        View view = inflater.inflate(R.layout.fragment_meus_eventos, container, false);
 
         recyclerViewFavorito = view.findViewById(R.id.recycler_view_favoritos);
         adapter = new FavoritoRecyclerViewAdapter(getListaEventos(), this);
