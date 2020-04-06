@@ -106,5 +106,6 @@ public class DadosEvento implements Parcelable {
     }
 
     public String getText1() {
+        return getText1();
     }
 }

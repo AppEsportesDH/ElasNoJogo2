@@ -3,54 +3,59 @@ package br.com.elasnojogo.Views.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 import br.com.elasnojogo.Interface.FavoritosView;
 import br.com.elasnojogo.Model.DadosEvento;
-import br.com.elasnojogo.Model.Evento;
 import br.com.elasnojogo2.R;
 
 
 public class PesquisaRecyclerViewAdapter extends RecyclerView.Adapter<PesquisaRecyclerViewAdapter.ViewHolder> {
 
     private List<DadosEvento> eventos;
-    private List<DadosEvento> eventosFull;
 
-    public PesquisaRecyclerViewAdapter(List<DadosEvento> listaEventos) {
+    private FavoritosView listener;
+
+    public PesquisaRecyclerViewAdapter(List<DadosEvento> listaEventos, FavoritosView listener) {
         this.eventos = listaEventos;
-        eventosFull = new ArrayList<>(eventos);
+        this.listener = listener;
     }
 
     @NonNull
     @Override
-    public PesquisaRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate
+                (R.layout.fragment_item_favoritos_recycler_view, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PesquisaRecyclerViewAdapter.ViewHolder holder, int position) {
-        holder.Bind(DadosEvento);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        final DadosEvento dadosEvento = eventos.get(position);
 
+        holder.onBind(dadosEvento);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.visualizarEvento(dadosEvento);
+            }
+        });
     }
 
     @Override
-    public int getItemCount() {
-        return 0;
-    }
+    public int getItemCount() { return eventos.size(); }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
-        public ImageView image;
-        public TextView nomeEvento;
-        public TextView localEvento;
-        public TextView dataEvento;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        private ImageView image;
+        private TextView nomeEvento;
+        private TextView localEvento;
+        private TextView dataEvento;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,7 +64,14 @@ public class PesquisaRecyclerViewAdapter extends RecyclerView.Adapter<PesquisaRe
             nomeEvento = itemView.findViewById(R.id.text_view_nomeevento);
             localEvento = itemView.findViewById(R.id.text_view_local);
             dataEvento = itemView.findViewById(R.id.text_view_data);
+        }
 
+
+        public void onBind(DadosEvento dadosEvento) {
+            image.setImageResource(dadosEvento.getAdicionarImagem());
+            nomeEvento.setText(dadosEvento.getNomeEvento());
+            localEvento.setText(dadosEvento.getLocalEvento());
+            dataEvento.setText(dadosEvento.getDataEvento());
         }
     }
 }
