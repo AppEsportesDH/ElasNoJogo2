@@ -1,4 +1,4 @@
-package br.com.elasnojogo.Model;
+﻿package br.com.elasnojogo.Model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -101,5 +101,9 @@ public class DadosEvento implements Parcelable {
         dest.writeString(checksSegurança);
         dest.writeInt(adicionarImagem);
 
+    }
+
+    public String getText1() {
+        return getText1();
     }
 }
