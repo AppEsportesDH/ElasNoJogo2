@@ -15,13 +15,13 @@ import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo2.R;
 
 
-public class FavoritoRecyclerViewAdapter extends RecyclerView.Adapter<FavoritoRecyclerViewAdapter.ViewHolder> {
+public class PesquisaRecyclerViewAdapter extends RecyclerView.Adapter<PesquisaRecyclerViewAdapter.ViewHolder> {
 
     private List<DadosEvento> eventos;
 
     private FavoritosView listener;
 
-    public FavoritoRecyclerViewAdapter(List<DadosEvento> listaEventos, FavoritosView listener) {
+    public PesquisaRecyclerViewAdapter(List<DadosEvento> listaEventos, FavoritosView listener) {
         this.eventos = listaEventos;
         this.listener = listener;
     }
