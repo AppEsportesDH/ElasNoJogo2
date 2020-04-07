@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.widget.Button;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class DadosEvento implements Parcelable {
     private String nomeEvento;
     private String localEvento;

@@ -56,11 +56,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/campo_email"
-            app:hintTextColor="@color/branco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lato"
-            android:inputType="textEmailAddress"/>
+            android:fontFamily="@font/lato" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -81,11 +79,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/campo_senha"
-            app:hintTextColor="@color/branco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lato"
-            android:inputType="textPassword"/>
+            android:fontFamily="@font/lato" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

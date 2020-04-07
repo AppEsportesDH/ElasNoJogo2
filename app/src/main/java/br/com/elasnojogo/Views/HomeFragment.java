@@ -4,8 +4,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,7 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.elasnojogo.Interface.EventoListener;
-import br.com.elasnojogo.Interface.OnClick;
 import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo.Model.Sport;
 import br.com.elasnojogo.ViewModel.SportsViewModel;
@@ -32,7 +29,7 @@ import br.com.elasnojogo.Views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.Views.adapter.SportRecyclerViewAdapter;
 import br.com.elasnojogo2.R;
 
-public class HomeFragment extends Fragment implements EventoListener, OnClick {
+public class HomeFragment extends Fragment implements EventoListener {
 
     private RecyclerView recyclerViewEventos;
     private RecyclerView recyclerViewSports;
@@ -45,7 +42,6 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
     private TextView saudacao;
 
     public static final String EVENTO_CHAVE = "evento";
-    public static final String SPORT = "sport";
 
     public HomeFragment() {
         // Required empty public constructor
@@ -70,7 +66,6 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         recyclerViewSports.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerViewSports.setAdapter(sportRecyclerViewAdapter);
-        sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results, this);
 
 
         buttonCriarEvento.setOnClickListener(new View.OnClickListener() {
@@ -98,9 +93,9 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
     private List<DadosEvento> getListaEventos() {
         List<DadosEvento> eventos = new ArrayList<>();
 
-        eventos.add(new DadosEvento(R.drawable.futebol, "Fut das Migas", "Digital House - São Paulo", "20/10/2021"));
-        eventos.add(new DadosEvento(R.drawable.volei, "Liga de Volei Feminino", "Avenida Paulista, 123", "21/01/2022"));
-        eventos.add(new DadosEvento(R.drawable.corrida, "Corrida na ZN", "Avenida do Estado", "22/02/2023"));
+        eventos.add(new DadosEvento(R.drawable.futebol,"Fut das Migas", "Digital House - São Paulo", "20/10/2021"));
+        eventos.add(new DadosEvento(R.drawable.volei,"Liga de Volei Feminino", "Avenida Paulista, 123", "21/01/2022"));
+        eventos.add(new DadosEvento(R.drawable.corrida,"Corrida na ZN", "Avenida do Estado", "22/02/2023"));
 
         return eventos;
     }
@@ -122,16 +117,6 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         recyclerViewSports = view.findViewById(R.id.recycler_view_Sports);
         sportsViewModel = ViewModelProviders.of(this).get(SportsViewModel.class);
-        //sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results);
+        sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results);
     }
-
-    @Override
-    public void click(Sport sport) {
-        Fragment fragment = new DetalheHomeFragment();
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(SPORT, sport);
-        fragment.setArguments(bundle);
-        replaceFragment(fragment);
-    }
-
 }
