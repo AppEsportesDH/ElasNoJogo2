@@ -1,9 +1,12 @@
 
 package br.com.elasnojogo.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class Sport {
+public class Sport implements Parcelable {
 
     @SerializedName("idSport")
     private String mIdSport;
@@ -17,6 +20,27 @@ public class Sport {
     private String mStrSportThumb;
     @SerializedName("strSportThumbGreen")
     private String mStrSportThumbGreen;
+
+    protected Sport(Parcel in) {
+        mIdSport = in.readString();
+        mStrFormat = in.readString();
+        mStrSport = in.readString();
+        mStrSportDescription = in.readString();
+        mStrSportThumb = in.readString();
+        mStrSportThumbGreen = in.readString();
+    }
+
+    public static final Creator<Sport> CREATOR = new Creator<Sport>() {
+        @Override
+        public Sport createFromParcel(Parcel in) {
+            return new Sport(in);
+        }
+
+        @Override
+        public Sport[] newArray(int size) {
+            return new Sport[size];
+        }
+    };
 
     public String getIdSport() {
         return mIdSport;
@@ -66,4 +90,18 @@ public class Sport {
         mStrSportThumbGreen = strSportThumbGreen;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(mIdSport);
+        parcel.writeString(mStrFormat);
+        parcel.writeString(mStrSport);
+        parcel.writeString(mStrSportDescription);
+        parcel.writeString(mStrSportThumb);
+        parcel.writeString(mStrSportThumbGreen);
+    }
 }
