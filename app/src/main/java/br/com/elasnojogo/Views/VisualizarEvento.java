@@ -2,10 +2,10 @@ package br.com.elasnojogo.Views;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +15,7 @@ import android.widget.TextView;
 import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo2.R;
 
-import static br.com.elasnojogo.Views.HomeFragment.EVENTO_CHAVE;
+import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
 
 /**
  * A simple {@link Fragment} subclass.

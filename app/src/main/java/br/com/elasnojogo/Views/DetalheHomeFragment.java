@@ -1,10 +1,7 @@
 package br.com.elasnojogo.Views;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,16 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import br.com.elasnojogo.Model.Sport;
 import br.com.elasnojogo2.R;
 
-import static br.com.elasnojogo.Views.HomeFragment.SPORT;
+import static br.com.elasnojogo.constantes.Constantes.SPORT;
 
 
 public class DetalheHomeFragment extends Fragment {

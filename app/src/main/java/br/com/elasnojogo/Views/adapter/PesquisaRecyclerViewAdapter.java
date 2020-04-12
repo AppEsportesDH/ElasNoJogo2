@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
-import java.util.Objects;
 
 import br.com.elasnojogo.Interface.FavoritosView;
 import br.com.elasnojogo.Model.DadosEvento;

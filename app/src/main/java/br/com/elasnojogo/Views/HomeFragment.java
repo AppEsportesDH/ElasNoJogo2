@@ -4,8 +4,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,6 +30,9 @@ import br.com.elasnojogo.Views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.Views.adapter.SportRecyclerViewAdapter;
 import br.com.elasnojogo2.R;
 
+import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
+import static br.com.elasnojogo.constantes.Constantes.SPORT;
+
 public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
     private RecyclerView recyclerViewEventos;
@@ -43,9 +44,6 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
     private Button buttonCriarEvento;
     private TextView saudacao;
-
-    public static final String EVENTO_CHAVE = "evento";
-    public static final String SPORT = "sport";
 
     public HomeFragment() {
         // Required empty public constructor

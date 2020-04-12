@@ -19,12 +19,13 @@ import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo.Views.adapter.FavoritoRecyclerViewAdapter;
 import br.com.elasnojogo2.R;
 
+import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
+
 
 public class MeusEventosFragment extends Fragment implements FavoritosView {
 
     private LinearLayout favorito;
     FavoritosView mListener;
-    public static final String EVENTO_CHAVE = "evento";
     private RecyclerView recyclerViewFavorito;
     private FavoritoRecyclerViewAdapter adapter;
 

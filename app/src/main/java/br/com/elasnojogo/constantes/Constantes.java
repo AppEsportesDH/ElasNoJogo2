@@ -8,6 +8,7 @@ public class Constantes {
     public static String MULHER_LESBICA = "mulher_lesbica";
     public static String MULHER_BISSEXUAIS = "mulher_bissexual";
     public static String PESSOAS_NAO_BINARIAS = "pessoas_nao_binarias";
-
+    public static final String EVENTO_CHAVE = "evento";
+    public static final String SPORT = "sport";
 
 }

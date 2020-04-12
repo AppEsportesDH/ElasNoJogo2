@@ -10,7 +10,6 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import br.com.elasnojogo2.R;
 
-
 public class LoginActivity extends AppCompatActivity {
     private TextInputEditText email;
     private TextInputEditText senha;
