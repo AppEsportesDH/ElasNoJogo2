@@ -1,4 +1,4 @@
-package br.com.elasnojogo.util;
+package br.com.elasnojogo.Util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

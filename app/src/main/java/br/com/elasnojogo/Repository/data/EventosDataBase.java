@@ -1,4 +1,4 @@
-package br.com.elasnojogo.data;
+package br.com.elasnojogo.Repository.data;
 import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
@@ -7,7 +7,6 @@ import androidx.room.TypeConverters;
 
 import br.com.elasnojogo.Model.Evento;
 import br.com.elasnojogo.Model.SegurancaMulher;
-import br.com.elasnojogo.util.Converters;
 
 @Database(entities = {Evento.class, SegurancaMulher.class}, version = 1, exportSchema = false)
 @TypeConverters({Converters.class})

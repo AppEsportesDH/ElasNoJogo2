@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import br.com.elasnojogo.Interface.EventoListener;
+import br.com.elasnojogo.Views.interfaces.EventoListener;
 import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo2.R;
 

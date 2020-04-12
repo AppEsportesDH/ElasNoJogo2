@@ -14,12 +14,12 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.elasnojogo.Interface.FavoritosView;
+import br.com.elasnojogo.Views.interfaces.FavoritosView;
 import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo.Views.adapter.FavoritoRecyclerViewAdapter;
 import br.com.elasnojogo2.R;
 
-import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
+import static br.com.elasnojogo.Constantes.Constantes.EVENTO_CHAVE;
 
 
 public class MeusEventosFragment extends Fragment implements FavoritosView {

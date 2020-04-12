@@ -15,7 +15,7 @@ import android.widget.TextView;
 import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo2.R;
 
-import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
+import static br.com.elasnojogo.Constantes.Constantes.EVENTO_CHAVE;
 
 /**
  * A simple {@link Fragment} subclass.

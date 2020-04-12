@@ -21,8 +21,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.elasnojogo.Interface.EventoListener;
-import br.com.elasnojogo.Interface.OnClick;
+import br.com.elasnojogo.Views.interfaces.EventoListener;
+import br.com.elasnojogo.Views.interfaces.OnClick;
 import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo.Model.Sport;
 import br.com.elasnojogo.ViewModel.SportsViewModel;
@@ -30,8 +30,8 @@ import br.com.elasnojogo.Views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.Views.adapter.SportRecyclerViewAdapter;
 import br.com.elasnojogo2.R;
 
-import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
-import static br.com.elasnojogo.constantes.Constantes.SPORT;
+import static br.com.elasnojogo.Constantes.Constantes.EVENTO_CHAVE;
+import static br.com.elasnojogo.Constantes.Constantes.SPORT;
 
 public class HomeFragment extends Fragment implements EventoListener, OnClick {
 

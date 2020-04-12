@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import br.com.elasnojogo.Interface.OnClick;
+import br.com.elasnojogo.Views.interfaces.OnClick;
 import br.com.elasnojogo.Model.Sport;
 import br.com.elasnojogo2.R;
 

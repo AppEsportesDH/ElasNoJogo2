@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 import br.com.elasnojogo.Model.Sport;
 import br.com.elasnojogo2.R;
 
-import static br.com.elasnojogo.constantes.Constantes.SPORT;
+import static br.com.elasnojogo.Constantes.Constantes.SPORT;
 
 
 public class DetalheHomeFragment extends Fragment {

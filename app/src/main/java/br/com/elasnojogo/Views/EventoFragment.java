@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProviders;
 import java.util.ArrayList;
 import java.util.List;
 import br.com.elasnojogo.Model.DadosEvento;
-import br.com.elasnojogo.Interface.EventoView;
+import br.com.elasnojogo.Views.interfaces.EventoView;
 import br.com.elasnojogo.Model.Evento;
 import br.com.elasnojogo.ViewModel.EventoViewModel;
 import br.com.elasnojogo.Views.adapter.EventoRecyclerViewAdapter;

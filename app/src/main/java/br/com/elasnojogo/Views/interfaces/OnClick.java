@@ -1,4 +1,4 @@
-package br.com.elasnojogo.Interface;
+package br.com.elasnojogo.Views.interfaces;
 
 import br.com.elasnojogo.Model.Sport;
 

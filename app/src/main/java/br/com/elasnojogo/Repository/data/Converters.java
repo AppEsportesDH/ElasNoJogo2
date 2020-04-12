@@ -1,4 +1,4 @@
-package br.com.elasnojogo.util;
+package br.com.elasnojogo.Repository.data;
 
 import androidx.room.TypeConverter;
 

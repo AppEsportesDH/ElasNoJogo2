@@ -1,4 +1,4 @@
-package br.com.elasnojogo.constantes;
+package br.com.elasnojogo.Constantes;
 
 public class Constantes {
     public static String CATEGORIA_FUTEBOL = "futebol";

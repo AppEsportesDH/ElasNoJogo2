@@ -1,7 +1,7 @@
-package br.com.elasnojogo.Interface;
+package br.com.elasnojogo.Views.interfaces;
 
 import br.com.elasnojogo.Model.DadosEvento;
 
-public interface FavoritosView {
+public interface PesquisaView {
     void visualizarEvento (DadosEvento comunicador);
 }
