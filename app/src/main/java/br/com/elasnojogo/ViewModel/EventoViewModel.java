@@ -49,4 +49,9 @@ public class EventoViewModel extends AndroidViewModel {
     private void insereDadosBd(Evento evento) {
         repository.inserirEventos(evento, getApplication());
     }
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        disposable.clear();
+    }
 }

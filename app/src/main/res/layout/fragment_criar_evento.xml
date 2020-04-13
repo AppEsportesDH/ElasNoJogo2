@@ -1,0 +1,216 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_watercolor"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <ImageView
+            android:id="@+id/imagemLogo"
+            android:layout_width="87dp"
+            android:layout_height="76dp"
+            android:background="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/criareventoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/criar_evento"
+            android:textColor="#071D4F"
+            android:textSize="30sp"
+            android:typeface="sans"
+            app:layout_constraintStart_toEndOf="@+id/imagemLogo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textNomeEvento"
+            android:layout_width="380dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/container"
+            android:fontFamily="@font/lato_thin"
+            android:hint="@string/nome_do_evento"
+            android:textColorHint="@color/branco"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.886"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/criareventoText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nome Evento" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textDataDoEvento"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/container"
+            android:fontFamily="@font/lato_thin"
+            android:hint="@string/data_evento"
+            android:textColorHint="@color/branco"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textNomeEvento">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Data"
+                    android:inputType="date" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textHorarioDoEvento"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="68dp"
+            android:background="@color/container"
+            android:hint="@string/horario_evento"
+            android:textColorHint="@color/branco"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toEndOf="@+id/textDataDoEvento"
+            app:layout_constraintTop_toTopOf="@+id/textNomeEvento">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="hint"
+                    android:inputType="time" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textLocalDoEvento"
+            android:layout_width="380dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="68dp"
+            android:background="@color/container"
+            android:fontFamily="@font/lato_thin"
+            android:hint="@string/local"
+            android:textColorHint="@color/branco"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textDataDoEvento">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="hint" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/checkTrans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="36dp"
+            android:text="@string/check_trans"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inserirImagem" />
+
+        <CheckBox
+            android:id="@+id/checkles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/check_les"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkTrans" />
+
+        <CheckBox
+            android:id="@+id/checklbi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:text="@string/check_bi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.452"
+            app:layout_constraintStart_toEndOf="@+id/checkTrans"
+            app:layout_constraintTop_toBottomOf="@+id/inserirImagem" />
+
+        <CheckBox
+            android:id="@+id/check_naobi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/check_naobi"
+            app:layout_constraintStart_toEndOf="@+id/checkles"
+            app:layout_constraintTop_toBottomOf="@+id/checklbi" />
+
+        <Button
+            android:id="@+id/buttonCadastrarEvento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="148dp"
+            android:layout_marginLeft="148dp"
+            android:layout_marginTop="108dp"
+            android:background="@color/btn"
+            android:text="@string/cadastrar_evento"
+            android:textColor="@color/branco"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/check_naobi" />
+
+        <Button
+            android:id="@+id/inserirImagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/brancotransparente"
+            android:text="@string/inserir_imagem"
+            tools:layout_editor_absoluteX="59dp"
+            tools:layout_editor_absoluteY="347dp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/textoPesquisa"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_categoria" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputCategoria"
+            android:layout_width="380dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:background="@color/container"
+            android:hint="@string/categoria_evento"
+            android:textColorHint="@color/branco"
+            app:layout_constraintBottom_toTopOf="@+id/inserirImagem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textLocalDoEvento"
+            app:layout_constraintVertical_bias="0.478">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="hint" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

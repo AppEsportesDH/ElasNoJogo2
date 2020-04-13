@@ -75,7 +75,7 @@
         android:layout_marginTop="4dp"
 
         android:fontFamily="@font/lato"
-        android:text="@string/data"
+        android:text="@string/data_evento"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
         app:layout_constraintTop_toBottomOf="@+id/text_view_local" />
