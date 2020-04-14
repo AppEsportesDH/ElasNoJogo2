@@ -39,12 +39,7 @@ public class FavoritoRecyclerViewAdapter extends RecyclerView.Adapter<FavoritoRe
 
         holder.onBind(dadosEvento);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.visualizarEvento(dadosEvento);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> listener.visualizarEvento(dadosEvento));
     }
 
     @Override

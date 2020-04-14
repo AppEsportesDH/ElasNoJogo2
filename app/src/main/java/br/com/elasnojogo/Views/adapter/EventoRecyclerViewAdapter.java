@@ -39,12 +39,7 @@ public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecycl
 
         holder.onBind(dadosEvento);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.enviaEvento(dadosEvento);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> listener.enviaEvento(dadosEvento));
     }
 
     @Override

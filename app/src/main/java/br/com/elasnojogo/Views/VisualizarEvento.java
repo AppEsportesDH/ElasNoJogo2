@@ -56,16 +56,13 @@ public class VisualizarEvento extends Fragment {
             }
 
             textViewNomeEvento.setText(dadosEvento.getNomeEvento());
-            textViewLocalEvento.setText("Local: " + dadosEvento.getLocalEvento());
-            textViewDataEvento.setText("Data: " + dadosEvento.getDataEvento());
+            textViewLocalEvento.setText(getString(R.string.local) + dadosEvento.getLocalEvento());
+            textViewDataEvento.setText(getString(R.string.data) + dadosEvento.getDataEvento());
         }
 
-        imageViewLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), HomeActivity.class);
-                startActivity(intent);
-            }
+        imageViewLogo.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getActivity(), HomeActivity.class);
+            startActivity(intent);
         });
 
         return view;

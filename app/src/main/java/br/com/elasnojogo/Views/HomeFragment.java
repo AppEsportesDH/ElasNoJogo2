@@ -71,19 +71,14 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
         sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results, this);
 
 
-        buttonCriarEvento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                replaceFragment(new EventoFragment());
-            }
-        });
+        buttonCriarEvento.setOnClickListener(view1 -> replaceFragment(new EventoFragment()));
 
         return view;
     }
 
     private void deixaNomeBold() {
-        String normalText = "Olá, ";
-        String boldText = "Nome";
+        String normalText = getString(R.string.ola);
+        String boldText = getString(R.string.nome);
         SpannableString str = new SpannableString(normalText + boldText);
         str.setSpan(new StyleSpan(Typeface.BOLD), 5, str.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         saudacao.setText(str);
@@ -120,7 +115,6 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         recyclerViewSports = view.findViewById(R.id.recycler_view_Sports);
         sportsViewModel = ViewModelProviders.of(this).get(SportsViewModel.class);
-        //sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results);
     }
 
     @Override

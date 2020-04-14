@@ -22,10 +22,6 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
     private List<Sport> resultList;
     private OnClick listener;
 
-  public SportRecyclerViewAdapter(List<Sport> resultList) {
-      this.resultList = resultList;
- }
-
   public SportRecyclerViewAdapter(List<Sport> resultList, OnClick listener) {
   this.resultList = resultList;
   this.listener = listener;
@@ -43,12 +39,7 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
         final Sport result = resultList.get(position);
         holder.onBind(result);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.click(result);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> listener.click(result));
 
     }
 
@@ -69,10 +60,6 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView nome;
         ImageView img;
-
-        private TextView textViewCategoria;
-        private ImageView imagem;
-        private TextView textViewDescription;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

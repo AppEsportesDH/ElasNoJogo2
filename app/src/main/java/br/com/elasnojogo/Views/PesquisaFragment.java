@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,16 +22,8 @@ import static br.com.elasnojogo.Constantes.Constantes.EVENTO_CHAVE;
 
 public class PesquisaFragment extends Fragment implements FavoritosView {
 
-    private LinearLayout favorito;
-    FavoritosView mListener;
     private RecyclerView recyclerViewFavorito;
     private FavoritoRecyclerViewAdapter adapter;
-
-
-    public PesquisaFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -71,9 +62,5 @@ public class PesquisaFragment extends Fragment implements FavoritosView {
         fragment.setArguments(bundle);
 
         replaceFragment(fragment);
-    }
-
-    private void initViews(View view) {
-
     }
 }

@@ -1,11 +1,8 @@
 package br.com.elasnojogo.ViewModel;
 
-import android.app.Application;
-
-import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
@@ -15,9 +12,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class SportsViewModel extends AndroidViewModel {
-
-    private SportsRepository repository = new SportsRepository();
+public class SportsViewModel extends ViewModel {
 
     private MutableLiveData<List<Sport>> listMutableLiveData = new MutableLiveData<>();
     public LiveData<List<Sport>> listLiveData = listMutableLiveData;
@@ -27,10 +22,6 @@ public class SportsViewModel extends AndroidViewModel {
 
     private CompositeDisposable disposable = new CompositeDisposable();
     private SportsRepository respository = new SportsRepository();
-
-    public SportsViewModel(@NonNull Application application) {
-        super(application);
-    }
 
     public void getListSports(){
         disposable.add(
