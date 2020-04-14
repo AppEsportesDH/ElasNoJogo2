@@ -42,7 +42,7 @@ public class PesquisaRecyclerViewAdapter extends RecyclerView.Adapter<PesquisaRe
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.enviaEvento(dadosEvento);
+                listener.enviarEvento(dadosEvento);
             }
         });
     }

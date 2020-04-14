@@ -43,13 +43,17 @@ public class HomeFragment extends Fragment implements EventoListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
         initViews(view);
+
         recyclerViewEventos.setAdapter(adapter);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerViewEventos.setLayoutManager(layoutManager);
         deixaNomeBold();
-        sportsViewModel.getListSports();
+        SportsViewModel.getListSports();
         sportsViewModel.listLiveData.observe(getViewLifecycleOwner(), results1 -> sportRecyclerViewAdapter.setUpdate(results1));
+
         recyclerViewSports.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerViewSports.setAdapter(sportRecyclerViewAdapter);
         buttonCriarEvento.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +85,6 @@ public class HomeFragment extends Fragment implements EventoListener {
         sportsViewModel = ViewModelProviders.of(this).get(SportsViewModel.class);
         sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results);
     }
-
 
     @Override
     public void enviarEvento(Evento evento) {

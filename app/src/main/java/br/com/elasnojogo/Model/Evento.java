@@ -1,8 +1,6 @@
 package br.com.elasnojogo.Model;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.widget.ImageView;
-
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

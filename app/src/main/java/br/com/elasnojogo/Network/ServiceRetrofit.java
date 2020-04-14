@@ -1,7 +1,5 @@
 package br.com.elasnojogo.Network;
-
 import java.util.concurrent.TimeUnit;
-
 import br.com.elasnojogo2.BuildConfig;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

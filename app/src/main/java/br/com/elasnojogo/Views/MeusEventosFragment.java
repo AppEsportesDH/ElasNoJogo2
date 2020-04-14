@@ -34,33 +34,30 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_meus_eventos, container, false);
         eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
-        buscaTodosEventos();
+
+        buscarTodosEventos();
+
         recyclerView = view.findViewById(R.id.recycler_view_favoritos);
         adapter = new EventoRecyclerViewAdapter(listaEventos, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return view;
     }
+
     private void replaceFragment(Fragment fragment) {
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
-    }
-    @Override
-    public void enviaEvento(Evento evento) {
-    }
-    private void buscaTodosEventos() {
-        eventosDAO.retornaEventos()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(produtos -> {
-                            adapter.atualizaListaProduto(produtos);
-                        },
-                        throwable -> {
-                            Log.i("TAG", "método getAllEventos" + throwable.getMessage());
-                        });
     }
 
     @Override
     public void enviarEvento(Evento evento) {
-
+        eventosDAO.retornaEventos()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(produtos -> {
+                            adapter.atualizaListaEvento(produtos);
+                        },
+                        throwable -> {
+                            Log.i("TAG", "método getAllEventos" + throwable.getMessage());
+                        });
     }
 }

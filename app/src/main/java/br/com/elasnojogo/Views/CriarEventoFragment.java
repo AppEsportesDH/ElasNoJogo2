@@ -5,17 +5,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
-
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-import com.google.android.material.textfield.TextInputEditText;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import br.com.elasnojogo.Model.Evento;
 import br.com.elasnojogo.ViewModel.EventoViewModel;
 import br.com.elasnojogo.Views.adapter.EventoRecyclerViewAdapter;
@@ -28,11 +24,11 @@ public class CriarEventoFragment extends Fragment {
     private ImageView imageViewLogo;
     private Button inserirImagem;
     private Button cadastrarEvento;
-    public TextInputEditText nomeImputEvento;
-    public TextInputEditText tipoImputEvento;
-    public TextInputEditText localImputEvento;
-    public TextInputEditText dataImputEvento;
-    public TextInputEditText horarioImputEvento;
+    public EditText nomeImputEvento;
+    public EditText tipoImputEvento;
+    public EditText localImputEvento;
+    public EditText dataImputEvento;
+    public EditText horarioImputEvento;
     private EventosDAO eventosDAO;
     private List<Evento> listaEvento = new ArrayList<>();
     private EventoViewModel viewModel;
@@ -42,7 +38,9 @@ public class CriarEventoFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_criar_evento, container, false);
         eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
+
         initViews(view);
+
         cadastrarEvento.setOnClickListener(v -> {
             String nomeEvento = nomeImputEvento.getText().toString();
             String local = localImputEvento.getText().toString();
@@ -51,10 +49,11 @@ public class CriarEventoFragment extends Fragment {
             String categoriaEsportes = tipoImputEvento.getText().toString();
 
             new Thread(() -> {
-                Evento evento = new Evento (nomeEvento, data, horario, local, categoriaEsportes);
+                Evento evento = new Evento(nomeEvento, data, horario, local, categoriaEsportes);
                 if (evento != null) {
                     eventosDAO.inserirEventos(evento);
                 }
+
             }).start();
         });
         return view;
