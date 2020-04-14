@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundwatercolor"
-    tools:context="br.com.elasnojogo.Views.SplashActivity">
+    tools:context="br.com.elasnojogo.views.SplashActivity">
 
 
     <TextView
@@ -20,7 +21,7 @@
         android:layout_marginBottom="32dp"
         android:fontFamily="@font/lato_thin"
         android:text="@string/slogan"
-        android:textColor="#000000"
+        android:textColor="@color/preto"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

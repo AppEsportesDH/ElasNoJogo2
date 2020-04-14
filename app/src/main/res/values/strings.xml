@@ -1,4 +1,5 @@
 <resources>
+    <string name="nome_cadastro">NOME</string>
     <string name="slogan">Encontre seu time!</string>
     <string name="logo">logo</string>
     <string name="digite_sua_senha">Digite sua senha</string>
@@ -64,13 +65,25 @@
     <string name="favoritar">FAVORITAR</string>
     <string name="elas_no_jogo">Elas no jogo</string>
     <string name="ola_nome">Olá, Nome</string>
-
+    <string name="identificacao">IDENTIFICO-ME COMO</string>
+    <string name="email_cadastro">EMAIL</string>
+    <string name="telefone_cadastro">TELEFONE</string>
+    <string name="senha_cadastro">SENHA</string>
+    <string name="confirmar_senha">CONFIRMAR SENHA</string>
+    <string name="seleciona_interesses">SELECIONE 3 INTERESSES</string>
+    <string name="esporte1">ESPORTE1</string>
+    <string name="esporte2">ESPORTE2</string>
+    <string name="esporte3">ESPORTE3</string>
+    <string name="cadastrar">CADASTRAR</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="linha1">Linha 1</string>
+    <string name="linha2">Linha 2</string>
     <string-array name="lista_identificacao">
         <item>mulher cis</item>
         <item>mulher lésbica</item>
         <item>mulher trans</item>
         <item>não-binário</item>
-        <item>não me identifico como mulher nem não-binário</item>
+        <item>não me identifico como mulher nem não-binárie</item>
     </string-array>
 
 </resources>
