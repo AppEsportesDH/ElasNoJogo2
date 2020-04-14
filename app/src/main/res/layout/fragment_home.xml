@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/backgroundwatercolor"
-        tools:context="br.com.elasnojogo.Views.HomeFragment">
+        tools:context="br.com.elasnojogo.views.HomeFragment">
 
         <TextView
             android:id="@+id/textViewSaudacao"
@@ -57,6 +57,7 @@
             android:id="@+id/recycler_view_Sports"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/criarevento_btn"
@@ -109,6 +110,5 @@
             tools:ignore="VectorDrawableCompat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </ScrollView>

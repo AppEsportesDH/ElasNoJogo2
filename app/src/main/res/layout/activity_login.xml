@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_watercolor"
-    tools:context="br.com.elasnojogo.Views.LoginActivity">
+    android:background="@drawable/background_watercolor">
 
     <ImageView
         android:id="@+id/logo"
@@ -47,7 +47,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:background="#99B45057"
+        android:background="@color/container"
         android:hint="@string/digite_o_seu_e_mail"
         android:textColorHint="@color/branco"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,11 +56,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/campo_email"
-            app:hintTextColor="@color/branco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lato"
-            android:inputType="textEmailAddress"/>
+            android:fontFamily="@font/lato" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -72,7 +70,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:background="#99B45057"
+        android:background="@color/container"
         android:hint="@string/digite_sua_senha"
         android:textColorHint="@color/branco"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,11 +79,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/campo_senha"
-            app:hintTextColor="@color/branco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lato"
-            android:inputType="textPassword"/>
+            android:fontFamily="@font/lato" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -133,7 +129,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/lato"
-        android:text="@string/n_o_tem_uma_conta"
+        android:text="@string/n_o_tenho_conta"
         android:textColor="@color/textoPesquisa"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -151,7 +147,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:background="#00FFFFFF"
+        android:background="@color/img_btn"
         android:fontFamily="@font/lato_bold"
         android:text="@string/cadastre_se"
         android:textColor="@color/btn"
@@ -170,7 +166,7 @@
         android:layout_marginLeft="44dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:background="#00FFFFFF"
+        android:background="@color/img_btn"
         app:layout_constraintBottom_toTopOf="@+id/nao_tem_conta"
         app:layout_constraintEnd_toStartOf="@+id/google_btn"
         app:layout_constraintStart_toStartOf="parent"
@@ -185,7 +181,7 @@
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
         android:layout_marginBottom="16dp"
-        android:background="#00FFFFFF"
+        android:background="@color/img_btn"
         app:layout_constraintBottom_toTopOf="@+id/botao_cadastro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/facebook_btn"

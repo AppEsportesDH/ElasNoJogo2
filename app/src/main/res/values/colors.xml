@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#707070</color>
@@ -14,5 +13,9 @@
     <color name="container">#9A9C444B</color>
     <color name="containerClaro">#C8F6C9D4</color>
     <color name="textoPesquisa">#071D4F</color>
-
+    <color name="textviewsports">#99B45057</color>
+    <color name="preto">#000000</color>
+    <color name="app_bar_menu_bg">#E0E0E0</color>
+    g<color name="bg_tint">#DFFFFFFF</color>
+    <color name="img_btn">#00FFFFFF</color>
 </resources>
