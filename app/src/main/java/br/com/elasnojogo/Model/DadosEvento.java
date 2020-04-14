@@ -102,8 +102,4 @@ public class DadosEvento implements Parcelable {
         dest.writeInt(adicionarImagem);
 
     }
-
-    public String getText1() {
-        return getText1();
-    }
 }

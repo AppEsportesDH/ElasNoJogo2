@@ -9,10 +9,10 @@
     <string name="n_o_tenho_conta">NÃO TENHO CONTA</string>
     <string name="mensagem_home">Olá, %1$s</string>
     <string name="nome_evento">nome evento</string>
-    <string name="nome">%1$s</string>
-    <string name="email">%2$s</string>
-    <string name="telefone">%3$s</string>
-    <string name="senha">%4$s</string>
+    <string name="nome">NOME</string>
+    <string name="email">EMAIL</string>
+    <string name="telefone">TELEFONE</string>
+    <string name="senha">SENHA</string>
     <string name="data">data</string>
     <string name="local">local</string>
     <string name="categoria">CATEGORIA</string>
@@ -22,6 +22,7 @@
     <string name="telefone_perfil">TELEFONE</string>
     <string name="senha_perfil">SENHA</string>
     <string name="salvar">SALVAR</string>
+    <string name="preencha_campo">Preencha os campos!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="favoritos">FAVORITOS</string>
     <string name="eventos">EVENTOS</string>
@@ -64,6 +65,17 @@
     <string name="favoritar">FAVORITAR</string>
     <string name="elas_no_jogo">Elas no jogo</string>
     <string name="ola_nome">Olá, Nome</string>
+    <string name="ola">Olá, </string>
+    <string name="identifico_me_como">IDENTIFICO-ME COMO</string>
+    <string name="confirmar_senha">CONFIRMAR SENHA</string>
+    <string name="selecione_3_interesses">SELECIONE 3 INTERESSES</string>
+    <string name="esporte_1">ESPORTE 1</string>
+    <string name="esporte_2">ESPORTE 2</string>
+    <string name="esporte_3">ESPORTE 3</string>
+    <string name="cadastrar">CADASTRAR</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="n_o_tem_uma_conta">Não tem uma conta?</string>
+    <string name="usuario">Usuário</string>
 
     <string-array name="lista_identificacao">
         <item>mulher cis</item>

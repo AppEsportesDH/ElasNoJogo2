@@ -4,8 +4,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,14 +21,17 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.elasnojogo.Interface.EventoListener;
-import br.com.elasnojogo.Interface.OnClick;
+import br.com.elasnojogo.Views.interfaces.EventoListener;
+import br.com.elasnojogo.Views.interfaces.OnClick;
 import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo.Model.Sport;
 import br.com.elasnojogo.ViewModel.SportsViewModel;
 import br.com.elasnojogo.Views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.Views.adapter.SportRecyclerViewAdapter;
 import br.com.elasnojogo2.R;
+
+import static br.com.elasnojogo.Constantes.Constantes.EVENTO_CHAVE;
+import static br.com.elasnojogo.Constantes.Constantes.SPORT;
 
 public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
@@ -43,9 +44,6 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
     private Button buttonCriarEvento;
     private TextView saudacao;
-
-    public static final String EVENTO_CHAVE = "evento";
-    public static final String SPORT = "sport";
 
     public HomeFragment() {
         // Required empty public constructor
@@ -73,19 +71,14 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
         sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results, this);
 
 
-        buttonCriarEvento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                replaceFragment(new EventoFragment());
-            }
-        });
+        buttonCriarEvento.setOnClickListener(view1 -> replaceFragment(new EventoFragment()));
 
         return view;
     }
 
     private void deixaNomeBold() {
-        String normalText = "Olá, ";
-        String boldText = "Nome";
+        String normalText = getString(R.string.ola);
+        String boldText = getString(R.string.nome);
         SpannableString str = new SpannableString(normalText + boldText);
         str.setSpan(new StyleSpan(Typeface.BOLD), 5, str.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         saudacao.setText(str);
@@ -122,7 +115,6 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         recyclerViewSports = view.findViewById(R.id.recycler_view_Sports);
         sportsViewModel = ViewModelProviders.of(this).get(SportsViewModel.class);
-        //sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results);
     }
 
     @Override

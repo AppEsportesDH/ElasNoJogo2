@@ -8,9 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
-import java.util.Objects;
 
-import br.com.elasnojogo.Interface.FavoritosView;
+import br.com.elasnojogo.Views.interfaces.FavoritosView;
 import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo2.R;
 
@@ -40,12 +39,7 @@ public class FavoritoRecyclerViewAdapter extends RecyclerView.Adapter<FavoritoRe
 
         holder.onBind(dadosEvento);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.visualizarEvento(dadosEvento);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> listener.visualizarEvento(dadosEvento));
     }
 
     @Override

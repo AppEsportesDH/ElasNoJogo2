@@ -1,8 +1,9 @@
 package br.com.elasnojogo.Network;
 
+import com.facebook.stetho.BuildConfig;
+
 import java.util.concurrent.TimeUnit;
 
-import br.com.elasnojogo2.BuildConfig;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import br.com.elasnojogo.Interface.EventoListener;
+import br.com.elasnojogo.Views.interfaces.EventoListener;
 import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo2.R;
 
@@ -39,12 +39,7 @@ public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecycl
 
         holder.onBind(dadosEvento);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.enviaEvento(dadosEvento);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> listener.enviaEvento(dadosEvento));
     }
 
     @Override

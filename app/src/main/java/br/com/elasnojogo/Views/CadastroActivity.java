@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +15,6 @@ import br.com.elasnojogo2.R;
 
 public class CadastroActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private EditText nome;
-    private EditText email;
-    private EditText telefone;
-    private EditText senha;
-    private EditText confirmarSenha;
     Button cadastrar;
 
     @Override
@@ -41,20 +35,16 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
 
     }
 
-    View.OnClickListener clique = new View.OnClickListener() {
+    View.OnClickListener clique = v -> {
+        Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
+        Usuario usuario = new Usuario("Sol", "silmarasol@hotmail.com", "11996887098", "RFD234", "RFD234");
 
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
-            Usuario usuario = new Usuario("Sol", "silmarasol@hotmail.com", "11996887098", "RFD234", "RFD234");
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(getString(R.string.usuario), usuario);
 
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("Usuario", usuario);
+        intent.putExtras(bundle);
 
-            intent.putExtras(bundle);
-
-            startActivity(intent);
-        }
+        startActivity(intent);
     };
 
 
@@ -67,4 +57,5 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 }

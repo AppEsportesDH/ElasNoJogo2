@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import br.com.elasnojogo.Interface.OnClick;
+import br.com.elasnojogo.Views.interfaces.OnClick;
 import br.com.elasnojogo.Model.Sport;
 import br.com.elasnojogo2.R;
 
@@ -21,10 +21,6 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
 
     private List<Sport> resultList;
     private OnClick listener;
-
-  public SportRecyclerViewAdapter(List<Sport> resultList) {
-      this.resultList = resultList;
- }
 
   public SportRecyclerViewAdapter(List<Sport> resultList, OnClick listener) {
   this.resultList = resultList;
@@ -43,12 +39,7 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
         final Sport result = resultList.get(position);
         holder.onBind(result);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.click(result);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> listener.click(result));
 
     }
 
@@ -69,10 +60,6 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView nome;
         ImageView img;
-
-        private TextView textViewCategoria;
-        private ImageView imagem;
-        private TextView textViewDescription;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
