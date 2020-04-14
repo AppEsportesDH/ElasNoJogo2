@@ -78,7 +78,6 @@
     <string name="entrar">ENTRAR</string>
     <string name="linha1">Linha 1</string>
     <string name="linha2">Linha 2</string>
-
     <string-array name="lista_identificacao">
         <item>mulher cis</item>
         <item>mulher lésbica</item>
