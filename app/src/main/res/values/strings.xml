@@ -1,3 +1,90 @@
 <resources>
-    <string name="app_name">ElasNoJogo</string>
+    <string name="nome_cadastro">NOME</string>
+    <string name="slogan">Encontre seu time!</string>
+    <string name="logo">logo</string>
+    <string name="digite_sua_senha">Digite sua senha</string>
+    <string name="acessar_sua_conta">ACESSAR SUA CONTA</string>
+    <string name="digite_o_seu_e_mail">Digite o seu e-mail</string>
+    <string name="cadastre_se">CADASTRE-SE</string>
+    <string name="entre_usando">ENTRE USANDO</string>
+    <string name="n_o_tenho_conta">NÃO TENHO CONTA</string>
+    <string name="mensagem_home">Olá, %1$s</string>
+    <string name="nome_evento">nome evento</string>
+    <string name="nome">NOME</string>
+    <string name="email">EMAIL</string>
+    <string name="telefone">TELEFONE</string>
+    <string name="senha">SENHA</string>
+    <string name="data">data</string>
+    <string name="local">local</string>
+    <string name="categoria">CATEGORIA</string>
+    <string name="criar_evento">Criar Evento</string>
+    <string name="nome_perfil">NOME</string>
+    <string name="email_perfil">EMAIL</string>
+    <string name="telefone_perfil">TELEFONE</string>
+    <string name="senha_perfil">SENHA</string>
+    <string name="salvar">SALVAR</string>
+    <string name="preencha_campo">Preencha os campos!</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="favoritos">FAVORITOS</string>
+    <string name="eventos">EVENTOS</string>
+    <string name="criarevento">CRIAR EVENTO</string>
+    <string name="nome_do_evento">NOME DO EVENTO</string>
+    <string name="data_evento">DATA</string>
+    <string name="horario_evento">HORÁRIO</string>
+    <string name="local_evento">LOCAL</string>
+    <string name="categoria_evento">CATEGORIA</string>
+    <string name="inserir_imagem">INSERIR UMA IMAGEM</string>
+    <string name="segurança_evento">Esse evento é seguro para:</string>
+    <string name="check_trans">Mulheres trans</string>
+    <string name="check_bi">Mulheres bissexuais</string>
+    <string name="check_les">Mulheres lésbicas</string>
+    <string name="check_naobi">Pessoas não-binárias</string>
+    <string name="add_adm">ADICIONAR ADMINISTRADORAS</string>
+    <string name="cadastrar_evento">CADASTRAR EVENTO</string>
+    <string name="pesquisar">PESQUISAR</string>
+    <string name="resultados">RESULTADOS</string>
+    <string name="filtros">FILTROS</string>
+    <string name="mostrar_mais">MOSTRAR MAIS</string>
+    <string name="open_drawer">Abrir</string>
+    <string name="close_drawer">Fechar</string>
+    <string name="app_name">MenusCardView</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="perfil">Perfil</string>
+    <string name="favoritos_drawer">Favoritos</string>
+    <string name="pesquisar_drawer">Pesquisar</string>
+    <string name="sair">Sair</string>
+    <string name="favoritar">FAVORITAR</string>
+    <string name="elas_no_jogo">Elas no jogo</string>
+    <string name="ola_nome">Olá, Nome</string>
+    <string name="ola">Olá, </string>
+    <string name="identifico_me_como">IDENTIFICO-ME COMO</string>
+    <string name="confirmar_senha">CONFIRMAR SENHA</string>
+    <string name="selecione_interesses">SELECIONE 3 INTERESSES</string>
+    <string name="esporte_1">ESPORTE 1</string>
+    <string name="esporte_2">ESPORTE 2</string>
+    <string name="esporte_3">ESPORTE 3</string>
+    <string name="cadastrar">CADASTRAR</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="n_o_tem_uma_conta">Não tem uma conta?</string>
+    <string name="usuario">Usuário</string>
+    <string name="linha1">Linha 1</string>
+    <string name="linha2">Linha 2</string>
+    <string-array name="lista_identificacao">
+        <item>mulher cis</item>
+        <item>mulher lésbica</item>
+        <item>mulher trans</item>
+        <item>não-binário</item>
+        <item>não me identifico como mulher nem não-binárie</item>
+    </string-array>
+
 </resources>
