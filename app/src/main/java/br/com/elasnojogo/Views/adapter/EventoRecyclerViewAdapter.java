@@ -1,18 +1,13 @@
 package br.com.elasnojogo.Views.adapter;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
-
 import br.com.elasnojogo.Interface.EventoListener;
-import br.com.elasnojogo.Model.DadosEvento;
 import br.com.elasnojogo.Model.Evento;
 import br.com.elasnojogo2.R;
 
@@ -35,9 +30,7 @@ public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecycl
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Evento dadosEvento = eventos.get(position);
-
         holder.onBind(dadosEvento);
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,11 +65,10 @@ public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecycl
             dataEvento = itemView.findViewById(R.id.text_view_data);
         }
 
-        public void onBind(DadosEvento dadosEvento) {
-            image.setImageResource(dadosEvento.getAdicionarImagem());
-            nomeEvento.setText(dadosEvento.getNomeEvento());
-            localEvento.setText(dadosEvento.getLocalEvento());
-            dataEvento.setText(dadosEvento.getDataEvento());
+        public void onBind(Evento evento) {
+            nomeEvento.setText(evento.getNomeEvento());
+            localEvento.setText(evento.getLocal());
+            dataEvento.setText(evento.getData());
         }
     }
 }

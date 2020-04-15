@@ -42,7 +42,7 @@ public class CriarEventoFragment extends Fragment {
         initViews(view);
 
         cadastrarEvento.setOnClickListener(v -> {
-            String nomeEvento = nomeImputEvento.getText().toString();
+            String nomeEvento = nomeImputEvento.EditText.getText().toString();
             String local = localImputEvento.getText().toString();
             String data = dataImputEvento.getText().toString();
             String horario = horarioImputEvento.getText().toString();
@@ -77,5 +77,6 @@ public class CriarEventoFragment extends Fragment {
         CheckBox checkLes = view.findViewById(R.id.checkles);
         inserirImagem = view.findViewById(R.id.inserirImagem);
         criarEvento = view.findViewById(R.id.criareventoText);
+        nomeImputEvento = view.findViewById(R.id.textNomeEvento);
     }
 }

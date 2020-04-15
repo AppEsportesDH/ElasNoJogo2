@@ -28,94 +28,48 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textNomeEvent"
+            android:id="@+id/textInputLayout"
             android:layout_width="380dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="36dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:background="@color/container"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.886"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/criareventoText">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textNomeEvento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_thin"
                     android:hint="@string/nome_do_evento"
                     android:textColorHint="@color/branco"
-                    android:fontFamily="@font/lato_thin"
-                    android:textSize="14sp"
-                    android:id="@+id/textNomeEvento" />
+                    android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textDataDoEvent"
-            android:layout_width="160dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/container"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textNomeEvent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato_thin"
-                    android:hint="@string/data_evento"
-                    android:textColorHint="@color/branco"
-                    android:textSize="14sp"
-                    android:inputType="date"
-                    android:id="@+id/textDataDoEvento" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textHorarioDoEvent"
-            android:layout_width="160dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="68dp"
-            android:background="@color/container"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.666"
-            app:layout_constraintStart_toEndOf="@+id/textDataDoEvent"
-            app:layout_constraintTop_toTopOf="@+id/textNomeEvent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/horario_evento"
-                    android:textColorHint="@color/branco"
-                    android:textSize="14sp"
-                    android:inputType="time"
-                    android:id="@+id/textHorarioDoEvento" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textLocalDoEvent"
             android:layout_width="380dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="68dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="224dp"
             android:background="@color/container"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.516"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textDataDoEvent">
+            app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textLocalDoEvento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato_thin"
                     android:hint="@string/local"
                     android:textColorHint="@color/branco"
-                    android:textSize="14sp"
-                    android:id="@+id/textLocalDoEvento" />
+                    android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -125,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="80dp"
             android:text="@string/check_trans"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inserirImagem" />
@@ -136,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:text="@string/check_les"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/checkTrans" />
@@ -145,10 +99,10 @@
             android:id="@+id/checklbi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="68dp"
             android:text="@string/check_bi"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.452"
+            app:layout_constraintHorizontal_bias="0.702"
             app:layout_constraintStart_toEndOf="@+id/checkTrans"
             app:layout_constraintTop_toBottomOf="@+id/inserirImagem" />
 
@@ -156,9 +110,9 @@
             android:id="@+id/check_naobi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="28dp"
             android:text="@string/check_naobi"
             app:layout_constraintStart_toEndOf="@+id/checkles"
             app:layout_constraintTop_toBottomOf="@+id/checklbi" />
@@ -196,23 +150,21 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputCategori"
             android:layout_width="380dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:background="@color/container"
-            android:hint="@string/categoria_evento"
-            android:textColorHint="@color/branco"
             app:layout_constraintBottom_toTopOf="@+id/inserirImagem"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textLocalDoEvent"
-            app:layout_constraintVertical_bias="0.478">
+            app:layout_constraintVertical_bias="0.565">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputCategoria"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/categoria_evento"
-                    android:textColorHint="@color/branco"
-                    android:id="@+id/textInputCategoria" />
+                    android:textColorHint="@color/branco" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -225,6 +177,51 @@
             app:layout_constraintBottom_toTopOf="@+id/checkTrans"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inserirImagem" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout3"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:background="@color/container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textDataDoEvento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_thin"
+                    android:hint="@string/data_evento"
+                    android:inputType="date"
+                    android:textColorHint="@color/branco"
+                    android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@color/container"
+            app:layout_constraintBottom_toTopOf="@+id/textLocalDoEvent"
+            app:layout_constraintEnd_toStartOf="@+id/textInputLayout3"
+            app:layout_constraintHorizontal_bias="0.202"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+            app:layout_constraintVertical_bias="0.347">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/horario_evento"
+                    android:inputType="time"
+                    android:textColorHint="@color/branco"
+                    android:textSize="14sp"
+                    android:id="@+id/textHorarioDoEvento"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
