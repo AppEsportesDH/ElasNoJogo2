@@ -1,4 +1,5 @@
 package br.com.elasnojogo.Model;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

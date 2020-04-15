@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/backgroundwatercolor"
-        tools:context="br.com.elasnojogo.views.HomeFragment">
+        tools:context="br.com.elasnojogo.Views.HomeFragment">
 
         <TextView
             android:id="@+id/textViewSaudacao"
