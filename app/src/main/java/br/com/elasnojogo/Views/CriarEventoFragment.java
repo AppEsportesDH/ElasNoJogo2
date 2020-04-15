@@ -21,6 +21,7 @@ import br.com.elasnojogo2.R;
 
 public class CriarEventoFragment extends Fragment {
     private TextView criarEvento;
+    private TextView segurancaEvento;
     private ImageView imageViewLogo;
     private Button inserirImagem;
     private Button cadastrarEvento;
@@ -33,6 +34,7 @@ public class CriarEventoFragment extends Fragment {
     private List<Evento> listaEvento = new ArrayList<>();
     private EventoViewModel viewModel;
     private EventoRecyclerViewAdapter adapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class CriarEventoFragment extends Fragment {
         initViews(view);
 
         cadastrarEvento.setOnClickListener(v -> {
-            String nomeEvento = nomeImputEvento.EditText.getText().toString();
+            String nomeEvento = nomeImputEvento.getText().toString();
             String local = localImputEvento.getText().toString();
             String data = dataImputEvento.getText().toString();
             String horario = horarioImputEvento.getText().toString();
@@ -78,5 +80,6 @@ public class CriarEventoFragment extends Fragment {
         inserirImagem = view.findViewById(R.id.inserirImagem);
         criarEvento = view.findViewById(R.id.criareventoText);
         nomeImputEvento = view.findViewById(R.id.textNomeEvento);
+        segurancaEvento = view.findViewById(R.id.segurancaEvento);
     }
 }

@@ -10,11 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import br.com.elasnojogo.Model.DadosEvento;
+import br.com.elasnojogo.Model.Evento;
 import br.com.elasnojogo2.R;
 import static br.com.elasnojogo.Views.HomeFragment.EVENTO_CHAVE;
 
 public class VisualizarEvento extends Fragment {
-
     private ImageView imageViewLogo;
     private ImageView imageViewEvento;
     private TextView textViewNomeEvento;
@@ -39,18 +39,16 @@ public class VisualizarEvento extends Fragment {
             //passando os dados do arguments para o bundle
             Bundle bundle = getArguments();
             //passando o contato que está chegando para a variavel do tipo contato
-            DadosEvento dadosEvento = bundle.getParcelable(EVENTO_CHAVE);
+            Evento dadosEvento = bundle.getParcelable(EVENTO_CHAVE);
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                Drawable drawable = getResources().getDrawable(dadosEvento.getAdicionarImagem());
-
-                imageViewEvento.setImageDrawable(drawable);
 
             }
 
             textViewNomeEvento.setText(dadosEvento.getNomeEvento());
-            textViewLocalEvento.setText("Local: " + dadosEvento.getLocalEvento());
-            textViewDataEvento.setText("Data: " + dadosEvento.getDataEvento());
+            textViewLocalEvento.setText("Local: " + dadosEvento.getLocal());
+            textViewDataEvento.setText("Data: " + dadosEvento.getData());
+
         }
 
         imageViewLogo.setOnClickListener(new View.OnClickListener() {

@@ -3,6 +3,7 @@ package br.com.elasnojogo.Views;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,12 +17,16 @@ import java.util.List;
 
 import br.com.elasnojogo.Interface.EventoListener;
 import br.com.elasnojogo.Model.Evento;
+import br.com.elasnojogo.ViewModel.BuscarEventos;
+import br.com.elasnojogo.ViewModel.EventoViewModel;
 import br.com.elasnojogo.Views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.data.EventosDAO;
 import br.com.elasnojogo.data.EventosDataBase;
 import br.com.elasnojogo2.R;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+
+import static br.com.elasnojogo.Views.HomeFragment.EVENTO_CHAVE;
 
 public class MeusEventosFragment extends Fragment implements EventoListener {
 
@@ -39,7 +44,6 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_meus_eventos, container, false);
         eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
-
         buscarTodosEventos();
         recyclerView = view.findViewById(R.id.recycler_view_favoritos);
         adapter = new EventoRecyclerViewAdapter(listaEventos, this);
@@ -54,9 +58,15 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
 
     @Override
     public void enviarEvento(Evento evento) {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(EVENTO_CHAVE, evento);
+
+        Fragment detalheFragment = new VisualizarEvento();
+        detalheFragment.setArguments(bundle);
+        replaceFragment(detalheFragment);
     }
 
-    private void buscarTodosEventos() {
+    public void buscarTodosEventos() {
         eventosDAO.retornaEventos()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

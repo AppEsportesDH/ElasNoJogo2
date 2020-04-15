@@ -52,14 +52,11 @@ public class PesquisaFragment extends Fragment implements EventoListener {
         return eventos;
     }
 
-    private void initViews(View view) {
-    }
-
     @Override
     public void enviarEvento(Evento evento) {
         Fragment fragment = new VisualizarEvento();
         Bundle bundle = new Bundle();
-        bundle.putParcelable(EVENTO_CHAVE, (Parcelable) evento);
+        bundle.putParcelable(EVENTO_CHAVE, evento);
         fragment.setArguments(bundle);
 
         replaceFragment(fragment);

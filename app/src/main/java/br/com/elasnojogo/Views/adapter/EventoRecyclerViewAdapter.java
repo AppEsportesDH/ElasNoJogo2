@@ -37,6 +37,7 @@ public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecycl
                 listener.enviarEvento(dadosEvento);
             }
         });
+
     }
 
     @Override

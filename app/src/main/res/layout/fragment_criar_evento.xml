@@ -1,36 +1,50 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_watercolor"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:background="@drawable/background_watercolor">
 
         <ImageView
             android:id="@+id/imagemLogo"
             android:layout_width="87dp"
             android:layout_height="76dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/logo"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+            app:layout_constraintEnd_toStartOf="@+id/criareventoText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/criareventoText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="40dp"
             android:text="@string/criar_evento"
             android:textColor="#071D4F"
             android:textSize="30sp"
             android:typeface="sans"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.398"
             app:layout_constraintStart_toEndOf="@+id/imagemLogo"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
-            android:layout_width="380dp"
-            android:layout_height="40dp"
+            android:layout_width="370dp"
+            android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="36dp"
@@ -51,16 +65,21 @@
                     android:textColorHint="@color/branco"
                     android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textLocalDoEvent"
-            android:layout_width="380dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="224dp"
+            android:layout_width="370dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:background="@color/container"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.516"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textLocalDoEvento"
@@ -75,31 +94,41 @@
 
         <CheckBox
             android:id="@+id/checkTrans"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:text="@string/check_trans"
+            app:layout_constraintEnd_toStartOf="@+id/checklbi"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inserirImagem" />
+            app:layout_constraintTop_toBottomOf="@+id/segurancaEvento" />
 
         <CheckBox
             android:id="@+id/checkles"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="173dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginRight="48dp"
             android:text="@string/check_les"
+            app:layout_constraintEnd_toStartOf="@+id/check_naobi"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/checkTrans" />
 
         <CheckBox
             android:id="@+id/checklbi"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:text="@string/check_bi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.702"
@@ -110,25 +139,27 @@
             android:id="@+id/check_naobi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_marginLeft="48dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             android:text="@string/check_naobi"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/checkles"
             app:layout_constraintTop_toBottomOf="@+id/checklbi" />
 
         <Button
             android:id="@+id/buttonCadastrarEvento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="148dp"
-            android:layout_marginLeft="148dp"
-            android:layout_marginTop="108dp"
+            android:layout_width="253dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:background="@color/btn"
             android:text="@string/cadastrar_evento"
             android:textColor="@color/branco"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/check_naobi" />
 
@@ -136,25 +167,31 @@
             android:id="@+id/inserirImagem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:background="@color/brancotransparente"
             android:text="@string/inserir_imagem"
-            tools:layout_editor_absoluteX="59dp"
-            tools:layout_editor_absoluteY="347dp"
-            android:layout_marginTop="12dp"
             android:textColor="@color/textoPesquisa"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_view_categoria" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputCategori" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputCategori"
-            android:layout_width="380dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_width="370dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:background="@color/container"
             app:layout_constraintBottom_toTopOf="@+id/inserirImagem"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textLocalDoEvent"
             app:layout_constraintVertical_bias="0.565">
@@ -167,27 +204,17 @@
                     android:textColorHint="@color/branco" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/segurancaEvento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/segurança_evento"
-            android:textSize="16sp"
-            android:textColor="@color/colorText"
-            app:layout_constraintBottom_toTopOf="@+id/checkTrans"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inserirImagem" />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout3"
             android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginRight="35dp"
             android:background="@color/container"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.512"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -203,24 +230,41 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="150dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="6dp"
             android:background="@color/container"
             app:layout_constraintBottom_toTopOf="@+id/textLocalDoEvent"
             app:layout_constraintEnd_toStartOf="@+id/textInputLayout3"
-            app:layout_constraintHorizontal_bias="0.202"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-            app:layout_constraintVertical_bias="0.347">
+            app:layout_constraintVertical_bias="0.388">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textHorarioDoEvento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/horario_evento"
                     android:inputType="time"
                     android:textColorHint="@color/branco"
-                    android:textSize="14sp"
-                    android:id="@+id/textHorarioDoEvento"/>
+                    android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/segurancaEvento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/segurança_evento"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inserirImagem" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
