@@ -1,18 +1,20 @@
-package br.com.elasnojogo.Views;
+package br.com.elasnojogo.views;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.squareup.picasso.Picasso;
-import br.com.elasnojogo.Model.Sport;
+import br.com.elasnojogo.model.Sport;
 import br.com.elasnojogo2.R;
-import static br.com.elasnojogo.Views.HomeFragment.EVENTO_CHAVE;
+
+import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
+
 
 public class DetalheHomeFragment extends Fragment {
 

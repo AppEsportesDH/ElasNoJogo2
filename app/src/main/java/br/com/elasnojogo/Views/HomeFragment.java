@@ -1,10 +1,10 @@
-package br.com.elasnojogo.Views;
+package br.com.elasnojogo.views;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
+
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,25 +20,26 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.elasnojogo.Interface.EventoListener;
-import br.com.elasnojogo.Model.Evento;
-import br.com.elasnojogo.Model.Sport;
-import br.com.elasnojogo.ViewModel.BuscarEventos;
-import br.com.elasnojogo.ViewModel.SportsViewModel;
-import br.com.elasnojogo.Views.adapter.EventoRecyclerViewAdapter;
-import br.com.elasnojogo.Views.adapter.SportRecyclerViewAdapter;
-import br.com.elasnojogo.data.EventosDAO;
-import br.com.elasnojogo.data.EventosDataBase;
+
+import br.com.elasnojogo.model.Evento;
+import br.com.elasnojogo.repository.data.EventosDAO;
+import br.com.elasnojogo.repository.data.EventosDataBase;
+import br.com.elasnojogo.views.interfaces.EventoListener;
+import br.com.elasnojogo.model.Sport;
+import br.com.elasnojogo.viewModel.SportsViewModel;
+import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
+import br.com.elasnojogo.views.adapter.SportRecyclerViewAdapter;
 import br.com.elasnojogo2.R;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
+
 public class HomeFragment extends Fragment implements EventoListener {
+
     private RecyclerView recyclerViewEventos;
     private RecyclerView recyclerViewSports;
     private SportsViewModel sportsViewModel;
@@ -46,7 +47,6 @@ public class HomeFragment extends Fragment implements EventoListener {
     private SportRecyclerViewAdapter sportRecyclerViewAdapter;
     private Button buttonCriarEvento;
     private TextView saudacao;
-    public static final String EVENTO_CHAVE = "evento";
     private List<Evento> listaEventos = new ArrayList<>();
     private EventoRecyclerViewAdapter adapter;
     public EventosDAO eventosDAO;
@@ -76,18 +76,14 @@ public class HomeFragment extends Fragment implements EventoListener {
 
         recyclerViewSports.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerViewSports.setAdapter(sportRecyclerViewAdapter);
-        buttonCriarEvento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                replaceFragment(new CriarEventoFragment());
-            }
-        });
+        buttonCriarEvento.setOnClickListener(view12 -> replaceFragment(new CriarEventoFragment()));
+
         return view;
     }
 
     private void deixaNomeBold() {
-        String normalText = "Olá, ";
-        String boldText = "Nome";
+        String normalText = getString(R.string.ola);
+        String boldText = getString(R.string.nome);
         SpannableString str = new SpannableString(normalText + boldText);
         str.setSpan(new StyleSpan(Typeface.BOLD), 5, str.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         saudacao.setText(str);

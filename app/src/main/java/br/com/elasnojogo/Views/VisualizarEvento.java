@@ -1,18 +1,18 @@
-package br.com.elasnojogo.Views;
+package br.com.elasnojogo.views;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import br.com.elasnojogo.Model.DadosEvento;
-import br.com.elasnojogo.Model.Evento;
+import br.com.elasnojogo.model.Evento;
 import br.com.elasnojogo2.R;
-import static br.com.elasnojogo.Views.HomeFragment.EVENTO_CHAVE;
+
+import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
 
 public class VisualizarEvento extends Fragment {
     private ImageView imageViewLogo;
@@ -46,17 +46,13 @@ public class VisualizarEvento extends Fragment {
             }
 
             textViewNomeEvento.setText(dadosEvento.getNomeEvento());
-            textViewLocalEvento.setText("Local: " + dadosEvento.getLocal());
-            textViewDataEvento.setText("Data: " + dadosEvento.getData());
-
+            textViewLocalEvento.setText(getString(R.string.local) + dadosEvento.getLocal());
+            textViewDataEvento.setText(getString(R.string.data) + dadosEvento.getData());
         }
 
-        imageViewLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), HomeActivity.class);
-                startActivity(intent);
-            }
+        imageViewLogo.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getActivity(), HomeActivity.class);
+            startActivity(intent);
         });
 
         return view;

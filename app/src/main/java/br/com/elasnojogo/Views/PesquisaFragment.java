@@ -1,32 +1,29 @@
-package br.com.elasnojogo.Views;
+package br.com.elasnojogo.views;
+
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
-import br.com.elasnojogo.Interface.EventoListener;
-import br.com.elasnojogo.Model.Evento;
-import br.com.elasnojogo.Views.adapter.EventoRecyclerViewAdapter;
+
+import br.com.elasnojogo.model.Evento;
+import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
+import br.com.elasnojogo.views.interfaces.EventoListener;
 import br.com.elasnojogo2.R;
 
+import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
+
 public class PesquisaFragment extends Fragment implements EventoListener {
-    private LinearLayout favorito;
-    EventoListener mListener;
-    public static final String EVENTO_CHAVE = "evento";
+
     private RecyclerView recyclerViewFavorito;
     private EventoRecyclerViewAdapter adapter;
-
-
-    public PesquisaFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -1,4 +1,5 @@
-package br.com.elasnojogo.Views.adapter;
+package br.com.elasnojogo.views.adapter;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,8 +8,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
-import br.com.elasnojogo.Interface.EventoListener;
-import br.com.elasnojogo.Model.Evento;
+
+import br.com.elasnojogo.model.Evento;
+import br.com.elasnojogo.views.interfaces.EventoListener;
 import br.com.elasnojogo2.R;
 
 public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecyclerViewAdapter.ViewHolder> {
@@ -31,13 +33,7 @@ public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecycl
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Evento dadosEvento = eventos.get(position);
         holder.onBind(dadosEvento);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.enviarEvento(dadosEvento);
-            }
-        });
-
+        holder.itemView.setOnClickListener(v -> listener.enviarEvento(dadosEvento));
     }
 
     @Override

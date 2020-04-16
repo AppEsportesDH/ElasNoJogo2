@@ -1,9 +1,8 @@
-package br.com.elasnojogo.Views;
+package br.com.elasnojogo.views;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,18 +14,17 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.elasnojogo.Interface.EventoListener;
-import br.com.elasnojogo.Model.Evento;
-import br.com.elasnojogo.ViewModel.BuscarEventos;
-import br.com.elasnojogo.ViewModel.EventoViewModel;
-import br.com.elasnojogo.Views.adapter.EventoRecyclerViewAdapter;
-import br.com.elasnojogo.data.EventosDAO;
-import br.com.elasnojogo.data.EventosDataBase;
+import br.com.elasnojogo.model.Evento;
+import br.com.elasnojogo.repository.data.EventosDAO;
+import br.com.elasnojogo.repository.data.EventosDataBase;
+import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
+import br.com.elasnojogo.views.interfaces.EventoListener;
+
 import br.com.elasnojogo2.R;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-import static br.com.elasnojogo.Views.HomeFragment.EVENTO_CHAVE;
+import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
 
 public class MeusEventosFragment extends Fragment implements EventoListener {
 
@@ -77,4 +75,5 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
                             Log.i("TAG", "método getAllEventos" + throwable.getMessage());
                         });
     }
+
 }
