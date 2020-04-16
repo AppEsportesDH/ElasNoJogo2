@@ -1,4 +1,4 @@
-package br.com.elasnojogo.Views;
+package br.com.elasnojogo.views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import br.com.elasnojogo.Model.Usuario;
+import br.com.elasnojogo.model.Usuario;
 import br.com.elasnojogo2.R;
 
 public class CadastroActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {

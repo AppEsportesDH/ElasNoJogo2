@@ -1,9 +1,9 @@
-package br.com.elasnojogo.Repository;
+package br.com.elasnojogo.repository;
 
-import br.com.elasnojogo.Model.SportsResponse;
+import br.com.elasnojogo.model.SportsResponse;
 import io.reactivex.Observable;
 
-import static br.com.elasnojogo.Network.ServiceRetrofit.getApiService;
+import static br.com.elasnojogo.network.ServiceRetrofit.getApiService;
 
 public class SportsRepository {
     public Observable<SportsResponse> sportsResponseObservable(){

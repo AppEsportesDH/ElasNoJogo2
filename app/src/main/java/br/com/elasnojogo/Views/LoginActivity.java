@@ -1,6 +1,7 @@
-package br.com.elasnojogo.Views;
+package br.com.elasnojogo.views;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;

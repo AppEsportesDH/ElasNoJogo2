@@ -1,15 +1,15 @@
-package br.com.elasnojogo.Model;
+package br.com.elasnojogo.model;
 
 import java.util.Date;
 
-public class Favoritos {
+public class Pesquisa {
 
     private String nomeEvento;
     private String localEvento;
     private Date dataEvento;
     private int imagemEvento;
 
-    public Favoritos() {
+    public Pesquisa() {
     }
 
     public String getNomeEvento() {
@@ -43,4 +43,5 @@ public class Favoritos {
     public void setImagemEvento(int imagemEvento) {
         this.imagemEvento = imagemEvento;
     }
+
 }

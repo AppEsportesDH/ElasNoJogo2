@@ -1,4 +1,4 @@
-package br.com.elasnojogo.Views.adapter;
+package br.com.elasnojogo.views.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,20 +7,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
-import br.com.elasnojogo.Views.interfaces.FavoritosView;
-import br.com.elasnojogo.Model.DadosEvento;
+import br.com.elasnojogo.views.interfaces.EventoListener;
+import br.com.elasnojogo.model.Evento;
 import br.com.elasnojogo2.R;
 
 
-public class FavoritoRecyclerViewAdapter extends RecyclerView.Adapter<FavoritoRecyclerViewAdapter.ViewHolder> {
+public class PesquisaRecyclerViewAdapter extends RecyclerView.Adapter<PesquisaRecyclerViewAdapter.ViewHolder> {
 
-    private List<DadosEvento> eventos;
+    private List<Evento> eventos;
 
-    private FavoritosView listener;
+    private EventoListener listener;
 
-    public FavoritoRecyclerViewAdapter(List<DadosEvento> listaEventos, FavoritosView listener) {
+    public PesquisaRecyclerViewAdapter(List<Evento> listaEventos, EventoListener listener) {
         this.eventos = listaEventos;
         this.listener = listener;
     }
@@ -35,11 +36,16 @@ public class FavoritoRecyclerViewAdapter extends RecyclerView.Adapter<FavoritoRe
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final DadosEvento dadosEvento = eventos.get(position);
+        final Evento dadosEvento = eventos.get(position);
 
         holder.onBind(dadosEvento);
 
-        holder.itemView.setOnClickListener(v -> listener.visualizarEvento(dadosEvento));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.enviarEvento(dadosEvento);
+            }
+        });
     }
 
     @Override
@@ -61,11 +67,10 @@ public class FavoritoRecyclerViewAdapter extends RecyclerView.Adapter<FavoritoRe
         }
 
 
-        public void onBind(DadosEvento dadosEvento) {
-            image.setImageResource(dadosEvento.getAdicionarImagem());
+        public void onBind(Evento dadosEvento) {
             nomeEvento.setText(dadosEvento.getNomeEvento());
-            localEvento.setText(dadosEvento.getLocalEvento());
-            dataEvento.setText(dadosEvento.getDataEvento());
+            localEvento.setText(dadosEvento.getLocal());
+            dataEvento.setText(dadosEvento.getData());
         }
     }
 }

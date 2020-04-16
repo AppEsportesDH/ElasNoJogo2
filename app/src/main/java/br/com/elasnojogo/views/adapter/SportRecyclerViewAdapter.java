@@ -1,4 +1,4 @@
-package br.com.elasnojogo.Views.adapter;
+package br.com.elasnojogo.views.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +13,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import br.com.elasnojogo.Views.interfaces.OnClick;
-import br.com.elasnojogo.Model.Sport;
+import br.com.elasnojogo.views.interfaces.OnClick;
+import br.com.elasnojogo.model.Sport;
 import br.com.elasnojogo2.R;
 
 public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecyclerViewAdapter.ViewHolder> {
@@ -22,10 +22,14 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
     private List<Sport> resultList;
     private OnClick listener;
 
-  public SportRecyclerViewAdapter(List<Sport> resultList, OnClick listener) {
-  this.resultList = resultList;
-  this.listener = listener;
-  }
+    public SportRecyclerViewAdapter(List<Sport> resultList) {
+        this.resultList = resultList;
+    }
+
+    public SportRecyclerViewAdapter(List<Sport> resultList, OnClick listener) {
+        this.resultList = resultList;
+        this.listener = listener;
+    }
 
     @NonNull
     @Override
@@ -39,7 +43,12 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
         final Sport result = resultList.get(position);
         holder.onBind(result);
 
-        holder.itemView.setOnClickListener(v -> listener.click(result));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.click(result);
+            }
+        });
 
     }
 
@@ -61,6 +70,10 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
         TextView nome;
         ImageView img;
 
+        private TextView textViewCategoria;
+        private ImageView imagem;
+        private TextView textViewDescription;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nome = itemView.findViewById(R.id.textViewSport);
@@ -73,5 +86,3 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
         }
     }
 }
-
-

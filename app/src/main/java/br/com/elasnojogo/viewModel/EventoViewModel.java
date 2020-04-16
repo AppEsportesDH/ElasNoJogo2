@@ -1,14 +1,12 @@
-package br.com.elasnojogo.ViewModel;
-
+package br.com.elasnojogo.viewModel;
 import android.app.Application;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import java.util.List;
-import br.com.elasnojogo.Model.Evento;
-import br.com.elasnojogo.Repository.EventoRepository;
+import br.com.elasnojogo.model.Evento;
+import br.com.elasnojogo.repository.EventoRepository;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -19,7 +17,7 @@ public class EventoViewModel extends AndroidViewModel {
     private CompositeDisposable disposable = new CompositeDisposable();
 
     private MutableLiveData<List<Evento>> mutableLiveDataAlbum = new MutableLiveData<>();
-    public LiveData<List<Evento>> liveDataEvento = mutableLiveDataAlbum;
+    public LiveData<List<Evento>> listLiveData= mutableLiveDataAlbum;
 
     private MutableLiveData<String> mutableLiveDataErro = new MutableLiveData<>();
     public LiveData<String> liveDataErro = mutableLiveDataErro;
@@ -33,7 +31,7 @@ public class EventoViewModel extends AndroidViewModel {
     public EventoViewModel(@NonNull Application application) {
         super(application);
     }
-    private void carregaDadosBD() {
+    public void carregaDadosBD() {
         disposable.add(
                 repository.retornarEventos(getApplication())
                         .subscribeOn(Schedulers.io())
@@ -48,5 +46,10 @@ public class EventoViewModel extends AndroidViewModel {
     }
     private void insereDadosBd(Evento evento) {
         repository.inserirEventos(evento, getApplication());
+    }
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        disposable.clear();
     }
 }

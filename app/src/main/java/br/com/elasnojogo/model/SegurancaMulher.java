@@ -1,4 +1,4 @@
-package br.com.elasnojogo.Model;
+package br.com.elasnojogo.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

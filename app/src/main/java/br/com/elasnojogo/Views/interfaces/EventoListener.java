@@ -1,7 +1,7 @@
-package br.com.elasnojogo.Views.interfaces;
+package br.com.elasnojogo.views.interfaces;
 
-import br.com.elasnojogo.Model.DadosEvento;
+import br.com.elasnojogo.model.Evento;
 
 public interface EventoListener {
-    void enviaEvento(DadosEvento dadosEvento);
+    void enviarEvento(Evento evento);
 }

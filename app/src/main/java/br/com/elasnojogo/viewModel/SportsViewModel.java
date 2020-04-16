@@ -1,4 +1,4 @@
-package br.com.elasnojogo.ViewModel;
+package br.com.elasnojogo.viewModel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
-import br.com.elasnojogo.Model.Sport;
-import br.com.elasnojogo.Repository.SportsRepository;
+import br.com.elasnojogo.model.Sport;
+import br.com.elasnojogo.repository.SportsRepository;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;

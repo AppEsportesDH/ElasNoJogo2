@@ -1,6 +1,6 @@
-package br.com.elasnojogo.Network;
+package br.com.elasnojogo.network;
 
-import br.com.elasnojogo.Model.SportsResponse;
+import br.com.elasnojogo.model.SportsResponse;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 

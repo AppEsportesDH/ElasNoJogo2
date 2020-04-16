@@ -1,11 +1,11 @@
-package br.com.elasnojogo.Repository;
+package br.com.elasnojogo.repository;
 
 import android.content.Context;
 
 import java.util.List;
 
-import br.com.elasnojogo.Model.Evento;
-import br.com.elasnojogo.Repository.data.EventosDataBase;
+import br.com.elasnojogo.model.Evento;
+import br.com.elasnojogo.repository.data.EventosDataBase;
 import io.reactivex.Flowable;
 
 public class EventoRepository {

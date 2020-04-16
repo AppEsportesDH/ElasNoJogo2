@@ -1,15 +1,13 @@
-package br.com.elasnojogo.Repository.data;
+package br.com.elasnojogo.repository.data;
 import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverters;
 
-import br.com.elasnojogo.Model.Evento;
-import br.com.elasnojogo.Model.SegurancaMulher;
+import br.com.elasnojogo.model.Evento;
+import br.com.elasnojogo.model.SegurancaMulher;
 
 @Database(entities = {Evento.class, SegurancaMulher.class}, version = 1, exportSchema = false)
-@TypeConverters({Converters.class})
 public abstract class EventosDataBase extends RoomDatabase {
 
     public static volatile EventosDataBase INSTANCE;
@@ -27,4 +25,5 @@ public abstract class EventosDataBase extends RoomDatabase {
         }
         return INSTANCE;
     }
+
 }

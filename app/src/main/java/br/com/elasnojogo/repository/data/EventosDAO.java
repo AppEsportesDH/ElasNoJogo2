@@ -1,11 +1,11 @@
-package br.com.elasnojogo.Repository.data;
+package br.com.elasnojogo.repository.data;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 import java.util.List;
-import br.com.elasnojogo.Model.Evento;
+import br.com.elasnojogo.model.Evento;
 import io.reactivex.Flowable;
 
 @Dao

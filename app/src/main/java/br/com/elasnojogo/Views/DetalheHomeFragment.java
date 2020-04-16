@@ -1,9 +1,8 @@
-package br.com.elasnojogo.Views;
+package br.com.elasnojogo.views;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-
-import br.com.elasnojogo.Model.Sport;
+import br.com.elasnojogo.model.Sport;
 import br.com.elasnojogo2.R;
 
-import static br.com.elasnojogo.Constantes.Constantes.SPORT;
+import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
 
 
 public class DetalheHomeFragment extends Fragment {
@@ -38,7 +36,7 @@ public class DetalheHomeFragment extends Fragment {
 
             Bundle bundle = getArguments();
 
-            Sport result = bundle.getParcelable(SPORT);
+            Sport result = bundle.getParcelable(EVENTO_CHAVE);
 
             textViewCategoria.setText(result.getStrSport());
             textViewDescription.setText(result.getStrSportDescription());

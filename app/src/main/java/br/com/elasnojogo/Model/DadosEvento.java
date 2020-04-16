@@ -1,4 +1,4 @@
-package br.com.elasnojogo.Model;
+package br.com.elasnojogo.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -103,3 +103,4 @@ public class DadosEvento implements Parcelable {
 
     }
 }
+

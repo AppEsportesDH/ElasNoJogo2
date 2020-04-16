@@ -1,4 +1,4 @@
-package br.com.elasnojogo.Constantes;
+package br.com.elasnojogo.constantes;
 
 public class Constantes {
 

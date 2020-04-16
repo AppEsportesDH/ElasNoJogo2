@@ -1,29 +1,29 @@
-package br.com.elasnojogo.Views;
+package br.com.elasnojogo.views;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.elasnojogo.Views.interfaces.FavoritosView;
-import br.com.elasnojogo.Model.DadosEvento;
-import br.com.elasnojogo.Views.adapter.FavoritoRecyclerViewAdapter;
+import br.com.elasnojogo.model.Evento;
+import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
+import br.com.elasnojogo.views.interfaces.EventoListener;
 import br.com.elasnojogo2.R;
 
-import static br.com.elasnojogo.Constantes.Constantes.EVENTO_CHAVE;
+import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
 
-public class PesquisaFragment extends Fragment implements FavoritosView {
+public class PesquisaFragment extends Fragment implements EventoListener {
 
     private RecyclerView recyclerViewFavorito;
-    private FavoritoRecyclerViewAdapter adapter;
+    private EventoRecyclerViewAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,7 +31,7 @@ public class PesquisaFragment extends Fragment implements FavoritosView {
         View view = inflater.inflate(R.layout.fragment_pesquisa, container, false);
 
         recyclerViewFavorito = view.findViewById(R.id.recycler_view_favoritos);
-        adapter = new FavoritoRecyclerViewAdapter(getListaEventos(), this);
+        adapter = new EventoRecyclerViewAdapter(getListaEventos(), this);
         recyclerViewFavorito.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
@@ -44,21 +44,16 @@ public class PesquisaFragment extends Fragment implements FavoritosView {
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
 
-    private List<DadosEvento> getListaEventos() {
-        List<DadosEvento> eventos = new ArrayList<>();
-
-        eventos.add(new DadosEvento(R.drawable.futebol,"Fut das Migas", "Local: Digital House, SP", "Data: 20/10/2021"));
-        eventos.add(new DadosEvento(R.drawable.volei,"Liga de Volei Feminino", "Local: Avenida Paulista, 123", "Data: 21/01/2022"));
-        eventos.add(new DadosEvento(R.drawable.corrida,"Corrida na ZN", "Local: Avenida do Estado", "Data: 22/02/2023"));
-
+    private List<Evento> getListaEventos() {
+        List<Evento> eventos = new ArrayList<>();
         return eventos;
     }
 
     @Override
-    public void visualizarEvento(DadosEvento dadosEvento) {
+    public void enviarEvento(Evento evento) {
         Fragment fragment = new VisualizarEvento();
         Bundle bundle = new Bundle();
-        bundle.putParcelable(EVENTO_CHAVE, dadosEvento);
+        bundle.putParcelable(EVENTO_CHAVE, evento);
         fragment.setArguments(bundle);
 
         replaceFragment(fragment);

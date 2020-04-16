@@ -1,9 +1,10 @@
-package br.com.elasnojogo.Views;
+package br.com.elasnojogo.views;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,29 +23,33 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.elasnojogo.Views.interfaces.EventoListener;
-import br.com.elasnojogo.Views.interfaces.OnClick;
-import br.com.elasnojogo.Model.DadosEvento;
-import br.com.elasnojogo.Model.Sport;
-import br.com.elasnojogo.ViewModel.SportsViewModel;
-import br.com.elasnojogo.Views.adapter.EventoRecyclerViewAdapter;
-import br.com.elasnojogo.Views.adapter.SportRecyclerViewAdapter;
+
+import br.com.elasnojogo.model.Evento;
+import br.com.elasnojogo.repository.data.EventosDAO;
+import br.com.elasnojogo.repository.data.EventosDataBase;
+import br.com.elasnojogo.views.interfaces.EventoListener;
+import br.com.elasnojogo.model.Sport;
+import br.com.elasnojogo.viewModel.SportsViewModel;
+import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
+import br.com.elasnojogo.views.adapter.SportRecyclerViewAdapter;
 import br.com.elasnojogo2.R;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
-import static br.com.elasnojogo.Constantes.Constantes.EVENTO_CHAVE;
-import static br.com.elasnojogo.Constantes.Constantes.SPORT;
+import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
 
-public class HomeFragment extends Fragment implements EventoListener, OnClick {
+public class HomeFragment extends Fragment implements EventoListener {
 
     private RecyclerView recyclerViewEventos;
     private RecyclerView recyclerViewSports;
-    private EventoRecyclerViewAdapter adapter;
     private SportsViewModel sportsViewModel;
     private List<Sport> results = new ArrayList<>();
     private SportRecyclerViewAdapter sportRecyclerViewAdapter;
-
     private Button buttonCriarEvento;
     private TextView saudacao;
+    private List<Evento> listaEventos = new ArrayList<>();
+    private EventoRecyclerViewAdapter adapter;
+    public EventosDAO eventosDAO;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -56,11 +62,13 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         initViews(view);
 
-        adapter = new EventoRecyclerViewAdapter(getListaEventos(), this);
+        eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
+        buscarTodosEventos();
+        recyclerViewEventos = view.findViewById(R.id.recycler_view_eventos);
+        adapter = new EventoRecyclerViewAdapter(listaEventos, this);
         recyclerViewEventos.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerViewEventos.setLayoutManager(layoutManager);
-
         deixaNomeBold();
 
         sportsViewModel.getListSports();
@@ -68,10 +76,7 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         recyclerViewSports.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerViewSports.setAdapter(sportRecyclerViewAdapter);
-        sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results, this);
-
-
-        buttonCriarEvento.setOnClickListener(view1 -> replaceFragment(new EventoFragment()));
+        buttonCriarEvento.setOnClickListener(view12 -> replaceFragment(new CriarEventoFragment()));
 
         return view;
     }
@@ -88,42 +93,34 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
 
-    private List<DadosEvento> getListaEventos() {
-        List<DadosEvento> eventos = new ArrayList<>();
-
-        eventos.add(new DadosEvento(R.drawable.futebol, "Fut das Migas", "Digital House - São Paulo", "20/10/2021"));
-        eventos.add(new DadosEvento(R.drawable.volei, "Liga de Volei Feminino", "Avenida Paulista, 123", "21/01/2022"));
-        eventos.add(new DadosEvento(R.drawable.corrida, "Corrida na ZN", "Avenida do Estado", "22/02/2023"));
-
-        return eventos;
-    }
-
-    @Override
-    public void enviaEvento(DadosEvento dadosEvento) {
-        Fragment fragment = new VisualizarEvento();
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(EVENTO_CHAVE, dadosEvento);
-        fragment.setArguments(bundle);
-
-        replaceFragment(fragment);
-    }
-
     private void initViews(View view) {
         buttonCriarEvento = view.findViewById(R.id.criarevento_btn);
         recyclerViewEventos = view.findViewById(R.id.recycler_view_eventos);
         saudacao = view.findViewById(R.id.textViewSaudacao);
-
         recyclerViewSports = view.findViewById(R.id.recycler_view_Sports);
         sportsViewModel = ViewModelProviders.of(this).get(SportsViewModel.class);
+        sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results);
     }
 
     @Override
-    public void click(Sport sport) {
-        Fragment fragment = new DetalheHomeFragment();
+    public void enviarEvento(Evento evento) {
         Bundle bundle = new Bundle();
-        bundle.putParcelable(SPORT, sport);
-        fragment.setArguments(bundle);
-        replaceFragment(fragment);
+        bundle.putParcelable(EVENTO_CHAVE, evento);
+
+        Fragment detalheFragment = new VisualizarEvento();
+        detalheFragment.setArguments(bundle);
+        replaceFragment(detalheFragment);
     }
 
+    public void buscarTodosEventos() {
+        eventosDAO.retornaEventos()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(produtos -> {
+                            adapter.atualizaListaEvento(produtos);
+                        },
+                        throwable -> {
+                            Log.i("TAG", "método getAllEventos" + throwable.getMessage());
+                        });
+    }
 }

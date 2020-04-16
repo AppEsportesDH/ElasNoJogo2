@@ -1,4 +1,4 @@
-package br.com.elasnojogo.Views;
+package br.com.elasnojogo.views;
 
 import android.os.Bundle;
 

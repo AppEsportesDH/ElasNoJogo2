@@ -1,27 +1,20 @@
-package br.com.elasnojogo.Views;
-
+package br.com.elasnojogo.views;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-
+import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import br.com.elasnojogo.Model.DadosEvento;
+import br.com.elasnojogo.model.Evento;
 import br.com.elasnojogo2.R;
 
-import static br.com.elasnojogo.Constantes.Constantes.EVENTO_CHAVE;
+import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class VisualizarEvento extends Fragment {
-
     private ImageView imageViewLogo;
     private ImageView imageViewEvento;
     private TextView textViewNomeEvento;
@@ -46,18 +39,15 @@ public class VisualizarEvento extends Fragment {
             //passando os dados do arguments para o bundle
             Bundle bundle = getArguments();
             //passando o contato que está chegando para a variavel do tipo contato
-            DadosEvento dadosEvento = bundle.getParcelable(EVENTO_CHAVE);
+            Evento dadosEvento = bundle.getParcelable(EVENTO_CHAVE);
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                Drawable drawable = getResources().getDrawable(dadosEvento.getAdicionarImagem());
-
-                imageViewEvento.setImageDrawable(drawable);
 
             }
 
             textViewNomeEvento.setText(dadosEvento.getNomeEvento());
-            textViewLocalEvento.setText(getString(R.string.local) + dadosEvento.getLocalEvento());
-            textViewDataEvento.setText(getString(R.string.data) + dadosEvento.getDataEvento());
+            textViewLocalEvento.setText(getString(R.string.local) + dadosEvento.getLocal());
+            textViewDataEvento.setText(getString(R.string.data) + dadosEvento.getData());
         }
 
         imageViewLogo.setOnClickListener(view1 -> {

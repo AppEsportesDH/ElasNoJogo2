@@ -1,27 +1,23 @@
-package br.com.elasnojogo.Views.adapter;
+package br.com.elasnojogo.views.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
 
-import br.com.elasnojogo.Views.interfaces.EventoListener;
-import br.com.elasnojogo.Model.DadosEvento;
+import br.com.elasnojogo.model.Evento;
+import br.com.elasnojogo.views.interfaces.EventoListener;
 import br.com.elasnojogo2.R;
 
 public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecyclerViewAdapter.ViewHolder> {
-
-    private List<DadosEvento> eventos;
-
+    private List<Evento> eventos;
     private EventoListener listener;
 
-    public EventoRecyclerViewAdapter(List<DadosEvento> listaEventos, EventoListener listener) {
+    public EventoRecyclerViewAdapter(List<Evento> listaEventos, EventoListener listener) {
         this.eventos = listaEventos;
         this.listener = listener;
     }
@@ -35,15 +31,21 @@ public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecycl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final DadosEvento dadosEvento = eventos.get(position);
-
+        final Evento dadosEvento = eventos.get(position);
         holder.onBind(dadosEvento);
-
-        holder.itemView.setOnClickListener(v -> listener.enviaEvento(dadosEvento));
+        holder.itemView.setOnClickListener(v -> listener.enviarEvento(dadosEvento));
     }
 
     @Override
-    public int getItemCount() { return eventos.size(); }
+    public int getItemCount() {
+        return eventos.size();
+    }
+
+    public void atualizaListaEvento(List<Evento> listaEventos) {
+        this.eventos.clear();
+        this.eventos = listaEventos;
+        notifyDataSetChanged();
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView image;
@@ -60,11 +62,10 @@ public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecycl
             dataEvento = itemView.findViewById(R.id.text_view_data);
         }
 
-        public void onBind(DadosEvento dadosEvento) {
-            image.setImageResource(dadosEvento.getAdicionarImagem());
-            nomeEvento.setText(dadosEvento.getNomeEvento());
-            localEvento.setText(dadosEvento.getLocalEvento());
-            dataEvento.setText(dadosEvento.getDataEvento());
+        public void onBind(Evento evento) {
+            nomeEvento.setText(evento.getNomeEvento());
+            localEvento.setText(evento.getLocal());
+            dataEvento.setText(evento.getData());
         }
     }
 }

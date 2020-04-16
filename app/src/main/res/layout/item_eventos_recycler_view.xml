@@ -65,7 +65,7 @@
             android:layout_marginBottom="8dp"
             android:background="@color/containerClaro"
             android:padding="2dp"
-            android:text="@string/data"
+            android:text="@string/data_evento"
             android:textColor="@color/textoPesquisa"
             android:textSize="14sp"
             android:textStyle="bold"

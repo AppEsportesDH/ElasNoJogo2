@@ -1,4 +1,4 @@
-package br.com.elasnojogo.Views;
+package br.com.elasnojogo.views;
 
 import android.os.Bundle;
 
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,32 +14,39 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.elasnojogo.Views.interfaces.FavoritosView;
-import br.com.elasnojogo.Model.DadosEvento;
-import br.com.elasnojogo.Views.adapter.FavoritoRecyclerViewAdapter;
+import br.com.elasnojogo.model.Evento;
+import br.com.elasnojogo.repository.data.EventosDAO;
+import br.com.elasnojogo.repository.data.EventosDataBase;
+import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
+import br.com.elasnojogo.views.interfaces.EventoListener;
+
 import br.com.elasnojogo2.R;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
-import static br.com.elasnojogo.Constantes.Constantes.EVENTO_CHAVE;
+import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
 
+public class MeusEventosFragment extends Fragment implements EventoListener {
 
-public class MeusEventosFragment extends Fragment implements FavoritosView {
+    private List<Evento> listaEventos = new ArrayList<>();
+    private EventoRecyclerViewAdapter adapter;
+    private RecyclerView recyclerView;
+    public EventosDAO eventosDAO;
 
-    private RecyclerView recyclerViewFavorito;
-    private FavoritoRecyclerViewAdapter adapter;
-
+    public MeusEventosFragment() {
+        // Required empty public constructor
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_meus_eventos, container, false);
-
-        recyclerViewFavorito = view.findViewById(R.id.recycler_view_favoritos);
-        adapter = new FavoritoRecyclerViewAdapter(getListaEventos(), this);
-        recyclerViewFavorito.setAdapter(adapter);
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        recyclerViewFavorito.setLayoutManager(layoutManager);
-
+        eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
+        buscarTodosEventos();
+        recyclerView = view.findViewById(R.id.recycler_view_favoritos);
+        adapter = new EventoRecyclerViewAdapter(listaEventos, this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return view;
     }
 
@@ -46,23 +54,26 @@ public class MeusEventosFragment extends Fragment implements FavoritosView {
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
 
-    private List<DadosEvento> getListaEventos() {
-        List<DadosEvento> eventos = new ArrayList<>();
-
-        eventos.add(new DadosEvento(R.drawable.futebol,"Fut das Migas", "Local: Digital House, SP", "Data: 20/10/2021"));
-        eventos.add(new DadosEvento(R.drawable.volei,"Liga de Volei Feminino", "Local: Avenida Paulista, 123", "Data: 21/01/2022"));
-        eventos.add(new DadosEvento(R.drawable.corrida,"Corrida na ZN", "Local: Avenida do Estado", "Data: 22/02/2023"));
-
-        return eventos;
-    }
-
     @Override
-    public void visualizarEvento(DadosEvento dadosEvento) {
-        Fragment fragment = new VisualizarEvento();
+    public void enviarEvento(Evento evento) {
         Bundle bundle = new Bundle();
-        bundle.putParcelable(EVENTO_CHAVE, dadosEvento);
-        fragment.setArguments(bundle);
+        bundle.putParcelable(EVENTO_CHAVE, evento);
 
-        replaceFragment(fragment);
+        Fragment detalheFragment = new VisualizarEvento();
+        detalheFragment.setArguments(bundle);
+        replaceFragment(detalheFragment);
     }
+
+    public void buscarTodosEventos() {
+        eventosDAO.retornaEventos()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(produtos -> {
+                            adapter.atualizaListaEvento(produtos);
+                        },
+                        throwable -> {
+                            Log.i("TAG", "método getAllEventos" + throwable.getMessage());
+                        });
+    }
+
 }
