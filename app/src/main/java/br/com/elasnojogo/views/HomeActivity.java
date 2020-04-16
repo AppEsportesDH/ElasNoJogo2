@@ -54,9 +54,9 @@ public class HomeActivity extends AppCompatActivity {
           if (id == R.id.nav_home) {
                 replaceFragment(new HomeFragment());
             } else if (id == R.id.nav_favoritos) {
-                replaceFragment(new MeusEventosFragment());
+                replaceFragment(new br.com.elasnojogo.views.MeusEventosFragment());
             } else if (id == R.id.nav_pesquisar){
-                replaceFragment(new PesquisaFragment());
+                replaceFragment(new br.com.elasnojogo.views.PesquisaFragment());
             } else if (id == R.id.nav_sair){
                   Snackbar.make(toolbar,getString(R.string.sair),Snackbar.LENGTH_LONG).show();
             }

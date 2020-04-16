@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
         });
 
-        botao_cadastro.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, CadastroActivity.class)));
+        botao_cadastro.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, br.com.elasnojogo.views.CadastroActivity.class)));
     }
 
     private boolean validarEmailSenha(String emailInput, String senhaInput) {
@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             senha.setError(getString(preencha_campo));
             return false;
         } else {
-            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            Intent intent = new Intent(LoginActivity.this, br.com.elasnojogo.views.HomeActivity.class);
             intent.putExtra(getString(R.string.nome), emailInput);
             startActivity(intent);
             return true;

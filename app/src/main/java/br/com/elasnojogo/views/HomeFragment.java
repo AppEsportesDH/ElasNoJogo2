@@ -76,7 +76,7 @@ public class HomeFragment extends Fragment implements EventoListener {
 
         recyclerViewSports.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerViewSports.setAdapter(sportRecyclerViewAdapter);
-        buttonCriarEvento.setOnClickListener(view12 -> replaceFragment(new CriarEventoFragment()));
+        buttonCriarEvento.setOnClickListener(view12 -> replaceFragment(new br.com.elasnojogo.views.CriarEventoFragment()));
 
         return view;
     }
@@ -107,7 +107,7 @@ public class HomeFragment extends Fragment implements EventoListener {
         Bundle bundle = new Bundle();
         bundle.putParcelable(EVENTO_CHAVE, evento);
 
-        Fragment detalheFragment = new VisualizarEvento();
+        Fragment detalheFragment = new br.com.elasnojogo.views.VisualizarEvento();
         detalheFragment.setArguments(bundle);
         replaceFragment(detalheFragment);
     }
