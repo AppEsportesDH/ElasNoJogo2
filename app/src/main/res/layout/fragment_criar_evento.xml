@@ -43,7 +43,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
-            android:layout_width="370dp"
+            android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
@@ -64,11 +64,15 @@
                     android:hint="@string/nome_do_evento"
                     android:textColorHint="@color/branco"
                     android:textSize="14sp" />
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textLocalDoEvent"
-            android:layout_width="370dp"
+            android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
@@ -178,43 +182,20 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputCategori" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputCategoria" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputCategori"
-            android:layout_width="370dp"
+            android:id="@+id/textInputLayout3"
+            android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="76dp"
+            android:layout_marginLeft="76dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
             android:background="@color/container"
-            app:layout_constraintBottom_toTopOf="@+id/inserirImagem"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textLocalDoEvent"
-            app:layout_constraintVertical_bias="0.565">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputCategoria"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/categoria_evento"
-                    android:textColorHint="@color/branco" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout3"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
-            android:background="@color/container"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textInputLayout2"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -223,24 +204,24 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato_thin"
                     android:hint="@string/data_evento"
-                    android:inputType="date"
+                    android:inputType="datetime"
                     android:textColorHint="@color/branco"
                     android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="150dp"
+            android:id="@+id/textInputLayout2"
+            android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:background="@color/container"
-            app:layout_constraintBottom_toTopOf="@+id/textLocalDoEvent"
             app:layout_constraintEnd_toStartOf="@+id/textInputLayout3"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-            app:layout_constraintVertical_bias="0.388">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textHorarioDoEvento"
@@ -254,17 +235,30 @@
 
         <TextView
             android:id="@+id/segurancaEvento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="184dp"
+            android:layout_height="23dp"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
             android:text="@string/segurança_evento"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.16"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inserirImagem" />
+
+        <Spinner
+            android:id="@+id/textInputCategoria"
+            android:layout_width="367dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/container"
+            app:layout_constraintBottom_toTopOf="@+id/inserirImagem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textLocalDoEvent"
+            app:layout_constraintVertical_bias="0.565" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

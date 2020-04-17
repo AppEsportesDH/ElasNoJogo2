@@ -56,7 +56,6 @@ public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecycl
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            image = itemView.findViewById(R.id.circleImageView);
             nomeEvento = itemView.findViewById(R.id.text_view_nomeevento);
             localEvento = itemView.findViewById(R.id.text_view_local);
             dataEvento = itemView.findViewById(R.id.text_view_data);

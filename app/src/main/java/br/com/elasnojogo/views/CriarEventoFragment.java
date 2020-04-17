@@ -22,19 +22,21 @@ import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.repository.data.EventosDAO;
 import br.com.elasnojogo.repository.data.EventosDataBase;
 import br.com.elasnojogo2.R;
+import static br.com.elasnojogo2.R.string.preencha_campo;
 
 public class CriarEventoFragment extends Fragment {
     private TextView criarEvento;
     private TextView segurancaEvento;
     private ImageView imageViewLogo;
     private Button inserirImagem;
-    private Button cadastrarEvento;
     public EditText nomeImputEvento;
     public EditText tipoImputEvento;
     public EditText localImputEvento;
     public EditText dataImputEvento;
     public EditText horarioImputEvento;
     private EventosDAO eventosDAO;
+    private Button cadastrarEvento;
+    private ArrayList<String> opções = new ArrayList<>();
     private List<Evento> listaEvento = new ArrayList<>();
     private EventoViewModel viewModel;
     private EventoRecyclerViewAdapter adapter;
@@ -45,8 +47,8 @@ public class CriarEventoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_criar_evento, container, false);
         eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
 
-        initViews(view);
 
+        initViews(view);
         cadastrarEvento.setOnClickListener(v -> {
             String nomeEvento = nomeImputEvento.getText().toString();
             String local = localImputEvento.getText().toString();
@@ -54,15 +56,20 @@ public class CriarEventoFragment extends Fragment {
             String horario = horarioImputEvento.getText().toString();
             String categoriaEsportes = tipoImputEvento.getText().toString();
 
+            validarCampos(nomeEvento, local, data, horario, categoriaEsportes);
+
             new Thread(() -> {
                 Evento evento = new Evento(nomeEvento, data, horario, local, categoriaEsportes);
                 if (evento != null) {
                     eventosDAO.inserirEventos(evento);
                 }
 
+
             }).start();
         });
+
         return view;
+
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -77,7 +84,7 @@ public class CriarEventoFragment extends Fragment {
         localImputEvento = view.findViewById(R.id.textLocalDoEvento);
         horarioImputEvento = view.findViewById(R.id.textHorarioDoEvento);
         cadastrarEvento = view.findViewById(R.id.buttonCadastrarEvento);
-        CheckBox check = view.findViewById(R.id.check_naobi);
+        CheckBox checkNaoBi = view.findViewById(R.id.check_naobi);
         CheckBox checkbi = view.findViewById(R.id.checklbi);
         CheckBox checkTrans = view.findViewById(R.id.checkTrans);
         CheckBox checkLes = view.findViewById(R.id.checkles);
@@ -85,5 +92,20 @@ public class CriarEventoFragment extends Fragment {
         criarEvento = view.findViewById(R.id.criareventoText);
         nomeImputEvento = view.findViewById(R.id.textNomeEvento);
         segurancaEvento = view.findViewById(R.id.segurancaEvento);
+    }
+
+    private boolean validarCampos(String nomeEvento, String dataEvento, String horaEvento, String localEvento, String categoriaEvento) {
+        if (nomeEvento.isEmpty() && dataEvento.isEmpty() && horaEvento.isEmpty() && localEvento.isEmpty() && categoriaEvento.isEmpty()) {
+            nomeImputEvento.setError(getString(preencha_campo));
+            dataImputEvento.setError(getString(preencha_campo));
+            localImputEvento.setError(getString(preencha_campo));
+            horarioImputEvento.setError(getString(preencha_campo));
+            tipoImputEvento.setError(getString(preencha_campo));
+            return false;
+        } else {
+            Fragment mudar = new MeusEventosFragment();
+            replaceFragment(mudar);
+            return true;
+        }
     }
 }

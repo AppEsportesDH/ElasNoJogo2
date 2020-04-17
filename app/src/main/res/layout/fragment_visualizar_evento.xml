@@ -12,9 +12,8 @@
 
         <ImageView
             android:id="@+id/imageView_evento"
-            android:layout_width="380dp"
+            android:layout_width="0dp"
             android:layout_height="225dp"
-            android:padding="20dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="128dp"
@@ -22,20 +21,27 @@
             android:layout_marginRight="16dp"
             android:background="@color/container"
             android:orientation="vertical"
+            android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/nome_evento_visualizarfragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="245dp"
+            android:layout_height="35dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="442dp"
+            android:layout_marginRight="442dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/lato"
             android:text="@string/nome_evento"
             android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/local_visualizarfragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView_evento" />
 
@@ -94,7 +100,7 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="80dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"

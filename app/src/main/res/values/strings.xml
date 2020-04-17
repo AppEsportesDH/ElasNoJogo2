@@ -1,4 +1,5 @@
 <resources>
+    <string name="nome_cadastro">NOME</string>
     <string name="slogan">Encontre seu time!</string>
     <string name="logo">logo</string>
     <string name="digite_sua_senha">Digite sua senha</string>
@@ -8,12 +9,13 @@
     <string name="entre_usando">ENTRE USANDO</string>
     <string name="n_o_tenho_conta">NÃO TENHO CONTA</string>
     <string name="mensagem_home">Olá, %1$s</string>
-    <string name="nome_evento">NOME EVENTO</string>
+    <string name="nome_evento">Nome Evento</string>
     <string name="nome">%1$s</string>
     <string name="email">%2$s</string>
     <string name="telefone">%3$s</string>
     <string name="senha">%4$s</string>
-    <string name="local">LOCAL</string>
+    <string name="data">data</string>
+    <string name="local">Local</string>
     <string name="categoria">CATEGORIA</string>
     <string name="criar_evento">Criar Evento</string>
     <string name="nome_perfil">NOME</string>
@@ -22,14 +24,15 @@
     <string name="senha_perfil">SENHA</string>
     <string name="salvar">SALVAR</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="favoritos">FAVORITOS</string>
+    <string name="meus_eventos">MEUS EVENTOS</string>
     <string name="eventos">EVENTOS</string>
-    <string name="criarEvento">CRIAR EVENTO</string>
-    <string name="data_evento">DATA</string>
+    <string name="criarevento">CRIAR EVENTO</string>
+    <string name="nome_do_evento">NOME DO EVENTO</string>
+    <string name="data_evento">Data</string>
     <string name="horario_evento">HORÁRIO</string>
     <string name="local_evento">LOCAL</string>
     <string name="categoria_evento">CATEGORIA</string>
-    <string name="inserir_imagem">INSERIR UMA IMAGEM...</string>
+    <string name="inserir_imagem">INSERIR UMA IMAGEM</string>
     <string name="segurança_evento">Esse evento é seguro para:</string>
     <string name="check_trans">Mulheres trans</string>
     <string name="check_bi">Mulheres bissexuais</string>
@@ -62,8 +65,23 @@
     <string name="favoritar">FAVORITAR</string>
     <string name="elas_no_jogo">Elas no jogo</string>
     <string name="ola_nome">Olá, Nome</string>
-    <string name="nome_do_evento">NOME DO EVENTO</string>
-
+    <string name="identificacao">IDENTIFICO-ME COMO</string>
+    <string name="email_cadastro">EMAIL</string>
+    <string name="telefone_cadastro">TELEFONE</string>
+    <string name="senha_cadastro">SENHA</string>
+    <string name="confirmar_senha">CONFIRMAR SENHA</string>
+    <string name="seleciona_interesses">SELECIONE 3 INTERESSES</string>
+    <string name="esporte1">ESPORTE1</string>
+    <string name="esporte2">ESPORTE2</string>
+    <string name="esporte3">ESPORTE3</string>
+    <string name="cadastrar">CADASTRAR</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="linha1">Linha 1</string>
+    <string name="linha2">Linha 2</string>
+    <string name="ola">Olá</string>
+    <string name="usuario">Usúario</string>
+    <string name="preencha_campo">Preencha os campos!
+    </string>
     <string-array name="lista_identificacao">
         <item>mulher cis</item>
         <item>mulher lésbica</item>
@@ -71,5 +89,12 @@
         <item>não-binário</item>
         <item>não me identifico como mulher nem não-binário</item>
     </string-array>
+
+    <string-array name="lista_esportes">
+     <item>Futebol</item>
+        <item>Futsal</item>
+        <item>Basquete</item>
+    </string-array>
+
 
 </resources>
