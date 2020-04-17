@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,9 +11,12 @@
         android:id="@+id/imageView5"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="350dp"
+        android:layout_marginRight="350dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
@@ -35,11 +37,13 @@
 
     <TextView
         android:id="@+id/identificacao"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/lato"
         android:text="@string/identificacao"
@@ -47,6 +51,7 @@
         android:textSize="14sp"
         android:typeface="sans"
         app:layout_constraintBottom_toTopOf="@+id/spinner_genero"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cadastro" />
 
@@ -74,7 +79,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/nome_usuario"
-        android:layout_width="380dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -94,7 +99,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/email"
-        android:layout_width="380dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -114,7 +119,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/telefone"
-        android:layout_width="380dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -134,7 +139,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/senha"
-        android:layout_width="380dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -154,7 +159,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/confirmarSenha"
-        android:layout_width="380dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -189,7 +194,7 @@
 
     <TextView
         android:id="@+id/esporte1"
-        android:layout_width="85dp"
+        android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
@@ -209,7 +214,7 @@
 
     <TextView
         android:id="@+id/esporte2"
-        android:layout_width="85dp"
+        android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -229,7 +234,7 @@
 
     <TextView
         android:id="@+id/esporte3"
-        android:layout_width="85dp"
+        android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"

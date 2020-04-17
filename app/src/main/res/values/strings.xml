@@ -9,13 +9,13 @@
     <string name="entre_usando">ENTRE USANDO</string>
     <string name="n_o_tenho_conta">NÃO TENHO CONTA</string>
     <string name="mensagem_home">Olá, %1$s</string>
-    <string name="nome_evento">nome evento</string>
+    <string name="nome_evento">Nome Evento</string>
     <string name="nome">%1$s</string>
     <string name="email">%2$s</string>
     <string name="telefone">%3$s</string>
     <string name="senha">%4$s</string>
     <string name="data">data</string>
-    <string name="local">local</string>
+    <string name="local">Local</string>
     <string name="categoria">CATEGORIA</string>
     <string name="criar_evento">Criar Evento</string>
     <string name="nome_perfil">NOME</string>
@@ -24,11 +24,11 @@
     <string name="senha_perfil">SENHA</string>
     <string name="salvar">SALVAR</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="favoritos">FAVORITOS</string>
+    <string name="meus_eventos">MEUS EVENTOS</string>
     <string name="eventos">EVENTOS</string>
     <string name="criarevento">CRIAR EVENTO</string>
     <string name="nome_do_evento">NOME DO EVENTO</string>
-    <string name="data_evento">DATA</string>
+    <string name="data_evento">Data</string>
     <string name="horario_evento">HORÁRIO</string>
     <string name="local_evento">LOCAL</string>
     <string name="categoria_evento">CATEGORIA</string>
@@ -80,14 +80,21 @@
     <string name="linha2">Linha 2</string>
     <string name="ola">Olá</string>
     <string name="usuario">Usúario</string>
-    <string name="preencha_campo">Preencha os campos!</string>
+    <string name="preencha_campo">Preencha os campos!
+    </string>
     <string-array name="lista_identificacao">
-
         <item>mulher cis</item>
         <item>mulher lésbica</item>
         <item>mulher trans</item>
         <item>não-binário</item>
         <item>não me identifico como mulher nem não-binário</item>
     </string-array>
+
+    <string-array name="lista_esportes">
+     <item>Futebol</item>
+        <item>Futsal</item>
+        <item>Basquete</item>
+    </string-array>
+
 
 </resources>

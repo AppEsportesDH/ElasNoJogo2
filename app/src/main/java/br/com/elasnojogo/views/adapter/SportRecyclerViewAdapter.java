@@ -46,6 +46,7 @@ public class SportRecyclerViewAdapter extends RecyclerView.Adapter<SportRecycler
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 listener.click(result);
             }
         });

@@ -15,7 +15,7 @@ import br.com.elasnojogo2.R;
 
 public class CadastroActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    Button cadastrar;
+    private Button cadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +27,14 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
         cadastrar.setOnClickListener(clique);
 
         Spinner spinnerIdentificacao = findViewById(R.id.spinner_genero);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.lista_identificacao, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.lista_identificacao, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinnerIdentificacao.setAdapter(adapter);
         spinnerIdentificacao.setOnItemSelectedListener(this);
-
-
     }
 
     View.OnClickListener clique = v -> {
-        Intent intent = new Intent(CadastroActivity.this, br.com.elasnojogo.views.LoginActivity.class);
+        Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
         Usuario usuario = new Usuario("Sol", "silmarasol@hotmail.com", "11996887098", "RFD234", "RFD234");
 
         Bundle bundle = new Bundle();
@@ -55,7 +53,6 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
 
 }
