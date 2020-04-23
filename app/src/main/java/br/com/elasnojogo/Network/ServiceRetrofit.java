@@ -1,8 +1,8 @@
-package br.com.elasnojogo.Network;
-
-import com.facebook.stetho.BuildConfig;
+package br.com.elasnojogo.network;
 
 import java.util.concurrent.TimeUnit;
+
+import com.facebook.stetho.BuildConfig;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/backgroundwatercolor"
-    tools:context="br.com.elasnojogo.Views.FavoritosFragment">
+    tools:context="br.com.elasnojogo.views.MeusEventosFragment">
 
     <TextView
         android:id="@+id/favoritos"
@@ -78,7 +78,7 @@
         android:layout_marginTop="4dp"
 
         android:fontFamily="@font/lato"
-        android:text="@string/data"
+        android:text="@string/data_evento"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
         app:layout_constraintTop_toBottomOf="@+id/text_view_local" />
