@@ -182,7 +182,7 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputCategoria" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputCategori" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout3"
@@ -248,17 +248,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inserirImagem" />
 
-        <Spinner
-            android:id="@+id/textInputCategoria"
-            android:layout_width="367dp"
-            android:layout_height="49dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputCategori"
+            android:layout_width="370dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:background="@color/container"
             app:layout_constraintBottom_toTopOf="@+id/inserirImagem"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textLocalDoEvent"
-            app:layout_constraintVertical_bias="0.565" />
+            app:layout_constraintVertical_bias="0.565">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputCategoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/categoria_evento"
+                    android:textColorHint="@color/branco" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
