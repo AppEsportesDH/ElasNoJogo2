@@ -33,16 +33,19 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
         spinnerIdentificacao.setOnItemSelectedListener(this);
     }
 
-    View.OnClickListener clique = v -> {
-        Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
-        Usuario usuario = new Usuario("Sol", "silmarasol@hotmail.com", "11996887098", "RFD234", "RFD234");
+    View.OnClickListener clique = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
+            Usuario usuario = new Usuario("Sol", "silmarasol@hotmail.com", "11996887598", "RFD234", "RFD234");
 
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(getString(R.string.usuario), usuario);
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(CadastroActivity.this.getString(R.string.usuario), usuario);
 
-        intent.putExtras(bundle);
+            intent.putExtras(bundle);
 
-        startActivity(intent);
+            CadastroActivity.this.startActivity(intent);
+        }
     };
 
 
