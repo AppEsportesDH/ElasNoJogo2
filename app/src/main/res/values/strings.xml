@@ -17,7 +17,7 @@
     <string name="data">data</string>
     <string name="local">Local</string>
     <string name="categoria">CATEGORIA</string>
-    <string name="criar_evento">Criar Evento</string>
+    <string name="criar_evento">CRIAR EVENTO</string>
     <string name="nome_perfil">NOME</string>
     <string name="email_perfil">EMAIL</string>
     <string name="telefone_perfil">TELEFONE</string>
@@ -28,7 +28,7 @@
     <string name="eventos">EVENTOS</string>
     <string name="criarevento">CRIAR EVENTO</string>
     <string name="nome_do_evento">NOME DO EVENTO</string>
-    <string name="data_evento">Data</string>
+    <string name="data_evento">DATA</string>
     <string name="horario_evento">HORÁRIO</string>
     <string name="local_evento">LOCAL</string>
     <string name="categoria_evento">CATEGORIA</string>
