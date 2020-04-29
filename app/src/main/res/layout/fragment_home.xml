@@ -14,6 +14,16 @@
         android:background="@drawable/backgroundwatercolor"
         tools:context="br.com.elasnojogo.views.HomeFragment">
 
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <TextView
             android:id="@+id/textViewSaudacao"
             android:layout_width="126dp"
@@ -52,50 +62,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_Sports"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/criarevento_btn"
+            android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_eventos" />
 
-        <Button
-            android:id="@+id/criarevento_btn"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="227dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@color/branco"
-            android:drawableRight="@drawable/ic_mais_btn"
-            android:drawablePadding="8dp"
-            android:fontFamily="@font/lato_bold"
-            android:padding="8dp"
-            android:text="@string/criar_evento"
-            android:textColor="@color/btn"
-            android:textSize="20sp"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingButtonCriarEvento"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/colorHint"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_add_80dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_view_Sports" />
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/imgSair"

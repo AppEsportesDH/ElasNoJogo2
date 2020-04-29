@@ -10,10 +10,10 @@
     <string name="n_o_tenho_conta">NÃO TENHO CONTA</string>
     <string name="mensagem_home">Olá, %1$s</string>
     <string name="nome_evento">Nome Evento</string>
-    <string name="nome">%1$s</string>
-    <string name="email">%2$s</string>
-    <string name="telefone">%3$s</string>
-    <string name="senha">%4$s</string>
+    <string name="nome">Nome%1$s</string>
+    <string name="email">Email</string>
+    <string name="telefone">Telefone</string>
+    <string name="senha">Senha</string>
     <string name="data">data</string>
     <string name="local">Local</string>
     <string name="categoria">CATEGORIA</string>
@@ -59,7 +59,7 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="perfil">Perfil</string>
-    <string name="favoritos_drawer">Favoritos</string>
+    <string name="favoritos_drawer">Meus Eventos</string>
     <string name="pesquisar_drawer">Pesquisar</string>
     <string name="sair">Sair</string>
     <string name="favoritar">FAVORITAR</string>
@@ -71,9 +71,6 @@
     <string name="senha_cadastro">SENHA</string>
     <string name="confirmar_senha">CONFIRMAR SENHA</string>
     <string name="seleciona_interesses">SELECIONE 3 INTERESSES</string>
-    <string name="esporte1">ESPORTE1</string>
-    <string name="esporte2">ESPORTE2</string>
-    <string name="esporte3">ESPORTE3</string>
     <string name="cadastrar">CADASTRAR</string>
     <string name="entrar">ENTRAR</string>
     <string name="linha1">Linha 1</string>
@@ -82,6 +79,7 @@
     <string name="usuario">Usúario</string>
     <string name="preencha_campo">Preencha os campos!
     </string>
+    <string name="sair">Sair</string>
     <string-array name="lista_identificacao">
         <item>mulher cis</item>
         <item>mulher lésbica</item>

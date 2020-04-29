@@ -11,77 +11,56 @@
     app:cardBackgroundColor="@color/containerClaro">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="509dp"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
 
-        <!--        <ImageView-->
-        <!--            android:id="@+id/circleImageView"-->
-        <!--            android:layout_width="229dp"-->
-        <!--            android:layout_height="224dp"-->
-        <!--            android:scaleType="centerCrop"-->
-        <!--            android:src="@drawable/event"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <TextView
             android:id="@+id/text_view_nomeevento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="274dp"
-            android:layout_marginRight="274dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="60dp"
             android:background="@color/containerClaro"
-            android:padding="2dp"
+            android:padding="3dp"
             android:text="@string/nome_evento"
             android:textColor="@color/textoPesquisa"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.057"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_view_local"
-            android:layout_width="60dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="325dp"
-            android:layout_marginRight="325dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:background="@color/containerClaro"
-            android:padding="2dp"
+            android:padding="3dp"
             android:text="@string/local"
             android:textColor="@color/textoPesquisa"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.068"
+            app:layout_constraintHorizontal_bias="0.043"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_view_data" />
 
         <TextView
             android:id="@+id/text_view_data"
-            android:layout_width="70dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="309dp"
-            android:layout_marginRight="309dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:background="@color/containerClaro"
-            android:padding="2dp"
+            android:padding="3dp"
             android:text="@string/data_evento"
             android:textColor="@color/textoPesquisa"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.065"
+            app:layout_constraintHorizontal_bias="0.042"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_view_nomeevento" />
 
