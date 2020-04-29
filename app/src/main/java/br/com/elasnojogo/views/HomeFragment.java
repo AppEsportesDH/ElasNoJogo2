@@ -20,6 +20,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +47,7 @@ public class HomeFragment extends Fragment implements EventoListener {
     private SportsViewModel sportsViewModel;
     private List<Sport> results = new ArrayList<>();
     private SportRecyclerViewAdapter sportRecyclerViewAdapter;
-    private Button buttonCriarEvento;
+    private FloatingActionButton floatingButtonCriarEvento;
     private TextView saudacao;
     private List<Evento> listaEventos = new ArrayList<>();
     private EventoRecyclerViewAdapter adapter;
@@ -67,6 +69,7 @@ public class HomeFragment extends Fragment implements EventoListener {
         recyclerViewEventos = view.findViewById(R.id.recycler_view_eventos);
         adapter = new EventoRecyclerViewAdapter(listaEventos, this);
         recyclerViewEventos.setAdapter(adapter);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerViewEventos.setLayoutManager(layoutManager);
         deixaNomeBold();
@@ -76,7 +79,7 @@ public class HomeFragment extends Fragment implements EventoListener {
 
         recyclerViewSports.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerViewSports.setAdapter(sportRecyclerViewAdapter);
-        buttonCriarEvento.setOnClickListener(view12 -> replaceFragment(new br.com.elasnojogo.views.CriarEventoFragment()));
+        floatingButtonCriarEvento.setOnClickListener(view12 -> replaceFragment(new br.com.elasnojogo.views.CriarEventoFragment()));
 
         return view;
     }
@@ -94,12 +97,11 @@ public class HomeFragment extends Fragment implements EventoListener {
     }
 
     private void initViews(View view) {
-        buttonCriarEvento = view.findViewById(R.id.criarevento_btn);
+        floatingButtonCriarEvento = view.findViewById(R.id.floatingButtonCriarEvento);
         recyclerViewEventos = view.findViewById(R.id.recycler_view_eventos);
         saudacao = view.findViewById(R.id.textViewSaudacao);
         recyclerViewSports = view.findViewById(R.id.recycler_view_Sports);
         sportsViewModel = ViewModelProviders.of(this).get(SportsViewModel.class);
-        sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results);
     }
 
     @Override
