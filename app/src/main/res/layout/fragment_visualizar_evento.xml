@@ -1,14 +1,17 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
+    
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/backgroundwatercolor">
+        android:background="@drawable/backgroundwatercolor"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="221dp">
 
         <ImageView
             android:id="@+id/imageView_evento"
@@ -38,12 +41,24 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/lato"
             android:text="@string/nome_evento"
+            android:textAllCaps="true"
+            android:textColor="@color/btn"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/local_visualizarfragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView_evento" />
+
+        <TextView
+            android:id="@+id/stroke_nome"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/btn"
+            app:layout_constraintTop_toBottomOf="@+id/nome_evento_visualizarfragment"/>
 
         <TextView
             android:id="@+id/local_visualizarfragment"
@@ -52,11 +67,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="319dp"
-            android:layout_marginRight="319dp"
             android:fontFamily="@font/lato"
             android:text="@string/local"
-            android:textSize="24sp"
+            android:textColor="@color/preto"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nome_evento_visualizarfragment" />
@@ -68,35 +83,29 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="330dp"
-            android:layout_marginRight="330dp"
             android:fontFamily="@font/lato"
-            android:text="@string/data_evento"
-            android:textSize="24sp"
+            android:text="@string/data"
+            android:textColor="@color/preto"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/local_visualizarfragment" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/compartilhar"
-            android:layout_width="151dp"
-            android:layout_height="66dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="32dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
             android:clickable="true"
+            android:foregroundGravity="bottom"
+            android:scaleType="center"
             android:src="?attr/actionModeShareDrawable"
             android:tint="@color/btn"
             app:backgroundTint="#FCFFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.453"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/data_visualizarfragment"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -115,4 +124,4 @@
             app:srcCompat="@drawable/logo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

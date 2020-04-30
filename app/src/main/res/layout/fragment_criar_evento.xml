@@ -53,7 +53,6 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
-                    android:textColor="@color/colorAccent"
                     android:textColorHint="@color/textoPesquisa"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +78,6 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
-                    android:textColor="@color/colorAccent"
                     android:textColorHint="@color/textoPesquisa"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -97,102 +95,6 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <CheckBox
-                    android:id="@+id/checkTrans"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="@string/check_trans"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toStartOf="@+id/checklbi"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/segurancaEvento" />
-
-                <CheckBox
-                    android:id="@+id/checkles"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="@string/check_les"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toStartOf="@+id/check_naobi"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/checkTrans" />
-
-                <CheckBox
-                    android:id="@+id/checklbi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="@string/check_bi"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/checkTrans"
-                    app:layout_constraintTop_toBottomOf="@+id/segurancaEvento" />
-
-                <CheckBox
-                    android:id="@+id/check_naobi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="@string/check_naobi"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/checkles"
-                    app:layout_constraintTop_toBottomOf="@+id/checklbi" />
-
-                <Button
-                    android:id="@+id/buttonCadastrarEvento"
-                    android:layout_width="255dp"
-                    android:layout_height="45dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:background="@color/btn"
-                    android:text="@string/cadastrar_evento"
-                    android:textColor="@color/branco"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/check_naobi" />
-
-                <Button
-                    android:id="@+id/inserirImagem"
-                    android:layout_width="255dp"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="32dp"
-                    android:background="@color/brancotransparente"
-                    android:shadowColor="@color/vinho"
-
-                    android:shadowDx="20"
-                    android:shadowDy="20"
-                    android:shadowRadius="20"
-                    android:text="@string/inserir_imagem"
-                    android:textColor="@color/textoPesquisa"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/categoria" />
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/horario"
                     android:layout_width="0dp"
@@ -202,7 +104,6 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
-                    android:textColor="@color/colorAccent"
                     android:textColorHint="@color/textoPesquisa"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/data"
@@ -227,7 +128,6 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
-                    android:textColor="@color/colorAccent"
                     android:textColorHint="@color/textoPesquisa"
                     app:layout_constraintEnd_toStartOf="@+id/horario"
                     app:layout_constraintStart_toStartOf="parent"
@@ -243,6 +143,103 @@
                             android:textSize="14sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <CheckBox
+                    android:id="@+id/checkTrans"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="@string/check_trans"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@+id/checklbi"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/segurancaEvento" />
+
+                <CheckBox
+                    android:id="@+id/checkles"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="@string/check_les"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@+id/check_naobi"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/checkTrans" />
+
+                <CheckBox
+                    android:id="@+id/checklbi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="@string/check_bi"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/checkTrans"
+                    app:layout_constraintTop_toBottomOf="@+id/segurancaEvento" />
+
+                <CheckBox
+                    android:id="@+id/check_naobi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="@string/check_naobi"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/checkles"
+                    app:layout_constraintTop_toBottomOf="@+id/checklbi" />
+
+                <Button
+                    android:id="@+id/buttonCadastrarEvento"
+                    android:layout_width="255dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/btn"
+                    android:text="@string/cadastrar_evento"
+                    android:textColor="@color/branco"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/check_naobi" />
+
+                <Button
+                    android:id="@+id/inserirImagem"
+                    android:layout_width="255dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@color/brancotransparente"
+                    android:shadowColor="@color/vinho"
+                    android:shadowDx="20"
+                    android:shadowDy="20"
+                    android:shadowRadius="20"
+                    android:text="@string/inserir_imagem"
+                    android:textColor="@color/textoPesquisa"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/categoria" />
+
                 <TextView
                     android:id="@+id/segurancaEvento"
                     android:layout_width="184dp"
@@ -252,9 +249,11 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/preto"
                     android:text="@string/segurança_evento"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.174"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/inserirImagem" />
 
@@ -265,7 +264,6 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="14dp"
                     android:layout_marginEnd="16dp"
-                    android:textColor="@color/colorAccent"
                     android:textColorHint="@color/textoPesquisa"
                     app:layout_constraintBottom_toTopOf="@+id/inserirImagem"
                     app:layout_constraintEnd_toEndOf="parent"

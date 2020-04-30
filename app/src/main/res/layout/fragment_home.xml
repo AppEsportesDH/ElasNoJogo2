@@ -24,26 +24,30 @@
             android:src="@drawable/logo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/textViewSaudacao"
-            android:layout_width="126dp"
-            android:layout_height="49dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/lato_bold"
+            android:gravity="center"
             android:text="@string/ola_nome"
             android:textColor="@color/textoPesquisa"
             android:textSize="22sp"
-            app:layout_constraintEnd_toStartOf="@+id/imgSair"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/logo"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="108dp"
+            android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/lato_bold"
             android:text="@string/eventos"
+            android:textAlignment="center"
+            android:gravity="center"
             android:textColor="@color/textoPesquisa"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +66,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingButtonCriarEvento"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/btn"
+            android:clickable="true"
+            android:layout_marginBottom="24dp"
+            android:layout_marginRight="24dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_add_80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.912"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_Sports"
             android:layout_width="0dp"
@@ -71,33 +90,6 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_eventos" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingButtonCriarEvento"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/colorHint"
-            android:clickable="true"
-            android:scaleType="center"
-            android:src="@drawable/ic_add_80dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/imgSair"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_exit"
-            tools:ignore="VectorDrawableCompat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

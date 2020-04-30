@@ -36,7 +36,7 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
     View.OnClickListener clique = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
+            Intent intent = new Intent(CadastroActivity.this, HomeActivity.class);
             Usuario usuario = new Usuario("Sol", "silmarasol@hotmail.com", "11996887598", "RFD234", "RFD234");
 
             Bundle bundle = new Bundle();

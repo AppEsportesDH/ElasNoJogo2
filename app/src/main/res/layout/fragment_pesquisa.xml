@@ -33,24 +33,29 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:background="@color/container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pesquisar" />
 
-    <TextView
-        android:id="@+id/resultados"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Text_layout_pesquisar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/lato"
-        android:text="@string/resultados"
-        android:textColor="@color/textoPesquisa"
-        android:textSize="18sp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="70dp"
+        android:textColorHint="@color/textoPesquisa"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_pesquisa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/pesquisar"
+            android:layout_marginLeft="36dp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_favoritos"
@@ -61,23 +66,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultados"
+        app:layout_constraintTop_toBottomOf="@+id/Text_layout_pesquisar"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/filtros"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/brancotransparente"
-        android:fontFamily="@font/lato"
-        android:text="@string/filtros"
-        android:textColor="@color/textoPesquisa"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

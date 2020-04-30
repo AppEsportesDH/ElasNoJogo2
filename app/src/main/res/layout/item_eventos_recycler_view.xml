@@ -14,7 +14,7 @@
 
         <ImageView
             android:id="@+id/imageView_evento"
-            android:layout_width="180dp"
+            android:layout_width="220dp"
             android:layout_height="120dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
@@ -35,7 +35,8 @@
             android:layout_marginLeft="8dp"
             android:fontFamily="@font/lato"
             android:text="@string/nome_evento"
-            android:textColor="@color/colorText"
+            android:textColor="@color/btn"
+            android:textAllCaps="true"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView_evento"
@@ -51,7 +52,7 @@
             android:fontFamily="@font/lato"
             android:text="@string/local"
             android:textSize="12sp"
-            android:textColor="@color/colorText"
+            android:textColor="@color/colorAccent"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView_evento"
             app:layout_constraintTop_toBottomOf="@+id/nome_evento_visualizarfragment" />
@@ -64,9 +65,9 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/lato"
-            android:text="@string/data_evento"
+            android:text="@string/data"
             android:textSize="12sp"
-            android:textColor="@color/colorText"
+            android:textColor="@color/colorAccent"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView_evento"
             app:layout_constraintTop_toBottomOf="@+id/local_visualizarfragment" />

@@ -17,7 +17,7 @@
         android:layout_height="150dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
@@ -60,10 +60,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container_perfil"
         android:layout_width="380dp"
-        android:layout_height="370dp"
+        android:layout_height="200dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
@@ -75,127 +75,57 @@
         app:layout_constraintTop_toBottomOf="@+id/nome">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
+            android:id="@+id/constraint_layout_perfil"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-                <TextView
-                    android:id="@+id/nome_perfil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/lato"
-                    android:text="@string/nome_perfil"
-                    android:textColor="@color/textoPesquisa"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/editText_nome"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-
-            <EditText
-                android:id="@+id/editText_nome"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_layout_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:fontFamily="@font/lato"
-                android:text="@string/nome"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@+id/email_perfil"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColorHint="@color/textoPesquisa"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nome_perfil" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                    android:id="@+id/email_perfil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/lato"
-                    android:text="@string/email_perfil"
-                    android:textColor="@color/textoPesquisa"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/editText_email"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editText_nome" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_nome_perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:hint="@string/nome_perfil"
+                    android:textSize="14sp" />
 
-                <EditText
-                    android:id="@+id/editText_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="0dp"
-                    android:fontFamily="@font/lato"
-                    android:text="@string/email"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toTopOf="@+id/telefone_perfil"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/email_perfil" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/telefone_perfil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/lato"
-                    android:textColor="@color/textoPesquisa"
-                    android:text="@string/telefone_perfil"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/editText_telefone"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editText_email" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_layout_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColorHint="@color/textoPesquisa"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_input_layout_nome">
 
-                <EditText
-                    android:id="@+id/editText_telefone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="0dp"
-                    android:fontFamily="@font/lato"
-                    android:text="@string/telefone"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toTopOf="@+id/senha_perfil"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/telefone_perfil" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_email_perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:hint="@string/email_perfil"
+                    android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/senha_perfil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/lato"
-                    android:text="@string/senha_perfil"
-                    android:textColor="@color/textoPesquisa"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/editText_senha"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editText_telefone" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/editText_senha"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/lato"
-                    android:text="@string/senha"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/senha_perfil" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
             android:id="@+id/salvar_btn"
@@ -216,17 +146,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/container_perfil" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

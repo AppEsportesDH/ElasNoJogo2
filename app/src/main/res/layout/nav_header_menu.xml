@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="@string/nome_perfil"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:layout_marginTop="8dp"
         android:textColor="@color/textoPesquisa"
@@ -37,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/email_perfil"
+        android:textSize="12sp"
         android:layout_marginTop="8dp"
         android:textColor="@color/textoPesquisa"
         android:textStyle="bold"/>

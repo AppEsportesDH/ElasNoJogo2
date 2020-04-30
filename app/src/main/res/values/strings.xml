@@ -14,8 +14,8 @@
     <string name="email">Email</string>
     <string name="telefone">Telefone</string>
     <string name="senha">Senha</string>
-    <string name="data">data</string>
-    <string name="local">Local</string>
+    <string name="data">Data: </string>
+    <string name="local">Local: </string>
     <string name="categoria">CATEGORIA</string>
     <string name="criar_evento">CRIAR EVENTO</string>
     <string name="nome_perfil">NOME</string>
@@ -79,6 +79,7 @@
     <string name="usuario">Usúario</string>
     <string name="preencha_campo">Preencha os campos!
     </string>
+    <string name="editar_perfil">Editar Perfil</string>
     <string-array name="lista_identificacao">
         <item>mulher cis</item>
         <item>mulher lésbica</item>

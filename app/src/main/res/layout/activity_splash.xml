@@ -22,7 +22,7 @@
         android:fontFamily="@font/lato"
         android:text="@string/slogan"
         android:textAlignment="center"
-        android:textColor="@color/colorHint"
+        android:textColor="@color/btn"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

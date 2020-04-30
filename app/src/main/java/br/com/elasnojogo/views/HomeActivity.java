@@ -2,6 +2,7 @@ package br.com.elasnojogo.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -38,34 +39,28 @@ public class HomeActivity extends AppCompatActivity {
 
         NavigationView navigationView = findViewById(R.id.nav_view);
 
-        View headView = navigationView.getHeaderView(0);
-        ImageView imageProfile = headView.findViewById(R.id.nav_imageView);
-        imageProfile.setOnClickListener(v -> {
-                  Intent i = new Intent(HomeActivity.this, PerfilFragment.class);
-                  startActivity(i);
-        });
 
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_meus_eventos, R.id.nav_pesquisar, R.id.nav_editarPerfil).setDrawerLayout(drawer).build();
 
-        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_favoritos, R.id.nav_pesquisar, R.id.nav_sair).setDrawerLayout(drawer).build();
-
-        navigationView.setNavigationItemSelectedListener(menuItem -> {
-            int id = menuItem.getItemId();
-
-          if (id == R.id.nav_home) {
-                replaceFragment(new HomeFragment());
-            } else if (id == R.id.nav_favoritos) {
-                replaceFragment(new br.com.elasnojogo.views.MeusEventosFragment());
-            } else if (id == R.id.nav_pesquisar){
-                replaceFragment(new br.com.elasnojogo.views.PesquisaFragment());
-            } else if (id == R.id.nav_sair){
-                  Snackbar.make(toolbar,getString(R.string.sair),Snackbar.LENGTH_LONG).show();
-            }
-
-            drawer.closeDrawer(GravityCompat.START);
-            return true;
-        });
+        navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
 
         replaceFragment(new HomeFragment());
+    }
+
+
+    private boolean onNavigationItemSelected(MenuItem menuItem) {
+        int id = menuItem.getItemId();
+
+        if (id == R.id.nav_home) {
+            replaceFragment(new HomeFragment());
+        } else if (id == R.id.nav_meus_eventos) {
+            replaceFragment(new MeusEventosFragment());
+        } else if (id == R.id.nav_pesquisar) {
+            replaceFragment(new PesquisaFragment());
+        }
+
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     private void replaceFragment(Fragment fragment){
@@ -75,6 +70,4 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
     }
-
-
-}
+    }
