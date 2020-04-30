@@ -20,6 +20,7 @@ public class VisualizarEvento extends Fragment {
     private TextView textViewNomeEvento;
     private TextView textViewLocalEvento;
     private TextView textViewDataEvento;
+    private TextView textViewCategoriaEvento;
 
     public VisualizarEvento() {
         // Required empty public constructor
@@ -28,17 +29,12 @@ public class VisualizarEvento extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_visualizar_evento, container, false);
 
         initViews(view);
 
-        //verificação se o arguments nao está nulo
         if (getArguments() != null){
-
-            //passando os dados do arguments para o bundle
             Bundle bundle = getArguments();
-            //passando o contato que está chegando para a variavel do tipo contato
             Evento dadosEvento = bundle.getParcelable(EVENTO_CHAVE);
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
@@ -48,6 +44,7 @@ public class VisualizarEvento extends Fragment {
             textViewNomeEvento.setText(dadosEvento.getNomeEvento());
             textViewLocalEvento.setText(getString(R.string.local) + dadosEvento.getLocal());
             textViewDataEvento.setText(getString(R.string.data) + dadosEvento.getData());
+            textViewCategoriaEvento.setText("Categoria:"+ dadosEvento.getCategoriaEsportes());
         }
 
         imageViewLogo.setOnClickListener(view1 -> {
@@ -65,5 +62,6 @@ public class VisualizarEvento extends Fragment {
         textViewNomeEvento = view.findViewById(R.id.nome_evento_visualizarfragment);
         textViewLocalEvento = view.findViewById(R.id.local_visualizarfragment);
         textViewDataEvento = view.findViewById(R.id.data_visualizarfragment);
+        textViewCategoriaEvento = view.findViewById(R.id.categoria_visualizarfragment);
     }
 }

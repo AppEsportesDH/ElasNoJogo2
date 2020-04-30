@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
@@ -29,14 +30,13 @@ public class CriarEventoFragment extends Fragment {
     private TextView segurancaEvento;
     private ImageView imageViewLogo;
     private Button inserirImagem;
-    private TextInputLayout nomeInputEvento;
-    private TextInputLayout tipoInputEvento;
-    private TextInputLayout localInputEvento;
-    private TextInputLayout dataInputEvento;
-    private TextInputLayout horarioInputEvento;
+    private TextInputEditText nomeInputEvento;
+    private TextInputEditText tipoInputEvento;
+    private TextInputEditText localInputEvento;
+    private TextInputEditText dataInputEvento;
+    private TextInputEditText horarioInputEvento;
     private EventosDAO eventosDAO;
     private Button cadastrarEvento;
-    private ArrayList<String> opções = new ArrayList<>();
     private List<Evento> listaEvento = new ArrayList<>();
     private EventoViewModel viewModel;
     private EventoRecyclerViewAdapter adapter;
@@ -47,12 +47,13 @@ public class CriarEventoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_criar_evento, container, false);
         eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
         initViews(view);
+
         cadastrarEvento.setOnClickListener(v -> {
-            String nomeEvento = nomeInputEvento.getEditText().getText().toString();
-            String local = localInputEvento.getEditText().getText().toString();
-            String data = dataInputEvento.getEditText().getText().toString();
-            String horario = horarioInputEvento.getEditText().getText().toString();
-            String categoriaEsportes = tipoInputEvento.getEditText().getText().toString();
+            String nomeEvento = nomeInputEvento.getText().toString();
+            String local = localInputEvento.getText().toString();
+            String data = dataInputEvento.getText().toString();
+            String horario = horarioInputEvento.getText().toString();
+            String categoriaEsportes = tipoInputEvento.getText().toString();
 
             validarCampos(nomeEvento, local, data, horario, categoriaEsportes);
 
@@ -63,8 +64,6 @@ public class CriarEventoFragment extends Fragment {
                     if (evento != null) {
                         eventosDAO.inserirEventos(evento);
                     }
-
-
                 }
             }).start();
         });
@@ -80,14 +79,14 @@ public class CriarEventoFragment extends Fragment {
     private void initViews(View view) {
         viewModel = ViewModelProviders.of(this).get(EventoViewModel.class);
         imageViewLogo = view.findViewById(R.id.imagemLogo);
-        tipoInputEvento = view.findViewById(R.id.categoria);
-        dataInputEvento = view.findViewById(R.id.data);
-        localInputEvento = view.findViewById(R.id.textLocalDoEvent);
-        horarioInputEvento = view.findViewById(R.id.horario);
+        tipoInputEvento = view.findViewById(R.id.categoria_evento);
+        dataInputEvento = view.findViewById(R.id.horario_evento);
+        localInputEvento = view.findViewById(R.id.local_do_evento);
+        horarioInputEvento = view.findViewById(R.id.horario_evento);
         cadastrarEvento = view.findViewById(R.id.buttonCadastrarEvento);
         inserirImagem = view.findViewById(R.id.inserirImagem);
         criarEvento = view.findViewById(R.id.criareventoText);
-        nomeInputEvento = view.findViewById(R.id.nomeEvento);
+        nomeInputEvento = view.findViewById(R.id.nome_do_evento);
         segurancaEvento = view.findViewById(R.id.segurancaEvento);
     }
 

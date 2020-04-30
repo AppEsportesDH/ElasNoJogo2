@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -39,8 +40,7 @@ public class HomeActivity extends AppCompatActivity {
 
         NavigationView navigationView = findViewById(R.id.nav_view);
 
-
-        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_meus_eventos, R.id.nav_pesquisar, R.id.nav_editarPerfil).setDrawerLayout(drawer).build();
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_meus_eventos,  R.id.nav_editarPerfil, R.id.nav_sair).setDrawerLayout(drawer).build();
 
         navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
 
@@ -55,19 +55,23 @@ public class HomeActivity extends AppCompatActivity {
             replaceFragment(new HomeFragment());
         } else if (id == R.id.nav_meus_eventos) {
             replaceFragment(new MeusEventosFragment());
-        } else if (id == R.id.nav_pesquisar) {
-            replaceFragment(new PesquisaFragment());
+        } else if (id == R.id.nav_sair) {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+            return true;
+        } else if (id == R.id.nav_editarPerfil){
+            replaceFragment(new PerfilFragment());
         }
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    private void replaceFragment(Fragment fragment){
+    private void replaceFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
 
     @Override
     public void onBackPressed() {
     }
-    }
+}
