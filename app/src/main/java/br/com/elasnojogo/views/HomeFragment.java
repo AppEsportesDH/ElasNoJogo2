@@ -17,7 +17,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -34,13 +33,15 @@ import br.com.elasnojogo.model.Sport;
 import br.com.elasnojogo.viewModel.SportsViewModel;
 import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.views.adapter.SportRecyclerViewAdapter;
+import br.com.elasnojogo.views.interfaces.OnClick;
 import br.com.elasnojogo2.R;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
+import static br.com.elasnojogo.constantes.Constantes.SPORT;
 
-public class HomeFragment extends Fragment implements EventoListener {
+public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
     private RecyclerView recyclerViewEventos;
     private RecyclerView recyclerViewSports;
@@ -54,7 +55,6 @@ public class HomeFragment extends Fragment implements EventoListener {
     public EventosDAO eventosDAO;
 
     public HomeFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -83,8 +83,8 @@ public class HomeFragment extends Fragment implements EventoListener {
 
         return view;
     }
-
     private void deixaNomeBold() {
+
         String normalText = getString(R.string.ola);
         String boldText = getString(R.string.nome);
         SpannableString str = new SpannableString(normalText + boldText);
@@ -102,6 +102,7 @@ public class HomeFragment extends Fragment implements EventoListener {
         saudacao = view.findViewById(R.id.textViewSaudacao);
         recyclerViewSports = view.findViewById(R.id.recycler_view_Sports);
         sportsViewModel = ViewModelProviders.of(this).get(SportsViewModel.class);
+        sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results, this);
     }
 
     @Override
@@ -109,7 +110,7 @@ public class HomeFragment extends Fragment implements EventoListener {
         Bundle bundle = new Bundle();
         bundle.putParcelable(EVENTO_CHAVE, evento);
 
-        Fragment detalheFragment = new br.com.elasnojogo.views.VisualizarEvento();
+        Fragment detalheFragment = new VisualizarEvento();
         detalheFragment.setArguments(bundle);
         replaceFragment(detalheFragment);
     }
@@ -124,5 +125,15 @@ public class HomeFragment extends Fragment implements EventoListener {
                         throwable -> {
                             Log.i("TAG", "método getAllEventos" + throwable.getMessage());
                         });
+    }
+
+    @Override
+    public void click(Sport sport) {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(SPORT, sport);
+
+        Fragment detalheFragment = new DetalheHomeFragment();
+        detalheFragment.setArguments(bundle);
+        replaceFragment(detalheFragment);
     }
 }
