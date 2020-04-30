@@ -17,6 +17,7 @@ import java.util.List;
 import br.com.elasnojogo.model.Evento;
 import br.com.elasnojogo.repository.data.EventosDAO;
 import br.com.elasnojogo.repository.data.EventosDataBase;
+import br.com.elasnojogo.viewModel.BuscarEventos;
 import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.views.interfaces.EventoListener;
 
@@ -34,16 +35,16 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
     public EventosDAO eventosDAO;
 
     public MeusEventosFragment() {
-        // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_meus_eventos, container, false);
+        View view = inflater.inflate(R.layout.recycler_meus_eventos, container, false);
+
         eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
         buscarTodosEventos();
-        recyclerView = view.findViewById(R.id.recycler_view_favoritos);
+        recyclerView = view.findViewById(R.id.recycler_view_eventos);
         adapter = new EventoRecyclerViewAdapter(listaEventos, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -75,5 +76,4 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
                             Log.i("TAG", "método getAllEventos" + throwable.getMessage());
                         });
     }
-
 }

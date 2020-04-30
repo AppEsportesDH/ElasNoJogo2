@@ -1,6 +1,9 @@
 package br.com.elasnojogo.views;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -9,21 +12,13 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import br.com.elasnojogo2.R;
 
-public class PerfilFragment extends AppCompatActivity {
-
-    private TextInputLayout inputNome;
-    private TextInputLayout inputEmail;
-
-    public PerfilFragment() {
-    }
+public class PerfilFragment extends Fragment {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_perfil);
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_perfil, container, false);
+        return view;
 
-    private void replaceFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
 }
