@@ -79,7 +79,14 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         recyclerViewSports.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerViewSports.setAdapter(sportRecyclerViewAdapter);
-        floatingButtonCriarEvento.setOnClickListener(view12 -> replaceFragment(new br.com.elasnojogo.views.CriarEventoFragment()));
+
+        floatingButtonCriarEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment mudar = new CriarEventoFragment();
+                replaceFragment(mudar);
+            }
+        });
 
         return view;
     }
