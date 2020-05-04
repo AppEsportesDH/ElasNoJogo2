@@ -23,6 +23,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,8 +37,8 @@ import br.com.elasnojogo2.R;
 import static br.com.elasnojogo2.R.string.preencha_campo;
 
 public class LoginActivity extends AppCompatActivity {
-    private TextInputEditText email;
-    private TextInputEditText senha;
+    private TextInputLayout email;
+    private TextInputLayout senha;
     private Button botao_cadastro;
     private Button botao_entrar;
     private ImageButton google_btn;
@@ -54,8 +55,8 @@ public class LoginActivity extends AppCompatActivity {
 
         botao_entrar.setOnClickListener(v -> {
 
-            String email1 = email.getText().toString();
-            String senha1 = senha.getText().toString();
+            String email1 = email.getEditText().toString();
+            String senha1 = senha.getEditText().toString();
 
             loginEmail(email1, senha1);
 
