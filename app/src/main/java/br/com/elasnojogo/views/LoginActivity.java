@@ -22,7 +22,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
@@ -53,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        initViews();
+
         botao_entrar.setOnClickListener(v -> {
 
             String email1 = email.getEditText().toString();
@@ -60,7 +61,6 @@ public class LoginActivity extends AppCompatActivity {
 
             loginEmail(email1, senha1);
 
-            initViews();
         });
 
         callbackManager = CallbackManager.Factory.create();
