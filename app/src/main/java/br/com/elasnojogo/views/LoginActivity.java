@@ -22,6 +22,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
@@ -36,8 +37,8 @@ import br.com.elasnojogo2.R;
 import static br.com.elasnojogo2.R.string.preencha_campo;
 
 public class LoginActivity extends AppCompatActivity {
-    private TextInputLayout email;
-    private TextInputLayout senha;
+    private TextInputEditText email;
+    private TextInputEditText senha;
     private Button botao_cadastro;
     private Button botao_entrar;
     private ImageButton google_btn;
@@ -56,19 +57,16 @@ public class LoginActivity extends AppCompatActivity {
 
         botao_entrar.setOnClickListener(v -> {
 
-            String email1 = email.getEditText().toString();
-            String senha1 = senha.getEditText().toString();
+            String email1 = email.getText().toString();
+            String senha1 = senha.getText().toString();
 
             loginEmail(email1, senha1);
 
         });
 
         callbackManager = CallbackManager.Factory.create();
-
         botao_cadastro.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, br.com.elasnojogo.views.CadastroActivity.class)));
-
         google_btn.setOnClickListener(v -> loginGoogle());
-
         facebook_btn.setOnClickListener(v -> loginFacebook());
     }
 
@@ -124,16 +122,6 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    public void initViews() {
-        email = findViewById(R.id.campo_email);
-        senha = findViewById(R.id.campo_senha);
-        botao_cadastro = findViewById(R.id.botao_cadastro);
-        botao_entrar = findViewById(R.id.botao_entrar);
-        facebook_btn = findViewById(R.id.facebook_btn);
-        google_btn = findViewById(R.id.google_btn);
-
-    }
-
         @Override
         protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
             callbackManager.onActivityResult(requestCode, resultCode, data);
@@ -183,5 +171,15 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void initViews() {
+        email = findViewById(R.id.campo_email);
+        senha = findViewById(R.id.campo_senha);
+        botao_cadastro = findViewById(R.id.botao_cadastro);
+        botao_entrar = findViewById(R.id.botao_entrar);
+        facebook_btn = findViewById(R.id.facebook_btn);
+        google_btn = findViewById(R.id.google_btn);
+
     }
 }
