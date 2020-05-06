@@ -56,5 +56,4 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
-
 }
