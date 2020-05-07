@@ -47,7 +47,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/nomeEvento"
                     android:layout_width="0dp"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
@@ -64,6 +64,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/lato"
                             android:hint="@string/nome_do_evento"
+                            android:inputType="text"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
@@ -72,7 +73,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textLocalDoEvent"
                     android:layout_width="0dp"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
@@ -98,7 +99,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/horario"
                     android:layout_width="0dp"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
@@ -116,13 +117,14 @@
                             android:fontFamily="@font/lato"
                             android:hint="@string/horario_evento"
                             android:textStyle="bold"
+                            android:inputType="time"
                             android:textSize="14sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/data"
                     android:layout_width="0dp"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
@@ -139,6 +141,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/lato"
                             android:hint="@string/data_evento"
+                            android:inputType="date"
                             android:textStyle="bold"
                             android:textSize="14sp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -227,13 +230,9 @@
                     android:layout_width="255dp"
                     android:layout_height="45dp"
                     android:layout_marginTop="32dp"
-                    android:background="@color/brancotransparente"
-                    android:shadowColor="@color/vinho"
-                    android:shadowDx="20"
-                    android:shadowDy="20"
-                    android:shadowRadius="20"
+                    android:background="@drawable/custom_button"
                     android:text="@string/inserir_imagem"
-                    android:textColor="@color/textoPesquisa"
+                    android:textColor="@color/btn"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"

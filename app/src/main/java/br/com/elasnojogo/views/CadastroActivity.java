@@ -2,29 +2,67 @@ package br.com.elasnojogo.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.io.InputStream;
+
 import br.com.elasnojogo.model.Usuario;
+import br.com.elasnojogo.util.AppUtil;
 import br.com.elasnojogo2.R;
+
+import static br.com.elasnojogo.constantes.Constantes.NOME_USUARIO;
+import static br.com.elasnojogo.constantes.Constantes.USUARIO;
+import static br.com.elasnojogo2.R.string.preencha_campo;
 
 public class CadastroActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Button cadastrar;
+    private TextInputLayout nomeUsuario;
+    private TextInputLayout emailUsuario;
+    private TextInputLayout telefoneUsuario;
+    private TextInputLayout senhaUsuario;
+    private TextInputLayout confirmeSenhaUsuario;
+    private ProgressBar progressBar;
+    private InputStream stream = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        cadastrar = findViewById(R.id.btn_cadastrar);
+        initViews();
 
-        cadastrar.setOnClickListener(clique);
+        String nome = nomeUsuario.getEditText().getText().toString();
+        String email = emailUsuario.getEditText().getText().toString();
+        String telefone = telefoneUsuario.getEditText().getText().toString();
+        String senha = senhaUsuario.getEditText().getText().toString();
+        String confirmeSenha = confirmeSenhaUsuario.getEditText().getText().toString();
+
+        validarCamposCadastro(nome, email, telefone, senha, confirmeSenha);
+
+        cadastrar.setOnClickListener(v -> {
+
+            if (validarCamposCadastro(nome, email, telefone, senha, confirmeSenha)){
+
+                Bundle bundle = new Bundle ();
+                bundle.putString(NOME_USUARIO,nome);
+                Intent intent = new Intent(CadastroActivity.this, br.com.elasnojogo.views.HomeActivity.class);
+                intent.putExtra(USUARIO, bundle);
+                startActivity(intent);
+            }
+        });
 
         Spinner spinnerIdentificacao = findViewById(R.id.spinner_genero);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.lista_identificacao, android.R.layout.simple_spinner_item);
@@ -33,20 +71,6 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
         spinnerIdentificacao.setOnItemSelectedListener(this);
     }
 
-    View.OnClickListener clique = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(CadastroActivity.this, HomeActivity.class);
-            Usuario usuario = new Usuario("Sol", "silmarasol@hotmail.com", "11996887598", "RFD234", "RFD234");
-
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(CadastroActivity.this.getString(R.string.usuario), usuario);
-
-            intent.putExtras(bundle);
-
-            CadastroActivity.this.startActivity(intent);
-        }
-    };
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -56,4 +80,49 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
-}
+
+    private void initViews (){
+        cadastrar = findViewById(R.id.btn_cadastrar);
+        nomeUsuario = findViewById(R.id.nome_usuaria);
+        emailUsuario = findViewById(R.id.email);
+        telefoneUsuario = findViewById(R.id.telefone);
+        senhaUsuario = findViewById(R.id.senha);
+        confirmeSenhaUsuario = findViewById(R.id.confirmarSenha);
+        progressBar = findViewById(R.id.progressBar);
+    }
+
+    private boolean validarCamposCadastro(String nomeInput, String emailInput, String telefoneInput, String senhaInput, String confirmeSenhaInput) {
+        if (nomeInput.isEmpty() && emailInput.isEmpty() && telefoneInput.isEmpty() && senhaInput.isEmpty() && confirmeSenhaInput.isEmpty()) {
+            nomeUsuario.setError(getString(preencha_campo));
+            emailUsuario.setError(getString(preencha_campo));
+            telefoneUsuario.setError(getString(preencha_campo));
+            confirmeSenhaUsuario.setError(getString(preencha_campo));
+            return false;
+        } else {
+            registrarUsuario(emailInput, senhaInput);
+            return true;
+        }
+    }
+
+        private void registrarUsuario(String email, String senha){
+            progressBar.setVisibility(View.VISIBLE);
+
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+
+                            AppUtil.salvarIdUsuario(this, FirebaseAuth.getInstance().getCurrentUser().getUid());
+                            startActivity(new Intent(this, HomeActivity.class));
+                            finish();
+
+                        } else {
+                            Snackbar.make(cadastrar, "Erro ao cadastrar usuário -> " + task.getException().getMessage(), Snackbar.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                        }
+                    });
+        }
+    }
+
+
+
+

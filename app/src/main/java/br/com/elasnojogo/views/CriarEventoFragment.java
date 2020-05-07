@@ -98,6 +98,11 @@ public class CriarEventoFragment extends Fragment {
             horarioInputEvento.setError(getString(preencha_campo));
             tipoInputEvento.setError(getString(preencha_campo));
             return false;
+        }
+            if (nomeEvento.length() <= 12) {
+                nomeInputEvento.setError("Nome do evento deve conter até 12 caracteres");
+                nomeInputEvento.requestFocus();
+                return false;
         } else {
             Fragment mudar = new MeusEventosFragment();
             replaceFragment(mudar);

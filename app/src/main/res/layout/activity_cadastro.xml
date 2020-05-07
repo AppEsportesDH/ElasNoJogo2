@@ -83,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="8dp"
@@ -101,7 +101,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayoutUsuario"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -117,6 +117,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/lato"
                 android:hint="@string/nome_perfil"
+                android:inputType="text"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:typeface="sans" />
@@ -125,7 +126,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayoutEmail"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -141,6 +142,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/lato"
                 android:hint="@string/email_perfil"
+                android:inputType="textEmailAddress"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:typeface="sans" />
@@ -150,7 +152,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayoutTelefone"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -175,7 +177,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayoutSenha"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -200,7 +202,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayoutConfirmeSenha"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -226,11 +228,13 @@
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminate="true"
             android:layout_gravity="center"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:visibility="gone"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_cadastrar"
