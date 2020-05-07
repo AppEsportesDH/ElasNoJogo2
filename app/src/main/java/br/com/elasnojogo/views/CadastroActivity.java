@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -29,11 +30,11 @@ import static br.com.elasnojogo2.R.string.preencha_campo;
 public class CadastroActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Button cadastrar;
-    private TextInputLayout nomeUsuario;
-    private TextInputLayout emailUsuario;
-    private TextInputLayout telefoneUsuario;
-    private TextInputLayout senhaUsuario;
-    private TextInputLayout confirmeSenhaUsuario;
+    private TextInputEditText nomeUsuario;
+    private TextInputEditText emailUsuario;
+    private TextInputEditText telefoneUsuario;
+    private TextInputEditText senhaUsuario;
+    private TextInputEditText confirmeSenhaUsuario;
     private ProgressBar progressBar;
     private InputStream stream = null;
 
@@ -44,11 +45,11 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
 
         initViews();
 
-        String nome = nomeUsuario.getEditText().getText().toString();
-        String email = emailUsuario.getEditText().getText().toString();
-        String telefone = telefoneUsuario.getEditText().getText().toString();
-        String senha = senhaUsuario.getEditText().getText().toString();
-        String confirmeSenha = confirmeSenhaUsuario.getEditText().getText().toString();
+        String nome = nomeUsuario.getText().toString();
+        String email = emailUsuario.getText().toString();
+        String telefone = telefoneUsuario.getText().toString();
+        String senha = senhaUsuario.getText().toString();
+        String confirmeSenha = confirmeSenhaUsuario.getText().toString();
 
         validarCamposCadastro(nome, email, telefone, senha, confirmeSenha);
 
