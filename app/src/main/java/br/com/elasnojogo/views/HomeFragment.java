@@ -64,6 +64,8 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         initViews(view);
 
+
+
         eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
         buscarTodosEventos();
         recyclerViewEventos = view.findViewById(R.id.recycler_view_eventos);
@@ -72,7 +74,6 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerViewEventos.setLayoutManager(layoutManager);
-        deixaNomeBold();
 
         sportsViewModel.getListSports();
         sportsViewModel.listLiveData.observe(getViewLifecycleOwner(), results1 -> sportRecyclerViewAdapter.setUpdate(results1));
@@ -90,14 +91,7 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         return view;
     }
-    private void deixaNomeBold() {
 
-        String normalText = getString(R.string.ola);
-        String boldText = getString(R.string.nome);
-        SpannableString str = new SpannableString(normalText + boldText);
-        str.setSpan(new StyleSpan(Typeface.BOLD), 5, str.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        saudacao.setText(str);
-    }
 
     private void replaceFragment(Fragment fragment) {
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();

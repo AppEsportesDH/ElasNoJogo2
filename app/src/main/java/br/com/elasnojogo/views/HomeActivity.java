@@ -20,6 +20,9 @@ import com.google.android.material.snackbar.Snackbar;
 
 import br.com.elasnojogo2.R;
 
+import static br.com.elasnojogo.constantes.Constantes.NOME_USUARIO;
+import static br.com.elasnojogo.constantes.Constantes.USUARIO;
+
 public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -33,6 +36,9 @@ public class HomeActivity extends AppCompatActivity {
         final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        String nome = getNome();
+        enviaDadosFragmento(nome);
+
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
         drawer.addDrawerListener(toggle);
@@ -44,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
 
         navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
 
-        replaceFragment(new HomeFragment());
+
     }
 
 
@@ -74,4 +80,27 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
     }
+
+    private String getNome(){
+
+        String nome = "";
+        if (getIntent() != null){
+            Bundle bundle = getIntent().getExtras().getBundle(USUARIO);
+            nome = bundle.getString(NOME_USUARIO);
+        }
+        return nome;
+    }
+
+    private void enviaDadosFragmento(String nome){
+        Bundle bundle = new Bundle();
+        bundle.putString(USUARIO, nome);
+        Fragment homeFragmento = new HomeFragment();
+        homeFragmento.setArguments(bundle);
+        replaceFragment(homeFragmento);
+    }
 }
+
+
+
+
+

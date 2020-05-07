@@ -1,0 +1,64 @@
+{
+  "project_info": {
+    "project_number": "1039637028200",
+    "firebase_url": "https://elas-no-jogo-602da.firebaseio.com",
+    "project_id": "elas-no-jogo-602da",
+    "storage_bucket": "elas-no-jogo-602da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039637028200:android:c1feb7694ce0e8bb7b4add",
+        "android_client_info": {
+          "package_name": "br.com.elasnojogo2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039637028200-snvlq6m2g927nhuk31pd4qafgaido64o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.elasnojogo2",
+            "certificate_hash": "ff44d6669c1afa0f72ed3bae2487ca6ea2cecbe8"
+          }
+        },
+        {
+          "client_id": "1039637028200-bpjnhqv3pin6a59bautr8do1bcrvmd62.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.elasnojogo2",
+            "certificate_hash": "3dc9b3cfaf65e5823607352fa51697732369de71"
+          }
+        },
+        {
+          "client_id": "1039637028200-1jttt7er16sirpj8vb6j0e334b0tqukh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.elasnojogo2",
+            "certificate_hash": "d6387b7aa45ebaf09179a2c4b4174f2aa281cfda"
+          }
+        },
+        {
+          "client_id": "1039637028200-jpdib8riu91s1c2p9paaot4751gfdd0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnZaHriJ5aFs7kTu0uSdeYxzqxlMmdU5E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039637028200-jpdib8riu91s1c2p9paaot4751gfdd0s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
