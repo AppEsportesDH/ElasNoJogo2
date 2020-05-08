@@ -33,132 +33,133 @@ import br.com.elasnojogo2.R;
 
 import static br.com.elasnojogo2.R.string.preencha_campo;
 
- public class LoginActivity extends AppCompatActivity {
-        private TextInputEditText email;
-        private TextInputEditText senha;
-        private Button botao_cadastro;
-        private Button botao_entrar;
-        private ImageButton google_btn;
-        private ImageButton facebook_btn;
-        private GoogleSignInClient googleSignInClient;
-        public static final String GOOGLE_ACCOUNT = "google_account";
-        private static final int RC_SIGN_IN = 1001;
-        private CallbackManager callbackManager;
+public class LoginActivity extends AppCompatActivity {
+    private TextInputEditText email;
+    private TextInputEditText senha;
+    private Button botao_cadastro;
+    private Button botao_entrar;
+    private ImageButton google_btn;
+    private ImageButton facebook_btn;
+    private GoogleSignInClient googleSignInClient;
+    public static final String GOOGLE_ACCOUNT = "google_account";
+    private static final int RC_SIGN_IN = 1001;
+    private CallbackManager callbackManager;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_login);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
 
-            callbackManager = CallbackManager.Factory.create();
-            initViews();
+        callbackManager = CallbackManager.Factory.create();
 
-            botao_entrar.setOnClickListener(v -> {
+        initViews();
 
-                String email1 = email.getText().toString();
-                String senha1 = senha.getText().toString();
+        botao_entrar.setOnClickListener(v -> {
 
-                loginEmail(email1, senha1);
+            String email1 = email.getText().toString();
+            String senha1 = senha.getText().toString();
 
-            });
+            loginEmail(email1, senha1);
 
-            botao_cadastro.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, br.com.elasnojogo.views.CadastroActivity.class)));
-            google_btn.setOnClickListener(v -> loginGoogle());
-            facebook_btn.setOnClickListener(v -> loginFacebook());
+        });
+
+        botao_cadastro.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, br.com.elasnojogo.views.CadastroActivity.class)));
+        google_btn.setOnClickListener(v -> loginGoogle());
+        facebook_btn.setOnClickListener(v -> loginFacebook());
+    }
+
+    public void loginGoogle() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        Intent signInIntent = googleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+    private void irParaHome(String uiid) {
+        AppUtil.salvarIdUsuario(getApplication().getApplicationContext(), uiid);
+        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+        finish();
+    }
+
+    private void loginEmail(String emailInput, String senhaInput) {
+        if (emailInput.isEmpty() && senhaInput.isEmpty()) {
+            email.setError(getString(preencha_campo));
+            senha.setError(getString(preencha_campo));
+            return;
         }
 
-        public void loginGoogle() {
-            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestEmail()
-                    .build();
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(emailInput, senhaInput)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        irParaHome(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    } else {
+                        Snackbar.make(botao_entrar, "Erro ao tentar logar " + task.getException().getMessage(), Snackbar.LENGTH_SHORT).show();
+                    }
+                });
+    }
 
-            googleSignInClient = GoogleSignIn.getClient(this, gso);
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK)
+            if (requestCode == RC_SIGN_IN) {
+                try {
+                    Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                    GoogleSignInAccount account = task.getResult(ApiException.class);
+                    onLoggedIn(account);
+                } catch (ApiException e) {
+                    Toast.makeText(getApplicationContext(), "Tente novamente", Toast.LENGTH_SHORT).show();
+                }
+            }
+    }
 
-            Intent signInIntent = googleSignInClient.getSignInIntent();
-            startActivityForResult(signInIntent, RC_SIGN_IN);
-        }
+    private void onLoggedIn(GoogleSignInAccount googleSignInAccount) {
+        Intent intent = new Intent(this, HomeActivity.class);
+        intent.putExtra(GOOGLE_ACCOUNT, googleSignInAccount);
 
-        private void irParaHome(String uiid) {
-            AppUtil.salvarIdUsuario(getApplication().getApplicationContext(), uiid);
-            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-            finish();
-        }
+        startActivity(intent);
+        finish();
+    }
 
-        private void loginEmail(String emailInput, String senhaInput) {
-            if (emailInput.isEmpty() && senhaInput.isEmpty()) {
-                email.setError(getString(preencha_campo));
-                senha.setError(getString(preencha_campo));
-                return;
+    public void loginFacebook() {
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email", "public_profile"));
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                AuthCredential credential = FacebookAuthProvider
+                        .getCredential(loginResult.getAccessToken().getToken());
+
+                FirebaseAuth.getInstance().signInWithCredential(credential)
+                        .addOnCompleteListener(task -> {
+                            irParaHome(loginResult.getAccessToken().getUserId());
+
+                        });
             }
 
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(emailInput, senhaInput)
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            irParaHome(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                        } else {
-                            Snackbar.make(botao_entrar, "Erro ao tentar logar" + task.getException().getMessage(), Snackbar.LENGTH_SHORT).show();
-                        }
-                    });
-        }
+            @Override
+            public void onCancel() {
+                Toast.makeText(LoginActivity.this, "Cancelado!", Toast.LENGTH_SHORT).show();
+            }
 
-        @Override
-        public void onActivityResult(int requestCode, int resultCode, Intent data) {
-            super.onActivityResult(requestCode, resultCode, data);
-            if (resultCode == Activity.RESULT_OK)
-                if (requestCode == RC_SIGN_IN) {
-                    try {
-                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-                        GoogleSignInAccount account = task.getResult(ApiException.class);
-                        onLoggedIn(account);
-                    } catch (ApiException e) {
-                        Toast.makeText(getApplicationContext(), "Tente novamente", Toast.LENGTH_SHORT).show();
-                    }
-                }
-        }
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
 
-        private void onLoggedIn(GoogleSignInAccount googleSignInAccount) {
-            Intent intent = new Intent(this, HomeActivity.class);
-            intent.putExtra(GOOGLE_ACCOUNT, googleSignInAccount);
-
-            startActivity(intent);
-            finish();
-        }
-
-        public void loginFacebook() {
-            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email", "public_profile"));
-            LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-                @Override
-                public void onSuccess(LoginResult loginResult) {
-                    AuthCredential credential = FacebookAuthProvider
-                            .getCredential(loginResult.getAccessToken().getToken());
-
-                    FirebaseAuth.getInstance().signInWithCredential(credential)
-                            .addOnCompleteListener(task -> {
-                                irParaHome(loginResult.getAccessToken().getUserId());
-
-                            });
-                }
-
-                @Override
-                public void onCancel() {
-                    Toast.makeText(LoginActivity.this, "Cancelado!", Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onError(FacebookException error) {
-                    Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-
-                }
-            });
-        }
-
-        public void initViews() {
-            email = findViewById(R.id.campo_email);
-            senha = findViewById(R.id.campo_senha);
-            botao_cadastro = findViewById(R.id.botao_cadastro);
-            botao_entrar = findViewById(R.id.botao_entrar);
-            facebook_btn = findViewById(R.id.facebook_btn);
-            google_btn = findViewById(R.id.google_btn);
-
-        }
+            }
+        });
     }
+
+    public void initViews() {
+        email = findViewById(R.id.campo_email);
+        senha = findViewById(R.id.campo_senha);
+        botao_cadastro = findViewById(R.id.botao_cadastro);
+        botao_entrar = findViewById(R.id.botao_entrar);
+        facebook_btn = findViewById(R.id.facebook_btn);
+        google_btn = findViewById(R.id.google_btn);
+
+    }
+}

@@ -3,8 +3,6 @@ package br.com.elasnojogo.views;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,19 +13,16 @@ import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
-
 
 import br.com.elasnojogo2.R;
 
-import static br.com.elasnojogo.constantes.Constantes.NOME_USUARIO;
 import static br.com.elasnojogo.constantes.Constantes.USUARIO;
 
 public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawer;
-
+    private String nome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        String nome = getNome();
-        enviaDadosFragmento(nome);
+        enviaDadosFragmento();
 
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
@@ -49,10 +43,7 @@ public class HomeActivity extends AppCompatActivity {
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_meus_eventos,  R.id.nav_editarPerfil, R.id.nav_sair).setDrawerLayout(drawer).build();
 
         navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
-
-
     }
-
 
     private boolean onNavigationItemSelected(MenuItem menuItem) {
         int id = menuItem.getItemId();
@@ -68,7 +59,6 @@ public class HomeActivity extends AppCompatActivity {
         } else if (id == R.id.nav_editarPerfil){
             replaceFragment(new PerfilFragment());
         }
-
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -81,17 +71,7 @@ public class HomeActivity extends AppCompatActivity {
     public void onBackPressed() {
     }
 
-    private String getNome(){
-
-        String nome = "";
-        if (getIntent() != null){
-            Bundle bundle = getIntent().getExtras().getBundle(USUARIO);
-            nome = bundle.getString(NOME_USUARIO);
-        }
-        return nome;
-    }
-
-    private void enviaDadosFragmento(String nome){
+    private void enviaDadosFragmento(){
         Bundle bundle = new Bundle();
         bundle.putString(USUARIO, nome);
         Fragment homeFragmento = new HomeFragment();
@@ -99,8 +79,3 @@ public class HomeActivity extends AppCompatActivity {
         replaceFragment(homeFragmento);
     }
 }
-
-
-
-
-

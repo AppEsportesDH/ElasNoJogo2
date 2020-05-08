@@ -69,7 +69,6 @@ public class CriarEventoFragment extends Fragment {
         });
 
         return view;
-
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -97,6 +96,7 @@ public class CriarEventoFragment extends Fragment {
             localInputEvento.setError(getString(preencha_campo));
             horarioInputEvento.setError(getString(preencha_campo));
             tipoInputEvento.setError(getString(preencha_campo));
+
             return false;
         }
             if (nomeEvento.length() <= 12) {
