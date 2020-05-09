@@ -17,7 +17,6 @@ import java.util.List;
 import br.com.elasnojogo.model.Evento;
 import br.com.elasnojogo.repository.data.EventosDAO;
 import br.com.elasnojogo.repository.data.EventosDataBase;
-import br.com.elasnojogo.viewModel.BuscarEventos;
 import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.views.interfaces.EventoListener;
 

@@ -1,4 +1,5 @@
 package br.com.elasnojogo.views;
+
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -23,7 +24,6 @@ public class VisualizarEvento extends Fragment {
     private TextView textViewCategoriaEvento;
 
     public VisualizarEvento() {
-        // Required empty public constructor
     }
 
     @Override
@@ -44,7 +44,7 @@ public class VisualizarEvento extends Fragment {
             textViewNomeEvento.setText(dadosEvento.getNomeEvento());
             textViewLocalEvento.setText(getString(R.string.local) + dadosEvento.getLocal());
             textViewDataEvento.setText(getString(R.string.data) + dadosEvento.getData());
-            textViewCategoriaEvento.setText("Categoria:"+ dadosEvento.getCategoriaEsportes());
+            textViewCategoriaEvento.setText(getString(R.string.categoria) + dadosEvento.getCategoriaEsportes());
         }
 
         imageViewLogo.setOnClickListener(view1 -> {

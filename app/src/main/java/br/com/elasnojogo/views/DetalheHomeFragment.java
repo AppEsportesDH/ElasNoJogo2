@@ -13,7 +13,6 @@ import com.squareup.picasso.Picasso;
 import br.com.elasnojogo.model.Sport;
 import br.com.elasnojogo2.R;
 
-import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
 import static br.com.elasnojogo.constantes.Constantes.SPORT;
 
 

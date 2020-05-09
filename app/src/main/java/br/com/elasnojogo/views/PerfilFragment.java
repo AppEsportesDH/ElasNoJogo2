@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -20,8 +19,6 @@ import com.squareup.picasso.Picasso;
 
 import br.com.elasnojogo.util.AppUtil;
 import br.com.elasnojogo2.R;
-
-import static br.com.elasnojogo2.R.string.preencha_campo;
 
 public class PerfilFragment extends Fragment {
     private ImageView imageView;

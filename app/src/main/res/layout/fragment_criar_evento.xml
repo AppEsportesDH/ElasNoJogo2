@@ -274,7 +274,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/lato"
-                            android:hint="@string/categoria"
+                            android:hint="@string/categoria_evento"
                             android:textSize="14sp"
                             android:textStyle="bold" />
                 </com.google.android.material.textfield.TextInputLayout>

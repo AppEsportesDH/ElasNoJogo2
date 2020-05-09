@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         irParaHome(FirebaseAuth.getInstance().getCurrentUser().getUid());
                     } else {
-                        Snackbar.make(botao_entrar, "Erro ao tentar logar " + task.getException().getMessage(), Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(botao_entrar, "Erro ao tentar logar ", Snackbar.LENGTH_LONG).show();
                     }
                 });
     }
@@ -112,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                     GoogleSignInAccount account = task.getResult(ApiException.class);
                     onLoggedIn(account);
                 } catch (ApiException e) {
-                    Toast.makeText(getApplicationContext(), "Tente novamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Tente novamente", Toast.LENGTH_LONG).show();
                 }
             }
     }
@@ -136,7 +136,6 @@ public class LoginActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signInWithCredential(credential)
                         .addOnCompleteListener(task -> {
                             irParaHome(loginResult.getAccessToken().getUserId());
-
                         });
             }
 
@@ -147,8 +146,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onError(FacebookException error) {
-                Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(LoginActivity.this, "Erro ao logar Facebook", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -160,6 +158,5 @@ public class LoginActivity extends AppCompatActivity {
         botao_entrar = findViewById(R.id.botao_entrar);
         facebook_btn = findViewById(R.id.facebook_btn);
         google_btn = findViewById(R.id.google_btn);
-
     }
 }

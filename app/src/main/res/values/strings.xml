@@ -8,15 +8,13 @@
     <string name="cadastre_se">CADASTRE-SE</string>
     <string name="entre_usando">ENTRE USANDO</string>
     <string name="n_o_tenho_conta">NÃO TENHO CONTA</string>
-    <string name="mensagem_home">Olá, %1$s</string>
     <string name="nome_evento">Nome Evento</string>
-    <string name="nome">Nome%1$s</string>
     <string name="email">Email</string>
     <string name="telefone">Telefone</string>
     <string name="senha">Senha</string>
-    <string name="data">Data: </string>
-    <string name="local">Local: </string>
-    <string name="categoria">CATEGORIA</string>
+    <string name="data">Data:" "</string>
+    <string name="local">Local:" "</string>
+    <string name="categoria">Categoria:" "</string>
     <string name="criar_evento">CRIAR EVENTO</string>
     <string name="nome_perfil">NOME</string>
     <string name="email_perfil">EMAIL</string>
@@ -38,12 +36,7 @@
     <string name="check_bi">Mulheres bissexuais</string>
     <string name="check_les">Mulheres lésbicas</string>
     <string name="check_naobi">Pessoas não-binárias</string>
-    <string name="add_adm">ADICIONAR ADMINISTRADORAS</string>
     <string name="cadastrar_evento">CADASTRAR EVENTO</string>
-    <string name="pesquisar">PESQUISAR</string>
-    <string name="resultados">RESULTADOS</string>
-    <string name="filtros">FILTROS</string>
-    <string name="mostrar_mais">MOSTRAR MAIS</string>
     <string name="open_drawer">Abrir</string>
     <string name="close_drawer">Fechar</string>
     <string name="app_name">MenusCardView</string>
@@ -60,22 +53,16 @@
     <string name="menu_send">Send</string>
     <string name="perfil">Perfil</string>
     <string name="favoritos_drawer">Meus Eventos</string>
-    <string name="pesquisar_drawer">Pesquisar</string>
     <string name="sair">Sair</string>
-    <string name="favoritar">FAVORITAR</string>
     <string name="elas_no_jogo">Elas no jogo</string>
-    <string name="ola_nome">Olá, Nome</string>
+    <string name="ola_nome">Bem-vinda</string>
     <string name="identificacao">IDENTIFICO-ME COMO</string>
     <string name="email_cadastro">EMAIL</string>
     <string name="telefone_cadastro">TELEFONE</string>
     <string name="senha_cadastro">SENHA</string>
     <string name="confirmar_senha">CONFIRMAR SENHA</string>
-    <string name="seleciona_interesses">SELECIONE 3 INTERESSES</string>
     <string name="cadastrar">CADASTRAR</string>
     <string name="entrar">ENTRAR</string>
-    <string name="linha1">Linha 1</string>
-    <string name="linha2">Linha 2</string>
-    <string name="ola">Olá</string>
     <string name="usuario">Usúario</string>
     <string name="preencha_campo">Preencha os campos!
     </string>
@@ -91,12 +78,5 @@
         <item>não-binário</item>
         <item>não me identifico como mulher nem não-binário</item>
     </string-array>
-
-    <string-array name="lista_esportes">
-     <item>Futebol</item>
-        <item>Futsal</item>
-        <item>Basquete</item>
-    </string-array>
-
 
 </resources>
