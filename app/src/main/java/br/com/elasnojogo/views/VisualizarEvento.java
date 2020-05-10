@@ -16,7 +16,6 @@ import br.com.elasnojogo2.R;
 import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
 
 public class VisualizarEvento extends Fragment {
-    private ImageView imageViewLogo;
     private ImageView imageViewEvento;
     private TextView textViewNomeEvento;
     private TextView textViewLocalEvento;
@@ -47,7 +46,7 @@ public class VisualizarEvento extends Fragment {
             textViewCategoriaEvento.setText(getString(R.string.categoria) + dadosEvento.getCategoriaEsportes());
         }
 
-        imageViewLogo.setOnClickListener(view1 -> {
+        imageViewEvento.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), HomeActivity.class);
             startActivity(intent);
         });
@@ -57,7 +56,6 @@ public class VisualizarEvento extends Fragment {
 
     private void initViews(View view) {
 
-        imageViewLogo = view.findViewById(R.id.imageView4);
         imageViewEvento = view.findViewById(R.id.imageView_evento);
         textViewNomeEvento = view.findViewById(R.id.nome_evento_visualizarfragment);
         textViewLocalEvento = view.findViewById(R.id.local_visualizarfragment);

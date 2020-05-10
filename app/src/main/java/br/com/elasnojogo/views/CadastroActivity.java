@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,12 +17,10 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.io.InputStream;
 import br.com.elasnojogo.util.AppUtil;
 import br.com.elasnojogo2.R;
 
 public class CadastroActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-
     private Button cadastrar;
     private TextInputLayout nomeUsuario;
     private TextInputLayout emailUsuario;
@@ -27,7 +28,6 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
     private TextInputLayout senhaUsuario;
     private TextInputLayout confirmeSenhaUsuario;
     private ProgressBar progressBar;
-    private InputStream stream = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,41 +40,35 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
             @Override
             public void onClick(View view) {
 
-                Integer idadenumero;
                 String nome = nomeUsuario.getEditText().getText().toString();
                 String senha = senhaUsuario.getEditText().getText().toString();
                 String email = emailUsuario.getEditText().getText().toString();
                 String telefone = telefoneUsuario.getEditText().getText().toString();
                 String confirmarSenha = confirmeSenhaUsuario.getEditText().getText().toString();
 
-                try{idadenumero = Integer.valueOf(telefone);}catch(NumberFormatException ex){
-                    idadenumero = -1;
-                }
-
-                if (validaCampos(nome, senha, email, telefone, confirmarSenha)){
-                    registrarUsuario(nome, senha, email, telefone);
+                if (validaCampos(nome, senha, email, telefone, confirmarSenha)) {
+                    registrarUsuario(senha, email);
                 }
             }
         });
 
-
+        Spinner spinnerIdentificacao = findViewById(R.id.spinner_genero);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.lista_identificacao, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinnerIdentificacao.setAdapter(adapter);
+        spinnerIdentificacao.setOnItemSelectedListener(this);
     }
 
-    private void registrarUsuario(String nome, String senha, String email, String idade) {
-
+    private void registrarUsuario(String senha, String email) {
         progressBar.setVisibility(View.VISIBLE);
-
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(task -> {
-
                     progressBar.setVisibility(View.GONE);
-
-                    if (task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         AppUtil.salvarIdUsuario(CadastroActivity.this, FirebaseAuth.getInstance()
                                 .getCurrentUser().getUid());
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                    }else{
-
+                    } else {
                         Snackbar.make(cadastrar, task.getException().getMessage(), Snackbar.LENGTH_LONG).show();
                         progressBar.setVisibility(View.GONE);
                     }
@@ -124,22 +118,20 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
             Snackbar.make(telefoneUsuario, "O campo telefone não pode ser vazio", Snackbar.LENGTH_LONG).show();
             return false;
         }
-//        if (telefone.length() == 11) {
-//            telefoneUsuario.setError("O telefone deve conter no maximo 11 caracteres");
-//            telefoneUsuario.setErrorEnabled(false);
-//            telefoneUsuario.requestFocus();
-//            Snackbar.make(senhaUsuario, "A senha deve ter mais de 6 caracteres", Snackbar.LENGTH_LONG).show();
-//            return false;}
         if (confirmarSenha.isEmpty()) {
             confirmeSenhaUsuario.setError("O campo confirmar senha não pode ser vazio");
             confirmeSenhaUsuario.setErrorEnabled(false);
             confirmeSenhaUsuario.requestFocus();
             Snackbar.make(confirmeSenhaUsuario, "O campo confirmar senha não pode ser vazio", Snackbar.LENGTH_LONG).show();
             return false;
+        }  if (senha != confirmarSenha) {
+            Snackbar.make(confirmeSenhaUsuario, "As senhas devem ser iguais", Snackbar.LENGTH_LONG).show();
+            return false;
         }
-        return true;
+            return true;
     }
-        private void initViews() {
+
+    private void initViews() {
         nomeUsuario = findViewById(R.id.textInputLayoutUsuario);
         senhaUsuario = findViewById(R.id.textInputLayoutSenha);
         emailUsuario = findViewById(R.id.textInputLayoutEmail);
