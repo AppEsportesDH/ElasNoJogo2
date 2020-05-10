@@ -1,5 +1,6 @@
 package br.com.elasnojogo.views;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -50,8 +51,9 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
         return view;
     }
 
+
     private void replaceFragment(Fragment fragment) {
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).addToBackStack(null).commit();
     }
 
     @Override
@@ -75,4 +77,7 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
                             Log.i("TAG", "método getAllEventos" + throwable.getMessage());
                         });
     }
+
+
+
 }
