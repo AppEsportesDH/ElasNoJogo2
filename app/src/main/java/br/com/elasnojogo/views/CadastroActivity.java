@@ -124,7 +124,7 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
             confirmeSenhaUsuario.requestFocus();
             Snackbar.make(confirmeSenhaUsuario, "O campo confirmar senha não pode ser vazio", Snackbar.LENGTH_LONG).show();
             return false;
-        }  if (senha != confirmarSenha) {
+        }  if (senha == confirmarSenha) {
             Snackbar.make(confirmeSenhaUsuario, "As senhas devem ser iguais", Snackbar.LENGTH_LONG).show();
             return false;
         }
