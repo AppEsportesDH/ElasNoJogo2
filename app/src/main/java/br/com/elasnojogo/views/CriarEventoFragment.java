@@ -78,7 +78,7 @@ public class CriarEventoFragment extends Fragment {
         viewModel = ViewModelProviders.of(this).get(EventoViewModel.class);
         imageViewLogo = view.findViewById(R.id.imagemLogo);
         tipoInputEvento = view.findViewById(R.id.categoria_evento);
-        dataInputEvento = view.findViewById(R.id.horario_evento);
+        dataInputEvento = view.findViewById(R.id.data_evento);
         localInputEvento = view.findViewById(R.id.local_do_evento);
         horarioInputEvento = view.findViewById(R.id.horario_evento);
         cadastrarEvento = view.findViewById(R.id.buttonCadastrarEvento);
