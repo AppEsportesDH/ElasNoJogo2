@@ -47,7 +47,7 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
                 String confirmarSenha = confirmeSenhaUsuario.getEditText().getText().toString();
 
                 if (validaCampos(nome, senha, email, telefone, confirmarSenha)){
-                    registrarUsuario(nome, senha, email, telefone);
+                    registrarUsuario(senha, email);
                 }
             }
         });

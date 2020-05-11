@@ -37,7 +37,6 @@ public class VisualizarEvento extends Fragment {
             Evento dadosEvento = bundle.getParcelable(EVENTO_CHAVE);
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-
             }
 
             textViewNomeEvento.setText(dadosEvento.getNomeEvento());
