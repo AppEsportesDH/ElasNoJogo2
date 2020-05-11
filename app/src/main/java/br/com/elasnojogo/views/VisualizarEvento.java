@@ -20,7 +20,6 @@ public class VisualizarEvento extends Fragment {
     private TextView textViewNomeEvento;
     private TextView textViewLocalEvento;
     private TextView textViewDataEvento;
-    private TextView textViewHorarioEvento;
     private TextView textViewCategoriaEvento;
 
     public VisualizarEvento() {
@@ -44,10 +43,13 @@ public class VisualizarEvento extends Fragment {
             textViewNomeEvento.setText(dadosEvento.getNomeEvento());
             textViewLocalEvento.setText(getString(R.string.local) + dadosEvento.getLocal());
             textViewDataEvento.setText(getString(R.string.data) + dadosEvento.getData());
-            textViewHorarioEvento.setText(getString(R.string.horario) + dadosEvento.getHorario());
             textViewCategoriaEvento.setText(getString(R.string.categoria) + dadosEvento.getCategoriaEsportes());
         }
 
+        imageViewEvento.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getActivity(), HomeActivity.class);
+            startActivity(intent);
+        });
 
         return view;
     }
