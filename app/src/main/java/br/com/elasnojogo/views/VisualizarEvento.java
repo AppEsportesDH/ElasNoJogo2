@@ -16,11 +16,11 @@ import br.com.elasnojogo2.R;
 import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
 
 public class VisualizarEvento extends Fragment {
-    private ImageView imageViewLogo;
     private ImageView imageViewEvento;
     private TextView textViewNomeEvento;
     private TextView textViewLocalEvento;
     private TextView textViewDataEvento;
+    private TextView textViewHorarioEvento;
     private TextView textViewCategoriaEvento;
 
     public VisualizarEvento() {
@@ -44,24 +44,19 @@ public class VisualizarEvento extends Fragment {
             textViewNomeEvento.setText(dadosEvento.getNomeEvento());
             textViewLocalEvento.setText(getString(R.string.local) + dadosEvento.getLocal());
             textViewDataEvento.setText(getString(R.string.data) + dadosEvento.getData());
+            textViewHorarioEvento.setText(getString(R.string.horario) + dadosEvento.getHorario());
             textViewCategoriaEvento.setText(getString(R.string.categoria) + dadosEvento.getCategoriaEsportes());
         }
-
-        imageViewLogo.setOnClickListener(view1 -> {
-            Intent intent = new Intent(getActivity(), HomeActivity.class);
-            startActivity(intent);
-        });
-
         return view;
     }
 
     private void initViews(View view) {
 
-        imageViewLogo = view.findViewById(R.id.imageView4);
         imageViewEvento = view.findViewById(R.id.imageView_evento);
         textViewNomeEvento = view.findViewById(R.id.nome_evento_visualizarfragment);
         textViewLocalEvento = view.findViewById(R.id.local_visualizarfragment);
         textViewDataEvento = view.findViewById(R.id.data_visualizarfragment);
+        textViewHorarioEvento = view.findViewById(R.id.horario_visualizarfragment);
         textViewCategoriaEvento = view.findViewById(R.id.categoria_visualizarfragment);
     }
 }
