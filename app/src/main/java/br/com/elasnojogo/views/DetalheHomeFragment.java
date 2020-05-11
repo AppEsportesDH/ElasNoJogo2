@@ -52,6 +52,10 @@ public class DetalheHomeFragment extends Fragment {
         imagem = view.findViewById(R.id.imageView_detalhe);
         textViewDescription = view.findViewById(R.id.text_view_description);
     }
+
+    private void replaceFragment(Fragment fragment) {
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).addToBackStack(null).commit();
+    }
 }
 
 

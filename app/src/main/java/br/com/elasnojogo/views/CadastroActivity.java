@@ -124,11 +124,12 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
             Snackbar.make(telefoneUsuario, "O campo telefone não pode ser vazio", Snackbar.LENGTH_LONG).show();
             return false;
         }
-//        if (telefone.length() == 11) {
-//            telefoneUsuario.setError("O telefone deve conter no maximo 11 caracteres");
+
+//        if (!telefone.isTelefone(telefone) {
+//            telefoneUsuario.setError("Preencha corretamente (00) 00000-0000");
 //            telefoneUsuario.setErrorEnabled(false);
 //            telefoneUsuario.requestFocus();
-//            Snackbar.make(senhaUsuario, "A senha deve ter mais de 6 caracteres", Snackbar.LENGTH_LONG).show();
+//            Snackbar.make(telefoneUsuario, "O telefone não foi preenchido corretamente", Snackbar.LENGTH_LONG).show();
 //            return false;}
         if (confirmarSenha.isEmpty()) {
             confirmeSenhaUsuario.setError("O campo confirmar senha não pode ser vazio");
@@ -156,4 +157,5 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
     }
+    
 }
