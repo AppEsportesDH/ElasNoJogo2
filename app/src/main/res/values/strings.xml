@@ -5,9 +5,8 @@
     <string name="digite_sua_senha">SENHA</string>
     <string name="acessar_sua_conta">ACESSAR SUA CONTA</string>
     <string name="digite_o_seu_e_mail">E-MAIL</string>
-    <string name="cadastre_se">CADASTRE-SE</string>
+    <string name="cadastre_se">Não tem uma conta? Cadastre-se</string>
     <string name="entre_usando">ENTRE USANDO</string>
-    <string name="n_o_tenho_conta">NÃO TENHO CONTA</string>
     <string name="nome_evento">Nome Evento</string>
     <string name="email">Email</string>
     <string name="telefone">Telefone</string>

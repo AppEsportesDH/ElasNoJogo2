@@ -128,47 +128,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/botao_entrar" />
 
-        <TextView
-            android:id="@+id/nao_tem_conta"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/lato"
-            android:text="@string/n_o_tenho_conta"
-            android:textColor="@color/textoPesquisa"
-            android:textSize="16sp"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/botao_cadastro"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/facebook_btn"
-            app:layout_constraintVertical_bias="1.0" />
-
         <Button
             android:id="@+id/botao_cadastro"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             android:layout_marginBottom="16dp"
             android:background="@color/img_btn"
             android:fontFamily="@font/lato_bold"
             android:text="@string/cadastre_se"
-            android:textColor="@color/btn"
+            android:textAllCaps="false"
+            android:textColor="@color/textoPesquisa"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/nao_tem_conta"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/google_btn"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageButton
             android:id="@+id/facebook_btn"
@@ -193,6 +173,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="136dp"
             android:layout_marginRight="136dp"
+            android:background="#00FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/entre_usando"
             app:srcCompat="@drawable/google" />
