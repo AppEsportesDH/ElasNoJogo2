@@ -136,11 +136,11 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/compartilhar"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="46dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
             android:clickable="true"
             android:foregroundGravity="bottom"
             android:scaleType="center"
@@ -149,7 +149,7 @@
             app:backgroundTint="#FCFFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/categoria_visualizarfragment"/>
+            app:layout_constraintTop_toBottomOf="@+id/categoria_visualizarfragment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

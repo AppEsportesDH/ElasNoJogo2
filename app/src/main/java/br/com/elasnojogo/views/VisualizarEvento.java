@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +23,9 @@ public class VisualizarEvento extends Fragment {
     private TextView textViewDataEvento;
     private TextView textViewHorarioEvento;
     private TextView textViewCategoriaEvento;
+    private Button buttonCompartilhar;
+    Intent intent;
+    private String compartilharTexto = "Compartilhe seu evento!";
 
     public VisualizarEvento() {
     }
@@ -47,6 +51,15 @@ public class VisualizarEvento extends Fragment {
             textViewHorarioEvento.setText(getString(R.string.horario) + dadosEvento.getHorario());
             textViewCategoriaEvento.setText(getString(R.string.categoria) + dadosEvento.getCategoriaEsportes());
         }
+
+        buttonCompartilhar = view.findViewById(R.id.compartilhar);
+        buttonCompartilhar.setOnClickListener(view1 -> {
+            intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/pain");
+            intent.putExtra(Intent.EXTRA_SUBJECT,"Elas no Jogo");
+            intent.putExtra(Intent.EXTRA_TEXT,compartilharTexto);
+            startActivity(Intent.createChooser(intent, "Compartilhar via"));
+        });
         return view;
     }
 
