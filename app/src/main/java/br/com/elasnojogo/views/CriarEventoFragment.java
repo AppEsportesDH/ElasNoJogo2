@@ -1,5 +1,7 @@
 package br.com.elasnojogo.views;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,13 +12,20 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.fragment.NavHostFragment;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.elasnojogo.model.Evento;
+import br.com.elasnojogo.util.AppUtil;
 import br.com.elasnojogo.viewModel.EventoViewModel;
 import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.repository.data.EventosDAO;
@@ -39,6 +48,7 @@ public class CriarEventoFragment extends Fragment {
     private List<Evento> listaEvento = new ArrayList<>();
     private EventoViewModel viewModel;
     private EventoRecyclerViewAdapter adapter;
+    private InputStream stream = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +56,10 @@ public class CriarEventoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_criar_evento, container, false);
         eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
         initViews(view);
+
+        inserirImagem.setOnClickListener(v -> {
+            salvarImagemFirebase(stream, "nome_evento");
+        });
 
         cadastrarEvento.setOnClickListener(v -> {
             String nomeEvento = nomeInputEvento.getText().toString();
@@ -97,15 +111,35 @@ public class CriarEventoFragment extends Fragment {
             tipoInputEvento.setError(getString(preencha_campo));
 
             return false;
-        }
-            if (nomeEvento.length() <= 12) {
-                nomeInputEvento.setError("Nome do evento deve conter até 12 caracteres");
-                nomeInputEvento.requestFocus();
-                return false;
+
         } else {
             Fragment mudar = new MeusEventosFragment();
             replaceFragment(mudar);
             return true;
         }
     }
+
+    private void salvarImagemFirebase(InputStream stream, String nomeFotoEvento) {
+        StorageReference storage = FirebaseStorage
+                .getInstance()
+                .getReference()
+                .child(AppUtil.getIdUsuario(getContext()) + "/image/evento/" + nomeFotoEvento);
+
+        if (stream == null) {
+            replaceFragment(new HomeFragment());
+        }
+
+        UploadTask uploadTask = storage.putStream(stream);
+
+        uploadTask.addOnSuccessListener(taskSnapshot -> {
+
+            replaceFragment(new MeusEventosFragment());
+
+        }).addOnFailureListener(e -> {
+
+            Snackbar snackbar = Snackbar.make(inserirImagem, e.getMessage(), Snackbar.LENGTH_LONG);
+            snackbar.show();
+        });
+    }
+
 }

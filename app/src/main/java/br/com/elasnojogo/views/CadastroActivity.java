@@ -1,7 +1,9 @@
 package br.com.elasnojogo.views;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +19,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
+import br.com.elasnojogo.model.Usuario;
 import br.com.elasnojogo.util.AppUtil;
 import br.com.elasnojogo2.R;
 
@@ -28,6 +31,8 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
     private TextInputLayout senhaUsuario;
     private TextInputLayout confirmeSenhaUsuario;
     private ProgressBar progressBar;
+    private Spinner spinnerIdentificacao;
+    final String[] identificacao = new String[1];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +53,25 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
 
                 if (validaCampos(nome, senha, email, telefone, confirmarSenha)){
                     registrarUsuario(senha, email);
-                }
+                    Log.i("Spinner", identificacao[0]); }
+
+                Usuario user = new Usuario (identificacao[0], nome, email, telefone, senha, confirmarSenha);
             }
         });
 
-        Spinner spinnerIdentificacao = findViewById(R.id.spinner_genero);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.lista_identificacao, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinnerIdentificacao.setAdapter(adapter);
-        spinnerIdentificacao.setOnItemSelectedListener(this);
+        spinnerIdentificacao.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+               identificacao[0] = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
     }
 
     private void registrarUsuario(String senha, String email) {
@@ -74,6 +89,8 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
                     }
                 });
     }
+
+
 
     private boolean validaCampos(String nome, String senha, String email, String telefone, String confirmarSenha) {
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -139,7 +156,9 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
         confirmeSenhaUsuario = findViewById(R.id.textInputLayoutConfirmeSenha);
         cadastrar = findViewById(R.id.btn_cadastrar);
         progressBar = findViewById(R.id.progressBar);
+        spinnerIdentificacao = findViewById(R.id.spinner_genero);
     }
+
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -148,4 +167,5 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
     }
+
 }
