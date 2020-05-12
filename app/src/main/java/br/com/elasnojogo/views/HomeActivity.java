@@ -3,6 +3,8 @@ package br.com.elasnojogo.views;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +15,8 @@ import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import br.com.elasnojogo2.R;
 
@@ -39,6 +43,12 @@ public class HomeActivity extends AppCompatActivity {
         toggle.syncState();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        View emailText = navigationView.getHeaderView(0);
+        TextView nav_user = emailText.findViewById(R.id.textViewEmail);
+        nav_user.setText(user.getDisplayName());
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_meus_eventos,  R.id.nav_editarPerfil, R.id.nav_sair).setDrawerLayout(drawer).build();
 
