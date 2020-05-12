@@ -1,10 +1,12 @@
 package br.com.elasnojogo.views;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,15 +15,22 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import br.com.elasnojogo.model.Evento;
 import br.com.elasnojogo.viewModel.EventoViewModel;
-import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.repository.data.EventosDAO;
 import br.com.elasnojogo.repository.data.EventosDataBase;
 import br.com.elasnojogo2.R;
+
+import static br.com.elasnojogo.constantes.Constantes.MULHER_BI;
+import static br.com.elasnojogo.constantes.Constantes.MULHER_LES;
+import static br.com.elasnojogo.constantes.Constantes.MULHER_NAOBI;
+import static br.com.elasnojogo.constantes.Constantes.MULHER_TRANS;
+import static br.com.elasnojogo2.R.id.checkTrans;
+import static br.com.elasnojogo2.R.id.checklbi;
+import static br.com.elasnojogo2.R.id.checkles;
+import static br.com.elasnojogo2.R.string.check_les;
+import static br.com.elasnojogo2.R.string.check_naobi;
+import static br.com.elasnojogo2.R.string.check_trans;
 import static br.com.elasnojogo2.R.string.preencha_campo;
 
 public class CriarEventoFragment extends Fragment {
@@ -36,9 +45,9 @@ public class CriarEventoFragment extends Fragment {
     private TextInputEditText horarioInputEvento;
     private EventosDAO eventosDAO;
     private Button cadastrarEvento;
-    private List<Evento> listaEvento = new ArrayList<>();
     private EventoViewModel viewModel;
-    private EventoRecyclerViewAdapter adapter;
+    CheckBox ch, ch1, ch2, ch3;
+    private String identificacao;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,6 +74,9 @@ public class CriarEventoFragment extends Fragment {
                     }
                 }
             }).start();
+            onCheckboxClicked(view);
+            Log.i("CheckBos", identificacao);
+
         });
 
         return view;
@@ -86,6 +98,10 @@ public class CriarEventoFragment extends Fragment {
         criarEvento = view.findViewById(R.id.criareventoText);
         nomeInputEvento = view.findViewById(R.id.nome_do_evento);
         segurancaEvento = view.findViewById(R.id.segurancaEvento);
+        ch = (CheckBox) view.findViewById(checklbi);
+        ch1 = (CheckBox) view.findViewById(R.id.check_naobi);
+        ch2 = (CheckBox) view.findViewById(R.id.checkles);
+        ch3 = (CheckBox) view.findViewById(R.id.checkTrans);
     }
 
     private boolean validarCampos(String nomeEvento, String dataEvento, String horaEvento, String localEvento, String categoriaEvento) {
@@ -95,17 +111,25 @@ public class CriarEventoFragment extends Fragment {
             localInputEvento.setError(getString(preencha_campo));
             horarioInputEvento.setError(getString(preencha_campo));
             tipoInputEvento.setError(getString(preencha_campo));
-
             return false;
-        }
-            if (nomeEvento.length() <= 12) {
-                nomeInputEvento.setError("Nome do evento deve conter até 12 caracteres");
-                nomeInputEvento.requestFocus();
-                return false;
+
         } else {
             Fragment mudar = new MeusEventosFragment();
             replaceFragment(mudar);
             return true;
+        }
+    }
+
+    private void onCheckboxClicked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        if (view.getId() == checklbi && checked) {
+            identificacao = MULHER_BI;
+        } else if (view.getId() == checkles && checked) {
+            identificacao = MULHER_LES;
+        } else if (view.getId() == checkTrans && checked) {
+            identificacao = MULHER_TRANS;
+        } else if (view.getId() == R.id.check_naobi && checked) {
+            identificacao = MULHER_NAOBI;
         }
     }
 }

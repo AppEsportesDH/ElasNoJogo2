@@ -24,18 +24,21 @@ public class Evento implements Parcelable {
     private String horario;
     @ColumnInfo(name = "localEvento")
 
-
     private String local;
     @ColumnInfo(name = "categoriaEsportes")
 
+    private String genero;
+    @ColumnInfo(name = "generoMulher")
+
     private String categoriaEsportes;
     public Evento(String nomeEvento, String data, String horario, String local,
-                  String categoriaEsportes ) {
+                  String categoriaEsportes, String genero) {
         this.nomeEvento = nomeEvento;
         this.data = data;
         this.horario = horario;
         this.local = local;
         this.categoriaEsportes = categoriaEsportes;
+        this.genero = genero;
     }
 
     protected Evento(Parcel in) {
@@ -43,6 +46,7 @@ public class Evento implements Parcelable {
         nomeEvento = in.readString();
         horario = in.readString();
         local = in.readString();
+        genero = in.readString();
         categoriaEsportes = in.readString();
     }
     public static final Creator<Evento> CREATOR = new Creator<Evento>() {
@@ -55,6 +59,14 @@ public class Evento implements Parcelable {
             return new Evento[size];
         }
     };
+
+    public Evento(String nomeEvento, String data, String horario, String local, String categoriaEsportes) {
+        this.nomeEvento = nomeEvento;
+        this.data = data;
+        this.horario = horario;
+        this.local = local;
+        this.categoriaEsportes = categoriaEsportes;
+    }
 
 
     public String getNomeEvento() {return nomeEvento; }
@@ -81,6 +93,10 @@ public class Evento implements Parcelable {
 
     public void setId(long id) { this.id = id; }
 
+    public String getGenero() { return genero; }
+
+    public void setGenero(String genero) { this.genero = genero; }
+
     @Override
     public int describeContents() {
         return 0;
@@ -92,6 +108,7 @@ public class Evento implements Parcelable {
         parcel.writeString(nomeEvento);
         parcel.writeString(horario);
         parcel.writeString(local);
+        parcel.writeString(genero);
         parcel.writeString(categoriaEsportes);
     }
 }

@@ -10,7 +10,6 @@ import io.reactivex.schedulers.Schedulers;
 public class BuscarEventos {
     public EventosDAO eventosDAO;
     private EventoRecyclerViewAdapter adapter;
-
     public void buscarTodosEventos() {
         eventosDAO.retornaEventos()
                 .subscribeOn(Schedulers.io())
