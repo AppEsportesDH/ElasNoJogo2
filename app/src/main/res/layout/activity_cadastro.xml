@@ -93,7 +93,7 @@
             app:layout_constraintTop_toBottomOf="@+id/spinner_genero">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nome_usuaria"
+                android:id="@+id/nome_usuaria_drawer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/lato"
