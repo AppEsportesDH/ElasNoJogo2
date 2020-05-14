@@ -36,6 +36,7 @@ public class CadastroViewModel extends AndroidViewModel {
         DatabaseReference reference = database.getReference(AppUtil.getIdUsuario(getApplication()) + "/usuarios");
 
         reference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 

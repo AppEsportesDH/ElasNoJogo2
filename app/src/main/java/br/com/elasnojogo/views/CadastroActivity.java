@@ -28,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -103,6 +104,8 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+        loadImageFromFirebase();
     }
 
     private void registrarUsuario(String senha, String email) {
@@ -263,4 +266,20 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
                 snackbar.show();
             });
         }
+
+    private void loadImageFromFirebase() {
+        StorageReference storage = FirebaseStorage
+                .getInstance()
+                .getReference()
+                .child(AppUtil.getIdUsuario(getApplication()) + "/image/perfil/nome_perfil");
+
+        storage.getDownloadUrl()
+                .addOnSuccessListener(uri -> {
+
+                    Picasso.get()
+                            .load(uri)
+                            .rotate(90)
+                            .into(imagemUsuario);
+                });
+    }
     }
