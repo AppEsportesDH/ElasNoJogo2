@@ -20,6 +20,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.PicassoProvider;
 
 import br.com.elasnojogo2.R;
 
@@ -50,23 +51,22 @@ public class HomeActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        View emailText = navigationView.getHeaderView(0);
-        TextView nav_user = emailText.findViewById(R.id.textViewEmail);
-        nav_user.setText(user.getDisplayName());
+        View headerView = navigationView.getHeaderView(0);
+        TextView nav_user = headerView.findViewById(R.id.nome_usuaria_drawer);
+        ImageView nav_image = headerView.findViewById(R.id.nav_imageView);
+        TextView nav_email = headerView.findViewById(R.id.textViewEmail);
 
+        if (user != null) {
+            nav_user.setText(user.getDisplayName());
+            Picasso.get().load(user.getPhotoUrl()).into(nav_image);
+            nav_email.setText(user.getEmail());
+        }
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_meus_eventos,  R.id.nav_editarPerfil, R.id.nav_sair).setDrawerLayout(drawer).build();
 
         navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
 
-        View hview = navigationView.getHeaderView(0);
-        TextView nav_email = hview.findViewById(R.id.textViewEmail);
-        TextView nav_name = hview.findViewById(R.id.nome_usuaria_drawer);
-        ImageView nav_img = hview.findViewById(R.id.nav_imageView);
-        GoogleSignInAccount googleSignInAccount = getIntent().getParcelableExtra(GOOGLE_ACCOUNT);
-        Picasso.get().load(googleSignInAccount.getPhotoUrl()).centerInside().fit().into(nav_img);
-        nav_name.setText(googleSignInAccount.getDisplayName());
-        nav_email.setText(googleSignInAccount.getEmail());
+
     }
 
     private boolean onNavigationItemSelected(MenuItem menuItem) {
