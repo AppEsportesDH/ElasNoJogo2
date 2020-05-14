@@ -82,6 +82,7 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
             public void onClick(View view) {
                 Fragment mudar = new CriarEventoFragment();
                 replaceFragment(mudar);
+
             }
         });
 
