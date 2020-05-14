@@ -7,10 +7,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import br.com.elasnojogo.model.DadosEvento;
 import br.com.elasnojogo.model.Evento;
 import br.com.elasnojogo2.R;
 
@@ -23,11 +25,13 @@ public class VisualizarEvento extends Fragment {
     private TextView textViewDataEvento;
     private TextView textViewHorarioEvento;
     private TextView textViewCategoriaEvento;
-    private Button buttonCompartilhar;
-    Intent intent;
-    private String compartilharTexto = "Compartilhe seu evento!";
+    private FloatingActionButton buttonCompartilhar;
+    private DadosEvento dadosEventos;
 
     public VisualizarEvento() {
+    }
+
+    private static void onClick(View view1) {
     }
 
     @Override
@@ -37,12 +41,13 @@ public class VisualizarEvento extends Fragment {
 
         initViews(view);
 
+        buttonCompartilhar.setOnClickListener(v -> compartilharEvento(dadosEventos));
+
         if (getArguments() != null){
             Bundle bundle = getArguments();
             Evento dadosEvento = bundle.getParcelable(EVENTO_CHAVE);
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-
             }
 
             textViewNomeEvento.setText(dadosEvento.getNomeEvento());
@@ -50,16 +55,7 @@ public class VisualizarEvento extends Fragment {
             textViewDataEvento.setText(getString(R.string.data) + dadosEvento.getData());
             textViewHorarioEvento.setText(getString(R.string.horario) + dadosEvento.getHorario());
             textViewCategoriaEvento.setText(getString(R.string.categoria) + dadosEvento.getCategoriaEsportes());
-        }
-
-        buttonCompartilhar = view.findViewById(R.id.compartilhar);
-        buttonCompartilhar.setOnClickListener(view1 -> {
-            intent = new Intent(Intent.ACTION_SEND);
-            intent.setType("text/pain");
-            intent.putExtra(Intent.EXTRA_SUBJECT,"Elas no Jogo");
-            intent.putExtra(Intent.EXTRA_TEXT,compartilharTexto);
-            startActivity(Intent.createChooser(intent, "Compartilhar via"));
-        });
+        };
         return view;
     }
 
@@ -71,5 +67,17 @@ public class VisualizarEvento extends Fragment {
         textViewDataEvento = view.findViewById(R.id.data_visualizarfragment);
         textViewHorarioEvento = view.findViewById(R.id.horario_visualizarfragment);
         textViewCategoriaEvento = view.findViewById(R.id.categoria_visualizarfragment);
+        buttonCompartilhar = view.findViewById(R.id.compartilhar);
     }
+
+    private void compartilharEvento(DadosEvento dadosEvento) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Participe do meu evento!");
+        sendIntent.setType("text/plain");
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
+
+    }
+
 }
