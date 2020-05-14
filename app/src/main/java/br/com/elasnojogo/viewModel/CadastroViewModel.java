@@ -64,21 +64,9 @@ public class CadastroViewModel extends AndroidViewModel {
         });
     }
 
-
     private void salvarInfoUsuarioVerificado(DatabaseReference reference, Usuario usuario) {
         String key = reference.push().getKey();
 
         reference.child(key).setValue(usuario);
-    }
-
-    private void captureImage() {
-        int permissionCamera = ContextCompat.checkSelfPermission(getApplication(), Manifest.permission.CAMERA);
-        int permissionStorage = ContextCompat.checkSelfPermission(getApplication(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
-        if (permissionCamera == PackageManager.PERMISSION_GRANTED && permissionStorage == PackageManager.PERMISSION_GRANTED) {
-            EasyImage.openCameraForImage(this, MODE_PRIVATE);
-        } else {
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_CODE);
-        }
     }
 }

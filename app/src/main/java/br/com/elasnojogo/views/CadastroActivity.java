@@ -1,7 +1,9 @@
 package br.com.elasnojogo.views;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -13,15 +15,33 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.List;
 
 import br.com.elasnojogo.model.Usuario;
 import br.com.elasnojogo.util.AppUtil;
+import br.com.elasnojogo.viewModel.CadastroViewModel;
 import br.com.elasnojogo2.R;
+import de.hdodenhof.circleimageview.CircleImageView;
+import pl.aprilapps.easyphotopicker.DefaultCallback;
+import pl.aprilapps.easyphotopicker.EasyImage;
 
 public class CadastroActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private Button cadastrar;
@@ -33,6 +53,10 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
     private ProgressBar progressBar;
     private Spinner spinnerIdentificacao;
     final String[] identificacao = new String[1];
+    private CadastroViewModel cadastroViewModel;
+    private CircleImageView imagemUsuario;
+    private static final int PERMISSION_CODE = 100;
+    private InputStream stream = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +64,10 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
         setContentView(R.layout.activity_cadastro);
 
         initViews();
+
+        imagemUsuario.setOnClickListener(v -> {
+            captureImage();
+        });
 
         cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,11 +79,14 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
                 String telefone = telefoneUsuario.getEditText().getText().toString();
                 String confirmarSenha = confirmeSenhaUsuario.getEditText().getText().toString();
 
-                if (validaCampos(nome, senha, email, telefone, confirmarSenha)){
+                if (validaCampos(nome, senha, email, telefone, confirmarSenha)) {
                     registrarUsuario(senha, email);
-                    Log.i("Spinner", identificacao[0]); }
+                    Log.i("Spinner", identificacao[0]);
+                }
 
-                Usuario user = new Usuario (identificacao[0], nome, email, telefone, senha, confirmarSenha);
+                Usuario user = new Usuario(identificacao[0], nome, email, telefone, senha, confirmarSenha);
+
+                cadastroViewModel.salvarInfoUsuario(user);
             }
         });
 
@@ -65,7 +96,7 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
         spinnerIdentificacao.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-               identificacao[0] = parent.getItemAtPosition(position).toString();
+                identificacao[0] = parent.getItemAtPosition(position).toString();
             }
 
             @Override
@@ -82,6 +113,8 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
                     if (task.isSuccessful()) {
                         AppUtil.salvarIdUsuario(CadastroActivity.this, FirebaseAuth.getInstance()
                                 .getCurrentUser().getUid());
+                        salvarImagemUsuarioFirebase(stream, "nome_perfil");
+
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                     } else {
                         Snackbar.make(cadastrar, task.getException().getMessage(), Snackbar.LENGTH_LONG).show();
@@ -89,7 +122,6 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
                     }
                 });
     }
-
 
 
     private boolean validaCampos(String nome, String senha, String email, String telefone, String confirmarSenha) {
@@ -141,11 +173,12 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
             confirmeSenhaUsuario.requestFocus();
             Snackbar.make(confirmeSenhaUsuario, "O campo confirmar senha não pode ser vazio", Snackbar.LENGTH_LONG).show();
             return false;
-        }  if (senha == confirmarSenha) {
+        }
+        if (senha == confirmarSenha) {
             Snackbar.make(confirmeSenhaUsuario, "As senhas devem ser iguais", Snackbar.LENGTH_LONG).show();
             return false;
         }
-            return true;
+        return true;
     }
 
     private void initViews() {
@@ -154,9 +187,11 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
         emailUsuario = findViewById(R.id.textInputLayoutEmail);
         telefoneUsuario = findViewById(R.id.textInputLayoutTelefone);
         confirmeSenhaUsuario = findViewById(R.id.textInputLayoutConfirmeSenha);
+        imagemUsuario = findViewById(R.id.imageview_user_login);
         cadastrar = findViewById(R.id.btn_cadastrar);
         progressBar = findViewById(R.id.progressBar);
         spinnerIdentificacao = findViewById(R.id.spinner_genero);
+        cadastroViewModel = ViewModelProviders.of(this).get(CadastroViewModel.class);
     }
 
 
@@ -168,4 +203,64 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
     public void onNothingSelected(AdapterView<?> adapterView) {
     }
 
-}
+    private void captureImage() {
+        int permissionCamera = ContextCompat.checkSelfPermission(getApplication(), Manifest.permission.CAMERA);
+        int permissionStorage = ContextCompat.checkSelfPermission(getApplication(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permissionCamera == PackageManager.PERMISSION_GRANTED && permissionStorage == PackageManager.PERMISSION_GRANTED) {
+            EasyImage.openCameraForImage(this, MODE_PRIVATE);
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_CODE);
+        }
+    }
+
+        @Override
+        public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+            captureImage();
+        }
+
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+
+            EasyImage.handleActivityResult(requestCode, resultCode, data, this, new DefaultCallback() {
+
+                @Override
+                public void onImagesPicked(@NonNull List<File> imageFiles, EasyImage.ImageSource source, int type) {
+
+                    for (File file : imageFiles) {
+                        try {
+                            stream = new FileInputStream(file);
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
+        }
+
+        private void salvarImagemUsuarioFirebase(InputStream stream, String nomeFoto){
+
+            StorageReference storage = FirebaseStorage
+                    .getInstance()
+                    .getReference()
+                    .child(AppUtil.getIdUsuario(getApplication()) + "/image/perfil/" + nomeFoto);
+
+            if (stream == null) {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                return;
+            }
+
+            UploadTask uploadTask = storage.putStream(stream);
+
+            uploadTask.addOnSuccessListener(taskSnapshot -> {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+
+            }).addOnFailureListener(e -> {
+
+                Snackbar snackbar = Snackbar.make(imagemUsuario, e.getMessage(), Snackbar.LENGTH_LONG);
+                snackbar.show();
+            });
+        }
+    }

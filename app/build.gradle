@@ -43,6 +43,9 @@ dependencies {
     //    Image Circle ----------------------------------------------------
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    //   Image -------------------------------------------------------------
+    implementation 'com.github.jkwiecien:EasyImage:2.1.1'
+
     /*######################## ViewModel and LiveData ###########################*/
     def lifecycle_version = "1.1.1"
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
