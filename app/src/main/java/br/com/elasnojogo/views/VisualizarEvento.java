@@ -77,7 +77,5 @@ public class VisualizarEvento extends Fragment {
         sendIntent.setType("text/plain");
         Intent shareIntent = Intent.createChooser(sendIntent, null);
         startActivity(shareIntent);
-
     }
-
 }
