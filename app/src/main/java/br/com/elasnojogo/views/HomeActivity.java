@@ -3,6 +3,9 @@ package br.com.elasnojogo.views;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,11 +15,17 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.PicassoProvider;
 
 import br.com.elasnojogo2.R;
 
 import static br.com.elasnojogo.constantes.Constantes.USUARIO;
+import static br.com.elasnojogo.views.LoginActivity.GOOGLE_ACCOUNT;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -40,9 +49,24 @@ public class HomeActivity extends AppCompatActivity {
 
         NavigationView navigationView = findViewById(R.id.nav_view);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        View headerView = navigationView.getHeaderView(0);
+        TextView nav_user = headerView.findViewById(R.id.nome_usuaria_drawer);
+        ImageView nav_image = headerView.findViewById(R.id.nav_imageView);
+        TextView nav_email = headerView.findViewById(R.id.textViewEmail);
+
+        if (user != null) {
+            nav_user.setText(user.getDisplayName());
+            Picasso.get().load(user.getPhotoUrl()).into(nav_image);
+            nav_email.setText(user.getEmail());
+        }
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_meus_eventos,  R.id.nav_editarPerfil, R.id.nav_sair).setDrawerLayout(drawer).build();
 
         navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
+
+
     }
 
     private boolean onNavigationItemSelected(MenuItem menuItem) {
