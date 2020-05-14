@@ -93,6 +93,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        replaceFragment(new HomeFragment());
     }
 
     private void enviaDadosFragmento(){

@@ -69,8 +69,6 @@
     <string name="fb_login_protocol_scheme">851777708640114</string>
     <string name="editar_perfil">Editar Perfil</string>
 
-
-
     <string-array name="lista_identificacao">
         <item>mulher cis</item>
         <item>mulher lésbica</item>
