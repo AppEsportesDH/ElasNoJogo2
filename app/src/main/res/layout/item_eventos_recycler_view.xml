@@ -24,20 +24,21 @@
 
         <TextView
             android:id="@+id/nome_evento_visualizarfragment"
-            android:layout_width="0dp"
+            android:layout_width="145dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="8dp"
             android:width="@dimen/fab_margin"
             android:fontFamily="@font/lato"
             android:text="@string/nome_evento"
-            android:textColor="@color/btn"
             android:textAllCaps="true"
+            android:textColor="@color/btn"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.132"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView_evento"
             app:layout_constraintTop_toTopOf="parent" />
 
