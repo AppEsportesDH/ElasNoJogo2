@@ -1,5 +1,6 @@
 package br.com.elasnojogo.views;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 import br.com.elasnojogo.model.Evento;
@@ -28,9 +30,6 @@ import static br.com.elasnojogo.constantes.Constantes.MULHER_TRANS;
 import static br.com.elasnojogo2.R.id.checkTrans;
 import static br.com.elasnojogo2.R.id.checklbi;
 import static br.com.elasnojogo2.R.id.checkles;
-import static br.com.elasnojogo2.R.string.check_les;
-import static br.com.elasnojogo2.R.string.check_naobi;
-import static br.com.elasnojogo2.R.string.check_trans;
 import static br.com.elasnojogo2.R.string.preencha_campo;
 
 public class CriarEventoFragment extends Fragment {
@@ -65,18 +64,12 @@ public class CriarEventoFragment extends Fragment {
 
             validarCampos(nomeEvento, local, data, horario, categoriaEsportes);
 
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    Evento evento = new Evento(nomeEvento, data, horario, local, categoriaEsportes);
-                    if (evento != null) {
-                        eventosDAO.inserirEventos(evento);
-                    }
-                }
-            }).start();
             onCheckboxClicked(view);
             Log.i("CheckBos", identificacao);
 
+            Evento evento = new Evento(nomeEvento, local, data, horario, categoriaEsportes, identificacao);
+            viewModel.insereDadosBd(evento);
+            viewModel.salvarEventoFirebase(evento);
         });
 
         return view;
