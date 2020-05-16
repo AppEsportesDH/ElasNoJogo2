@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +19,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import br.com.elasnojogo.model.Evento;
 import br.com.elasnojogo.repository.data.EventosDAO;
 import br.com.elasnojogo.repository.data.EventosDataBase;
+import br.com.elasnojogo.viewModel.EventoViewModel;
 import br.com.elasnojogo.views.interfaces.EventoListener;
 import br.com.elasnojogo.model.Sport;
 import br.com.elasnojogo.viewModel.SportsViewModel;
@@ -48,7 +47,8 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
     private TextView saudacao;
     private List<Evento> listaEventos = new ArrayList<>();
     private EventoRecyclerViewAdapter adapter;
-    public EventosDAO eventosDAO;
+    public  EventosDAO eventosDAO;
+    private EventoViewModel eventoViewModel;
 
     public HomeFragment() {
     }
@@ -60,10 +60,8 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         initViews(view);
 
-
-
         eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
-        buscarTodosEventos();
+        eventoViewModel.buscarTodosEventos();
         recyclerViewEventos = view.findViewById(R.id.recycler_view_eventos);
         adapter = new EventoRecyclerViewAdapter(listaEventos, this);
         recyclerViewEventos.setAdapter(adapter);
@@ -110,18 +108,6 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
         Fragment detalheFragment = new VisualizarEvento();
         detalheFragment.setArguments(bundle);
         replaceFragment(detalheFragment);
-    }
-
-    public void buscarTodosEventos() {
-        eventosDAO.retornaEventos()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(produtos -> {
-                            adapter.atualizaListaEvento(produtos);
-                        },
-                        throwable -> {
-                            Log.i("TAG", "método getAllEventos" + throwable.getMessage());
-                        });
     }
 
     @Override

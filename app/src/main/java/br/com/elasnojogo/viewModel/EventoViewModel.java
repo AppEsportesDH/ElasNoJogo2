@@ -1,6 +1,7 @@
 package br.com.elasnojogo.viewModel;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -24,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class EventoViewModel extends AndroidViewModel {
+
     public MutableLiveData<Throwable> resultLiveDataError = new MutableLiveData<>();
 
     private EventoRepository repository = new EventoRepository();
@@ -75,9 +77,7 @@ public class EventoViewModel extends AndroidViewModel {
 
     public void salvarEventoFirebase(Evento evento) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-
         DatabaseReference reference = database.getReference(AppUtil.getIdUsuario(getApplication()) + "/evento");
-
         reference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
@@ -110,5 +110,18 @@ public class EventoViewModel extends AndroidViewModel {
     private void salvarInfoEvento(DatabaseReference reference, Evento evento) {
         String key = reference.push().getKey();
         reference.child(key).setValue(evento);
+    }
+    public void buscarTodosEventos() {
+        disposable.add(
+                repository.retornarEventos(getApplication())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(evento -> {
+                            mutableLiveDataAEvento.setValue(evento);
+                        },
+                        throwable -> {
+                            Log.i("TAG", "método getAllEventos" + throwable.getMessage());
+                        })
+        );
     }
 }

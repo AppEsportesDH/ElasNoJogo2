@@ -6,7 +6,7 @@ import androidx.room.RoomDatabase;
 
 import br.com.elasnojogo.model.Evento;
 
-@Database(entities = {Evento.class}, version = 1, exportSchema = false)
+@Database(entities = {Evento.class}, version = 2, exportSchema = false)
 public abstract class EventosDataBase extends RoomDatabase {
 
     public static volatile EventosDataBase INSTANCE;

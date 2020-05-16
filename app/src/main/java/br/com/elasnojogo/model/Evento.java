@@ -34,13 +34,16 @@ public class Evento implements Parcelable {
     @ColumnInfo(name = "categoriaEvento")
     private String categoria;
 
-    public Evento( String nomeEvento, String data, String horario, String local, String genero, String categoria) {
+    public Evento(String nomeEvento, String data, String horario, String local, String genero, String categoria) {
         this.nomeEvento = nomeEvento;
         this.data = data;
         this.horario = horario;
         this.local = local;
         this.genero = genero;
         this.categoria = categoria;
+    }
+    public Evento(){
+
     }
 
     protected Evento(Parcel in) {

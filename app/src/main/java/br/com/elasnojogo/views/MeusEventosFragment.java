@@ -18,6 +18,7 @@ import java.util.List;
 import br.com.elasnojogo.model.Evento;
 import br.com.elasnojogo.repository.data.EventosDAO;
 import br.com.elasnojogo.repository.data.EventosDataBase;
+import br.com.elasnojogo.viewModel.EventoViewModel;
 import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.views.interfaces.EventoListener;
 
@@ -33,6 +34,7 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
     private EventoRecyclerViewAdapter adapter;
     private RecyclerView recyclerView;
     public EventosDAO eventosDAO;
+    public EventoViewModel eventoViewModel;
 
     public MeusEventosFragment() {
     }
@@ -43,7 +45,7 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
         View view = inflater.inflate(R.layout.recycler_meus_eventos, container, false);
 
         eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
-        buscarTodosEventos();
+        eventoViewModel.buscarTodosEventos();
         recyclerView = view.findViewById(R.id.recycler_view_eventos);
         adapter = new EventoRecyclerViewAdapter(listaEventos, this);
         recyclerView.setAdapter(adapter);
@@ -65,19 +67,4 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
         detalheFragment.setArguments(bundle);
         replaceFragment(detalheFragment);
     }
-
-    public void buscarTodosEventos() {
-        eventosDAO.retornaEventos()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(produtos -> {
-                            adapter.atualizaListaEvento(produtos);
-                        },
-                        throwable -> {
-                            Log.i("TAG", "método getAllEventos" + throwable.getMessage());
-                        });
-    }
-
-
-
 }

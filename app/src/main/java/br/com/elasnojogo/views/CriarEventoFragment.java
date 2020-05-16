@@ -1,8 +1,6 @@
 package br.com.elasnojogo.views;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +12,6 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 import br.com.elasnojogo.model.Evento;
@@ -64,8 +61,10 @@ public class CriarEventoFragment extends Fragment {
 
             validarCampos(nomeEvento, local, data, horario, categoriaEsportes);
 
-            onCheckboxClicked(view);
-            Log.i("CheckBos", identificacao);
+            onCheckboxClicked(ch);
+            onCheckboxClicked(ch1);
+            onCheckboxClicked(ch2);
+            onCheckboxClicked(ch3);
 
             Evento evento = new Evento(nomeEvento, local, data, horario, categoriaEsportes, identificacao);
             viewModel.insereDadosBd(evento);
