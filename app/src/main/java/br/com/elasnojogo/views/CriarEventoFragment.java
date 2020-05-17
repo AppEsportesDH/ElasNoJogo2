@@ -1,6 +1,7 @@
 package br.com.elasnojogo.views;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -134,7 +135,7 @@ public class CriarEventoFragment extends Fragment {
 
         if (permissionCamera == PackageManager.PERMISSION_GRANTED && permissionStorage == PackageManager.PERMISSION_GRANTED) {
 //            EasyImage.openCameraForImage(this, MODE_PRIVATE);
-            EasyImage.openChooserWithGallery(this, "Escolha a imagem", MODE_PRIVATE);
+            EasyImage.openChooserWithGallery((Activity) getContext(), "Escolha a imagem", MODE_PRIVATE);
         } else {
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_CODE);
         }
@@ -144,7 +145,7 @@ public class CriarEventoFragment extends Fragment {
         StorageReference storage = FirebaseStorage
                 .getInstance()
                 .getReference()
-                .child(AppUtil.getIdUsuario(getContext()) + "/image/evento/" + nomeFotoEvento);
+                .child(AppUtil.getIdUsuario(getContext()) + "/imagem/evento/" + nomeFotoEvento);
 
         if (stream == null) {
             replaceFragment(new HomeFragment());

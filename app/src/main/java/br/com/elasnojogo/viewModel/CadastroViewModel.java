@@ -33,7 +33,7 @@ public class CadastroViewModel extends AndroidViewModel {
     public void salvarInfoUsuario(Usuario usuario) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        DatabaseReference reference = database.getReference("/usuario" + AppUtil.getIdUsuario(getApplication()) + "/usuarios");
+        DatabaseReference reference = database.getReference("/usuarios/" + AppUtil.getIdUsuario(getApplication()));
 
         reference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
 
