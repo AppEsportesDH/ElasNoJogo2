@@ -15,6 +15,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.Toolbar;
 
+import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +24,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.PicassoProvider;
 
 import br.com.elasnojogo2.R;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static br.com.elasnojogo.constantes.Constantes.USUARIO;
 import static br.com.elasnojogo.views.LoginActivity.GOOGLE_ACCOUNT;
@@ -53,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
 
         View headerView = navigationView.getHeaderView(0);
         TextView nav_user = headerView.findViewById(R.id.nome_usuaria_drawer);
-        ImageView nav_image = headerView.findViewById(R.id.nav_imageView);
+        CircleImageView nav_image = headerView.findViewById(R.id.nav_imageView);
         TextView nav_email = headerView.findViewById(R.id.textViewEmail);
 
         if (user != null) {
@@ -65,8 +67,6 @@ public class HomeActivity extends AppCompatActivity {
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_meus_eventos,  R.id.nav_editarPerfil, R.id.nav_sair).setDrawerLayout(drawer).build();
 
         navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
-
-
     }
 
     private boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -77,6 +77,8 @@ public class HomeActivity extends AppCompatActivity {
         } else if (id == R.id.nav_meus_eventos) {
             replaceFragment(new MeusEventosFragment());
         } else if (id == R.id.nav_sair) {
+            LoginManager.getInstance().logOut();
+            FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, LoginActivity.class));
             finish();
             return true;

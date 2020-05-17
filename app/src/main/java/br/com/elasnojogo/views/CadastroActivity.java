@@ -211,8 +211,9 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
         int permissionStorage = ContextCompat.checkSelfPermission(getApplication(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         if (permissionCamera == PackageManager.PERMISSION_GRANTED && permissionStorage == PackageManager.PERMISSION_GRANTED) {
-            EasyImage.openCameraForImage(this, MODE_PRIVATE);
-        } else {
+//            EasyImage.openCameraForImage(this, MODE_PRIVATE);
+            EasyImage.openChooserWithGallery(this, "escolher_imagem", MODE_PRIVATE);
+     } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_CODE);
         }
     }

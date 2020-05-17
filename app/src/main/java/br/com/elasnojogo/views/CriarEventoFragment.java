@@ -1,6 +1,8 @@
 package br.com.elasnojogo.views;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.fragment.NavHostFragment;
@@ -31,9 +35,13 @@ import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.repository.data.EventosDAO;
 import br.com.elasnojogo.repository.data.EventosDataBase;
 import br.com.elasnojogo2.R;
+import pl.aprilapps.easyphotopicker.EasyImage;
+
+import static android.content.Context.MODE_PRIVATE;
 import static br.com.elasnojogo2.R.string.preencha_campo;
 
 public class CriarEventoFragment extends Fragment {
+    private static final int PERMISSION_CODE = 100;
     private TextView criarEvento;
     private TextView segurancaEvento;
     private ImageView imageViewLogo;
@@ -58,7 +66,8 @@ public class CriarEventoFragment extends Fragment {
         initViews(view);
 
         inserirImagem.setOnClickListener(v -> {
-            salvarImagemFirebase(stream, "nome_evento");
+            captureImage();
+            salvarImagemFirebase(stream, "foto_evento");
         });
 
         cadastrarEvento.setOnClickListener(v -> {
@@ -116,6 +125,18 @@ public class CriarEventoFragment extends Fragment {
             Fragment mudar = new MeusEventosFragment();
             replaceFragment(mudar);
             return true;
+        }
+    }
+
+    private void captureImage() {
+        int permissionCamera = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA);
+        int permissionStorage = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permissionCamera == PackageManager.PERMISSION_GRANTED && permissionStorage == PackageManager.PERMISSION_GRANTED) {
+//            EasyImage.openCameraForImage(this, MODE_PRIVATE);
+            EasyImage.openChooserWithGallery(this, "Escolha a imagem", MODE_PRIVATE);
+        } else {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_CODE);
         }
     }
 

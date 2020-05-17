@@ -24,9 +24,10 @@ import com.squareup.picasso.Picasso;
 
 import br.com.elasnojogo.util.AppUtil;
 import br.com.elasnojogo2.R;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PerfilFragment extends Fragment {
-    private ImageView imageView;
+    private CircleImageView imageView;
     private TextInputEditText nomePerfil;
     private TextInputEditText emailPerfil;
     private Button salvar;
@@ -55,6 +56,7 @@ public class PerfilFragment extends Fragment {
         loadImageFromFirebase();
         FirebaseUser usuaria = firebaseAuth.getCurrentUser();
         inserirInfosFirebase(usuaria);
+
     }
 
     private void inserirInfosFirebase(FirebaseUser usuaria){
@@ -69,20 +71,17 @@ public class PerfilFragment extends Fragment {
     }
 
     private void loadImageFromFirebase() {
-        // Pegamos a referencia do storage para pergar a foto do usuário
         StorageReference storage = FirebaseStorage
                 .getInstance()
                 .getReference()
-                .child(AppUtil.getIdUsuario(getContext()) + "/image/profile/imagem-perfil");
+                .child(AppUtil.getIdUsuario(getContext()) +  "/image/perfil/nome_perfil");
 
-        // Pegamos a url da imagem para o Picasso poder carregar a foto
         storage.getDownloadUrl()
                 .addOnSuccessListener(uri -> {
 
-                    // Mandamos o Picasso carregar a imagem com a url que veio d firebase
                     Picasso.get()
                             .load(uri)
-                            .rotate(90) // Rotaciono a imagem em 90º
+                            .rotate(90)
                             .into(imageView);
                 });
     }
@@ -95,4 +94,6 @@ public class PerfilFragment extends Fragment {
         salvar = view.findViewById(R.id.salvar_btn);
 
     }
+
+
 }
