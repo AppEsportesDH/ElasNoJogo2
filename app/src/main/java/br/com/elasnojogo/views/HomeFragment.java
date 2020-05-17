@@ -86,7 +86,6 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
         return view;
     }
 
-
     private void replaceFragment(Fragment fragment) {
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
@@ -97,6 +96,7 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
         saudacao = view.findViewById(R.id.textViewSaudacao);
         recyclerViewSports = view.findViewById(R.id.recycler_view_Sports);
         sportsViewModel = ViewModelProviders.of(this).get(SportsViewModel.class);
+        eventoViewModel = ViewModelProviders.of(this).get(EventoViewModel.class);
         sportRecyclerViewAdapter = new SportRecyclerViewAdapter(results, this);
     }
 

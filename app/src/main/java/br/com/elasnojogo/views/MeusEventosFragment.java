@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,17 +37,17 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
     public EventosDAO eventosDAO;
     public EventoViewModel eventoViewModel;
 
-    public MeusEventosFragment() {
-    }
+    public MeusEventosFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.recycler_meus_eventos, container, false);
+        init(view);
 
         eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
         eventoViewModel.buscarTodosEventos();
-        recyclerView = view.findViewById(R.id.recycler_view_eventos);
+
         adapter = new EventoRecyclerViewAdapter(listaEventos, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -66,5 +67,9 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
         Fragment detalheFragment = new VisualizarEvento();
         detalheFragment.setArguments(bundle);
         replaceFragment(detalheFragment);
+    }
+    private void init(View view){
+        eventoViewModel = ViewModelProviders.of(this).get(EventoViewModel.class);
+        recyclerView = view.findViewById(R.id.recycler_view_eventos);
     }
 }

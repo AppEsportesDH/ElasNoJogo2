@@ -66,7 +66,7 @@ public class CriarEventoFragment extends Fragment {
             onCheckboxClicked(ch2);
             onCheckboxClicked(ch3);
 
-            Evento evento = new Evento(nomeEvento, local, data, horario, categoriaEsportes, identificacao);
+            Evento evento = new Evento(nomeEvento, data, horario, local,identificacao, categoriaEsportes);
             viewModel.insereDadosBd(evento);
             viewModel.salvarEventoFirebase(evento);
         });

@@ -25,7 +25,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class EventoViewModel extends AndroidViewModel {
-
     public MutableLiveData<Throwable> resultLiveDataError = new MutableLiveData<>();
 
     private EventoRepository repository = new EventoRepository();

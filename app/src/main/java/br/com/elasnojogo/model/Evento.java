@@ -42,8 +42,8 @@ public class Evento implements Parcelable {
         this.genero = genero;
         this.categoria = categoria;
     }
-    public Evento(){
 
+    public Evento(){
     }
 
     protected Evento(Parcel in) {
@@ -52,6 +52,7 @@ public class Evento implements Parcelable {
         local = in.readString();
         genero = in.readString();
         categoria = in.readString();
+        data = in.readString();
     }
     public static final Creator<Evento> CREATOR = new Creator<Evento>() {
         @Override
@@ -134,6 +135,7 @@ public class Evento implements Parcelable {
         parcel.writeString(nomeEvento);
         parcel.writeString(horario);
         parcel.writeString(local);
+        parcel.writeString(data);
         parcel.writeString(categoria);
         parcel.writeString(genero);
     }
