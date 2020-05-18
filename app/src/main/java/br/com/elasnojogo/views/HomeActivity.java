@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.PicassoProvider;
 
+import br.com.elasnojogo.util.AppUtil;
 import br.com.elasnojogo2.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -34,6 +35,7 @@ public class HomeActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawer;
     private String nome;
+    private CircleImageView nav_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
 
         if (user != null) {
             nav_user.setText(user.getDisplayName());
+            AppUtil.loadImageFromFirebase(getApplication(), nav_image);
             Picasso.get().load(user.getPhotoUrl()).into(nav_image);
             nav_email.setText(user.getEmail());
         }
@@ -67,6 +70,13 @@ public class HomeActivity extends AppCompatActivity {
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_meus_eventos,  R.id.nav_editarPerfil, R.id.nav_sair).setDrawerLayout(drawer).build();
 
         navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
+        initViews();
+    }
+
+    private void initViews() {
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        nav_image  = headerView.findViewById(R.id.nav_imageView);
     }
 
     private boolean onNavigationItemSelected(MenuItem menuItem) {

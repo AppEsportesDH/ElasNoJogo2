@@ -25,6 +25,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.util.Arrays;
 
@@ -70,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void loginGoogle() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -118,11 +120,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void onLoggedIn(GoogleSignInAccount googleSignInAccount) {
-        Intent intent = new Intent(this, HomeActivity.class);
-        intent.putExtra(GOOGLE_ACCOUNT, googleSignInAccount);
-
-        startActivity(intent);
-        finish();
+        AuthCredential credential = GoogleAuthProvider.getCredential(googleSignInAccount.getIdToken(), null);
+        FirebaseAuth.getInstance().signInWithCredential(credential)
+                .addOnCompleteListener(task -> {
+                    irParaHome(googleSignInAccount.getId());
+                });
     }
 
     public void loginFacebook() {

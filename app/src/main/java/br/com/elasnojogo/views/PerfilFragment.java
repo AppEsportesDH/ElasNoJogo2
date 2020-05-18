@@ -5,21 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.facebook.appevents.suggestedevents.ViewOnClickListener;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 import br.com.elasnojogo.util.AppUtil;
@@ -49,11 +43,10 @@ public class PerfilFragment extends Fragment {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadImageFromFirebase();
+                AppUtil.loadImageFromFirebase(getActivity(), imageView);
             }
         });
 
-        loadImageFromFirebase();
         FirebaseUser usuaria = firebaseAuth.getCurrentUser();
         inserirInfosFirebase(usuaria);
 
@@ -68,22 +61,6 @@ public class PerfilFragment extends Fragment {
         } else{
             Toast.makeText(getContext(), "Erro ao carregar informações da usuária!", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    private void loadImageFromFirebase() {
-        StorageReference storage = FirebaseStorage
-                .getInstance()
-                .getReference()
-                .child(AppUtil.getIdUsuario(getContext()) +  "/image/perfil/nome_perfil");
-
-        storage.getDownloadUrl()
-                .addOnSuccessListener(uri -> {
-
-                    Picasso.get()
-                            .load(uri)
-                            .rotate(90)
-                            .into(imageView);
-                });
     }
 
     private void initViews(View view) {
