@@ -19,6 +19,8 @@ import com.squareup.picasso.Picasso;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import br.com.elasnojogo2.R;
+
 import static java.security.AccessController.getContext;
 
 public class AppUtil {
@@ -72,6 +74,24 @@ public class AppUtil {
                     Picasso.get()
                             .load(uri)
                             .rotate(90)
+                            .into((ImageView) view);
+                });
+    }
+
+
+    public static void loadImageEventoFromFirebase(Context context, View view) {
+        StorageReference storage = FirebaseStorage
+                .getInstance()
+                .getReference()
+                .child(AppUtil.getIdUsuario(context) +  "/image/evento/foto_evento");
+
+        storage.getDownloadUrl()
+                .addOnSuccessListener(uri -> {
+
+                    Picasso.get()
+                            .load(uri)
+                            .rotate(90)
+                            .placeholder(R.drawable.volei)
                             .into((ImageView) view);
                 });
     }

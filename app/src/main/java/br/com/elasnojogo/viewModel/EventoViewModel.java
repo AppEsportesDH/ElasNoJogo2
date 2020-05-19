@@ -8,21 +8,28 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import java.io.InputStream;
 import java.util.List;
 
 import br.com.elasnojogo.model.Evento;
 import br.com.elasnojogo.repository.EventoRepository;
 import br.com.elasnojogo.util.AppUtil;
+import br.com.elasnojogo.views.HomeFragment;
+import br.com.elasnojogo.views.MeusEventosFragment;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class EventoViewModel extends AndroidViewModel {
     public MutableLiveData<Throwable> resultLiveDataError = new MutableLiveData<>();
@@ -124,4 +131,5 @@ public class EventoViewModel extends AndroidViewModel {
                         })
         );
     }
+
 }

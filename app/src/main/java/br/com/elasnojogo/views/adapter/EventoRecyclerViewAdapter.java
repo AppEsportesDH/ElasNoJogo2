@@ -13,6 +13,8 @@ import br.com.elasnojogo.model.Evento;
 import br.com.elasnojogo.views.interfaces.EventoListener;
 import br.com.elasnojogo2.R;
 
+import static br.com.elasnojogo.util.AppUtil.loadImageEventoFromFirebase;
+
 public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecyclerViewAdapter.ViewHolder> {
     private List<Evento> eventos;
     private EventoListener listener;
@@ -56,12 +58,14 @@ public class EventoRecyclerViewAdapter extends RecyclerView.Adapter<EventoRecycl
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            image = itemView.findViewById(R.id.imageView_evento);
             nomeEvento = itemView.findViewById(R.id.nome_evento_visualizarfragment);
             localEvento = itemView.findViewById(R.id.local_visualizarfragment);
             dataEvento = itemView.findViewById(R.id.data_visualizarfragment);
         }
 
         public void onBind(Evento evento) {
+            loadImageEventoFromFirebase(itemView.getContext(),image);
             nomeEvento.setText(evento.getNomeEvento());
             localEvento.setText(evento.getLocal());
             dataEvento.setText(evento.getData());

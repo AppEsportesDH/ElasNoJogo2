@@ -75,8 +75,9 @@ public class CriarEventoFragment extends Fragment {
 
         inserirImagem.setOnClickListener(v -> {
             captureImage();
-            salvarImagemFirebase(stream, "foto_evento");
         });
+
+        salvarImagemFirebase(stream, "foto_evento");
 
         cadastrarEvento.setOnClickListener(v -> {
             String nomeEvento = nomeInputEvento.getText().toString();
@@ -168,10 +169,10 @@ public class CriarEventoFragment extends Fragment {
         StorageReference storage = FirebaseStorage
                 .getInstance()
                 .getReference()
-                .child(AppUtil.getIdUsuario(getContext()) + "/imagem/evento/" + nomeFotoEvento);
+                .child(AppUtil.getIdUsuario(getContext()) + "/image/evento/" + nomeFotoEvento);
 
         if (stream == null) {
-            replaceFragment(new HomeFragment());
+            replaceFragment(new CriarEventoFragment());
         }
 
         UploadTask uploadTask = storage.putStream(stream);

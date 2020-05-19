@@ -14,6 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import br.com.elasnojogo.model.DadosEvento;
 import br.com.elasnojogo.model.Evento;
+import br.com.elasnojogo.util.AppUtil;
 import br.com.elasnojogo2.R;
 
 import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
@@ -46,6 +47,8 @@ public class VisualizarEvento extends Fragment {
         if (getArguments() != null){
             Bundle bundle = getArguments();
             Evento dadosEvento = bundle.getParcelable(EVENTO_CHAVE);
+
+            AppUtil.loadImageEventoFromFirebase(getContext(),imageViewEvento);
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
 
