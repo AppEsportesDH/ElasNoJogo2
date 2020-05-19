@@ -47,6 +47,8 @@ public class MeusEventosFragment extends Fragment implements EventoListener {
 
         eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
         eventoViewModel.buscarTodosEventos();
+        eventoViewModel.listLiveData.observe(getViewLifecycleOwner(), eventos ->
+                adapter.atualizaListaEvento(eventos));
 
         adapter = new EventoRecyclerViewAdapter(listaEventos, this);
         recyclerView.setAdapter(adapter);

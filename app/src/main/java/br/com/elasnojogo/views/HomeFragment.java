@@ -62,6 +62,10 @@ public class HomeFragment extends Fragment implements EventoListener, OnClick {
 
         eventosDAO = EventosDataBase.getDataBase(getContext()).eventosDAO();
         eventoViewModel.buscarTodosEventos();
+        eventoViewModel.listLiveData.observe(getViewLifecycleOwner(), eventos ->
+                adapter.atualizaListaEvento(eventos));
+
+
         recyclerViewEventos = view.findViewById(R.id.recycler_view_eventos);
         adapter = new EventoRecyclerViewAdapter(listaEventos, this);
         recyclerViewEventos.setAdapter(adapter);

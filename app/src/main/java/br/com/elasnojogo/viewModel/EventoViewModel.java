@@ -76,7 +76,7 @@ public class EventoViewModel extends AndroidViewModel {
 
     public void salvarEventoFirebase(Evento evento) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference(AppUtil.getIdUsuario(getApplication()) + "/evento");
+        DatabaseReference reference = database.getReference("eventos/"+ AppUtil.getIdUsuario(getApplication()) + "/evento");
         reference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
@@ -110,6 +110,7 @@ public class EventoViewModel extends AndroidViewModel {
         String key = reference.push().getKey();
         reference.child(key).setValue(evento);
     }
+
     public void buscarTodosEventos() {
         disposable.add(
                 repository.retornarEventos(getApplication())
