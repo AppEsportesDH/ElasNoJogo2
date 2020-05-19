@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +37,14 @@ import br.com.elasnojogo.views.adapter.EventoRecyclerViewAdapter;
 import br.com.elasnojogo.repository.data.EventosDAO;
 import br.com.elasnojogo.repository.data.EventosDataBase;
 import br.com.elasnojogo2.R;
+
+import static br.com.elasnojogo.constantes.Constantes.MULHER_BI;
+import static br.com.elasnojogo.constantes.Constantes.MULHER_LES;
+import static br.com.elasnojogo.constantes.Constantes.MULHER_NAOBI;
+import static br.com.elasnojogo.constantes.Constantes.MULHER_TRANS;
+import static br.com.elasnojogo2.R.id.checkTrans;
+import static br.com.elasnojogo2.R.id.checklbi;
+import static br.com.elasnojogo2.R.id.checkles;
 import pl.aprilapps.easyphotopicker.EasyImage;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -56,6 +65,8 @@ public class CriarEventoFragment extends Fragment {
     private Button cadastrarEvento;
     private List<Evento> listaEvento = new ArrayList<>();
     private EventoViewModel viewModel;
+    CheckBox ch, ch1, ch2, ch3;
+    private String identificacao;
     private EventoRecyclerViewAdapter adapter;
     private InputStream stream = null;
 
@@ -80,15 +91,14 @@ public class CriarEventoFragment extends Fragment {
 
             validarCampos(nomeEvento, local, data, horario, categoriaEsportes);
 
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    Evento evento = new Evento(nomeEvento, data, horario, local, categoriaEsportes);
-                    if (evento != null) {
-                        eventosDAO.inserirEventos(evento);
-                    }
-                }
-            }).start();
+            onCheckboxClicked(ch);
+            onCheckboxClicked(ch1);
+            onCheckboxClicked(ch2);
+            onCheckboxClicked(ch3);
+
+            Evento evento = new Evento(nomeEvento, data, horario, local,identificacao, categoriaEsportes);
+            viewModel.insereDadosBd(evento);
+            viewModel.salvarEventoFirebase(evento);
         });
 
         return view;
@@ -110,6 +120,10 @@ public class CriarEventoFragment extends Fragment {
         criarEvento = view.findViewById(R.id.criareventoText);
         nomeInputEvento = view.findViewById(R.id.nome_do_evento);
         segurancaEvento = view.findViewById(R.id.segurancaEvento);
+        ch = (CheckBox) view.findViewById(checklbi);
+        ch1 = (CheckBox) view.findViewById(R.id.check_naobi);
+        ch2 = (CheckBox) view.findViewById(R.id.checkles);
+        ch3 = (CheckBox) view.findViewById(R.id.checkTrans);
     }
 
     private boolean validarCampos(String nomeEvento, String dataEvento, String horaEvento, String localEvento, String categoriaEvento) {
@@ -126,6 +140,19 @@ public class CriarEventoFragment extends Fragment {
             Fragment mudar = new MeusEventosFragment();
             replaceFragment(mudar);
             return true;
+        }
+    }
+
+    private void onCheckboxClicked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        if (view.getId() == checklbi && checked) {
+            identificacao = MULHER_BI;
+        } else if (view.getId() == checkles && checked) {
+            identificacao = MULHER_LES;
+        } else if (view.getId() == checkTrans && checked) {
+            identificacao = MULHER_TRANS;
+        } else if (view.getId() == R.id.check_naobi && checked) {
+            identificacao = MULHER_NAOBI;
         }
     }
 

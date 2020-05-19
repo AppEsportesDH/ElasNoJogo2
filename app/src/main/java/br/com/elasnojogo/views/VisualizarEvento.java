@@ -48,13 +48,14 @@ public class VisualizarEvento extends Fragment {
             Evento dadosEvento = bundle.getParcelable(EVENTO_CHAVE);
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+
             }
 
             textViewNomeEvento.setText(dadosEvento.getNomeEvento());
             textViewLocalEvento.setText(getString(R.string.local) + dadosEvento.getLocal());
             textViewDataEvento.setText(getString(R.string.data) + dadosEvento.getData());
             textViewHorarioEvento.setText(getString(R.string.horario) + dadosEvento.getHorario());
-            textViewCategoriaEvento.setText(getString(R.string.categoria) + dadosEvento.getCategoriaEsportes());
+            textViewCategoriaEvento.setText(getString(R.string.categoria) + dadosEvento.getCategoria());
         };
         return view;
     }
