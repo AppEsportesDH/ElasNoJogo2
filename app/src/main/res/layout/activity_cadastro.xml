@@ -32,7 +32,7 @@
             android:layout_marginRight="32dp"
             android:elevation="8dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/user"
+            android:src="@drawable/profile"
             app:civ_border_color="@color/container"
             app:civ_border_overlay="true"
             app:civ_border_width="4dp"
