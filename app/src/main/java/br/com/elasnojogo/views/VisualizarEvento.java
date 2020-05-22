@@ -74,7 +74,7 @@ public class VisualizarEvento extends Fragment {
     private void compartilharEvento(DadosEvento dadosEvento) {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, "Participe do meu evento!");
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Participe do meu evento! Elas no Jogo, o app para mulheres encontrarem seus times.");
         sendIntent.setType("text/plain");
         Intent shareIntent = Intent.createChooser(sendIntent, null);
         startActivity(shareIntent);

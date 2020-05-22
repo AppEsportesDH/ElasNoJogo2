@@ -26,6 +26,10 @@ public class Usuario implements Parcelable {
         this.confirmarSenha = confirmarSenha;
     }
 
+    public Usuario(){
+
+    }
+
     public Long getId() { return id; }
 
     public void setId(Long id) { this.id = id; }
