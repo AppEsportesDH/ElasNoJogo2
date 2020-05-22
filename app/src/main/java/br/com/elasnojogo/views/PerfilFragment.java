@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import br.com.elasnojogo.util.AppUtil;
@@ -31,9 +33,6 @@ public class PerfilFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_perfil, container, false);
-
-
-
         return view;
     }
 
@@ -43,24 +42,19 @@ public class PerfilFragment extends Fragment {
 
         initViews(view);
 
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AppUtil.loadImageFromFirebase(getActivity(), imageView);
-            }
-        });
+        imageView.setOnClickListener(view12 -> AppUtil.loadImageFromFirebase(getActivity(), imageView));
 
         FirebaseUser usuaria = firebaseAuth.getCurrentUser();
         inserirInfosFirebase(usuaria);
 
-        salvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment mudar = new HomeFragment();
-                replaceFragment(mudar);
+        salvar.setOnClickListener(view1 -> {
+            Fragment mudar = new HomeFragment();
+            replaceFragment(mudar);
 
-            }
         });
+
+        loadImageFromFirebase();
+        
     }
 
     private void inserirInfosFirebase(FirebaseUser usuaria){
@@ -84,4 +78,19 @@ public class PerfilFragment extends Fragment {
     private void replaceFragment(Fragment fragment) {
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
+
+    private void loadImageFromFirebase() {
+        StorageReference storage = FirebaseStorage
+                .getInstance()
+                .getReference()
+                .child(AppUtil.getIdUsuario(getContext()) + "/image/perfil/nome_perfil");
+        storage.getDownloadUrl()
+                .addOnSuccessListener(uri -> {
+                    Picasso.get()
+                            .load(uri)
+                            .rotate(90)
+                            .into(imageView);
+                });
+    }
+
 }
