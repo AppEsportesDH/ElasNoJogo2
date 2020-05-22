@@ -31,6 +31,9 @@ public class PerfilFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_perfil, container, false);
+
+
+
         return view;
     }
 
@@ -50,6 +53,14 @@ public class PerfilFragment extends Fragment {
         FirebaseUser usuaria = firebaseAuth.getCurrentUser();
         inserirInfosFirebase(usuaria);
 
+        salvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment mudar = new HomeFragment();
+                replaceFragment(mudar);
+
+            }
+        });
     }
 
     private void inserirInfosFirebase(FirebaseUser usuaria){
@@ -69,8 +80,8 @@ public class PerfilFragment extends Fragment {
         nomePerfil = view.findViewById(R.id.edit_text_nome_perfil);
         emailPerfil = view.findViewById(R.id.edit_text_email_perfil);
         salvar = view.findViewById(R.id.salvar_btn);
-
     }
-
-
+    private void replaceFragment(Fragment fragment) {
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+    }
 }
