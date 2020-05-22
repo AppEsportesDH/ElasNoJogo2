@@ -5,7 +5,7 @@
     <string name="digite_sua_senha">SENHA</string>
     <string name="acessar_sua_conta">ACESSAR SUA CONTA</string>
     <string name="digite_o_seu_e_mail">E-MAIL</string>
-    <string name="cadastre_se">Não tem uma conta? Cadastre-se</string>
+    <string name="cadastre_se"> Não tem uma conta?<u> Clique e cadastre-se</u></string>
     <string name="entre_usando">ENTRE USANDO</string>
     <string name="nome_evento">Nome Evento</string>
     <string name="email">Email</string>
@@ -55,7 +55,7 @@
     <string name="favoritos_drawer">Meus Eventos</string>
     <string name="sair">Sair</string>
     <string name="elas_no_jogo">Elas no jogo</string>
-    <string name="ola_nome">Bem-vinda</string>
+    <string name="ola_nome">Bem-vinde</string>
     <string name="identificacao">IDENTIFICO-ME COMO</string>
     <string name="email_cadastro">EMAIL</string>
     <string name="telefone_cadastro">TELEFONE</string>
@@ -69,13 +69,12 @@
     <string name="fb_login_protocol_scheme">851777708640114</string>
     <string name="editar_perfil">Editar Perfil</string>
     <string name="cadastre">CADASTRE-SE</string>
+    <string name="ou">ou</string>
 
     <string-array name="lista_identificacao">
         <item>mulher cis</item>
-        <item>mulher lésbica</item>
         <item>mulher trans</item>
-        <item>não-binário</item>
-        <item>não me identifico como mulher nem não-binário</item>
+        <item>pessoa não-binária</item>
     </string-array>
 
 </resources>
