@@ -213,60 +213,60 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
         if (permissionCamera == PackageManager.PERMISSION_GRANTED && permissionStorage == PackageManager.PERMISSION_GRANTED) {
 //            EasyImage.openCameraForImage(this, MODE_PRIVATE);
             EasyImage.openChooserWithGallery(this, "escolher_imagem", MODE_PRIVATE);
-     } else {
+        } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_CODE);
         }
     }
 
-        @Override
-        public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-            captureImage();
-        }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        captureImage();
+    }
 
-        @Override
-        public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-            super.onActivityResult(requestCode, resultCode, data);
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-            EasyImage.handleActivityResult(requestCode, resultCode, data, this, new DefaultCallback() {
+        EasyImage.handleActivityResult(requestCode, resultCode, data, this, new DefaultCallback() {
 
-                @Override
-                public void onImagesPicked(@NonNull List<File> imageFiles, EasyImage.ImageSource source, int type) {
+            @Override
+            public void onImagesPicked(@NonNull List<File> imageFiles, EasyImage.ImageSource source, int type) {
 
-                    for (File file : imageFiles) {
-                        try {
-                            stream = new FileInputStream(file);
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
+                for (File file : imageFiles) {
+                    try {
+                        stream = new FileInputStream(file);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
                     }
                 }
-            });
-        }
-
-        private void salvarImagemUsuarioFirebase(InputStream stream, String nomeFoto){
-
-            StorageReference storage = FirebaseStorage
-                    .getInstance()
-                    .getReference()
-                    .child(AppUtil.getIdUsuario(getApplication()) + "/image/perfil/" + nomeFoto);
-
-            if (stream == null) {
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                return;
             }
+        });
+    }
 
-            UploadTask uploadTask = storage.putStream(stream);
+    private void salvarImagemUsuarioFirebase(InputStream stream, String nomeFoto){
 
-            uploadTask.addOnSuccessListener(taskSnapshot -> {
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+        StorageReference storage = FirebaseStorage
+                .getInstance()
+                .getReference()
+                .child(AppUtil.getIdUsuario(getApplication()) + "/image/perfil/" + nomeFoto);
 
-            }).addOnFailureListener(e -> {
-
-                Snackbar snackbar = Snackbar.make(imagemUsuario, e.getMessage(), Snackbar.LENGTH_LONG);
-                snackbar.show();
-            });
+        if (stream == null) {
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+            return;
         }
+
+        UploadTask uploadTask = storage.putStream(stream);
+
+        uploadTask.addOnSuccessListener(taskSnapshot -> {
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+
+        }).addOnFailureListener(e -> {
+
+            Snackbar snackbar = Snackbar.make(imagemUsuario, e.getMessage(), Snackbar.LENGTH_LONG);
+            snackbar.show();
+        });
+    }
 
     private void loadImageFromFirebase() {
         StorageReference storage = FirebaseStorage
@@ -283,4 +283,4 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
                             .into(imagemUsuario);
                 });
     }
-    }
+}

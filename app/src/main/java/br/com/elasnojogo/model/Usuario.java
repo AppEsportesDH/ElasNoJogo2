@@ -94,5 +94,3 @@ public class Usuario implements Parcelable {
         dest.writeString(confirmarSenha);
     }
 }
-
-

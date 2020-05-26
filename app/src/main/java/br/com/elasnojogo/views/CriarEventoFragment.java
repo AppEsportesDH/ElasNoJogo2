@@ -2,6 +2,7 @@ package br.com.elasnojogo.views;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -45,6 +46,7 @@ import static br.com.elasnojogo2.R.id.checkTrans;
 import static br.com.elasnojogo2.R.id.checklbi;
 import static br.com.elasnojogo2.R.id.checkles;
 import static br.com.elasnojogo2.R.string.preencha_campo;
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class CriarEventoFragment extends Fragment {
     private static final int PERMISSION_CODE = 100;
@@ -168,17 +170,17 @@ public class CriarEventoFragment extends Fragment {
         StorageReference storage = FirebaseStorage
                 .getInstance()
                 .getReference()
-                .child(AppUtil.getIdUsuario(getContext()) + "/imagem/evento/" + nomeFotoEvento);
+                .child(AppUtil.getIdUsuario(getContext()) + "/image/perfil/" + nomeFotoEvento);
 
         if (stream == null) {
-            replaceFragment(new HomeFragment());
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+            return;
         }
 
         UploadTask uploadTask = storage.putStream(stream);
 
         uploadTask.addOnSuccessListener(taskSnapshot -> {
-
-            replaceFragment(new MeusEventosFragment());
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
 
         }).addOnFailureListener(e -> {
 
