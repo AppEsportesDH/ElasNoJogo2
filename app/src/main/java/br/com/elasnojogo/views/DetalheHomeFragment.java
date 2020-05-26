@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 import br.com.elasnojogo.model.Sport;
 import br.com.elasnojogo2.R;
 
-import static br.com.elasnojogo.constantes.Constantes.EVENTO_CHAVE;
+import static br.com.elasnojogo.constantes.Constantes.SPORT;
 
 
 public class DetalheHomeFragment extends Fragment {
@@ -36,7 +36,7 @@ public class DetalheHomeFragment extends Fragment {
 
             Bundle bundle = getArguments();
 
-            Sport result = bundle.getParcelable(EVENTO_CHAVE);
+            Sport result = bundle.getParcelable(SPORT);
 
             textViewCategoria.setText(result.getStrSport());
             textViewDescription.setText(result.getStrSportDescription());
@@ -51,6 +51,10 @@ public class DetalheHomeFragment extends Fragment {
         textViewCategoria = view.findViewById(R.id.text_view_categoria);
         imagem = view.findViewById(R.id.imageView_detalhe);
         textViewDescription = view.findViewById(R.id.text_view_description);
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).addToBackStack(null).commit();
     }
 }
 

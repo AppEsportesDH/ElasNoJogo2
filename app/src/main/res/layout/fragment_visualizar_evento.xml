@@ -1,14 +1,17 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
+    
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/backgroundwatercolor">
+        android:background="@drawable/backgroundwatercolor"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="221dp">
 
         <ImageView
             android:id="@+id/imageView_evento"
@@ -16,7 +19,7 @@
             android:layout_height="225dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:background="@color/container"
@@ -24,26 +27,40 @@
             android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@id/local_visualizarfragment"
+            app:layout_constraintTop_toTopOf="@id/stroke_nome" />
 
         <TextView
             android:id="@+id/nome_evento_visualizarfragment"
-            android:layout_width="245dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="442dp"
-            android:layout_marginRight="442dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
+            android:width="@dimen/fab_margin"
             android:fontFamily="@font/lato"
             android:text="@string/nome_evento"
+            android:textAllCaps="true"
+            android:textColor="@color/btn"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/local_visualizarfragment"
+            android:textStyle="bold"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/imageView_evento"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView_evento" />
+            app:layout_constraintTop_toTopOf="parent" />
+            " />
+
+        <TextView
+            android:id="@+id/stroke_nome"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/btn"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/nome_evento_visualizarfragment"/>
 
         <TextView
             android:id="@+id/local_visualizarfragment"
@@ -52,14 +69,16 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="319dp"
-            android:layout_marginRight="319dp"
+            android:layout_marginRight="16dp"
             android:fontFamily="@font/lato"
             android:text="@string/local"
-            android:textSize="24sp"
+            android:textColor="@color/preto"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nome_evento_visualizarfragment" />
+            app:layout_constraintBottom_toTopOf="@+id/data_visualizarfragment"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_evento" />
 
         <TextView
             android:id="@+id/data_visualizarfragment"
@@ -68,51 +87,68 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="330dp"
-            android:layout_marginRight="330dp"
+            android:layout_marginRight="16dp"
             android:fontFamily="@font/lato"
-            android:text="@string/data_evento"
-            android:textSize="24sp"
+            android:text="@string/data"
+            android:textColor="@color/preto"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/local_visualizarfragment" />
+            app:layout_constraintBottom_toTopOf="@+id/horario_visualizarfragment"
+        app:layout_constraintTop_toBottomOf="@+id/local_visualizarfragment" />
+
+        <TextView
+            android:id="@+id/horario_visualizarfragment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/lato"
+            android:text="@string/horario"
+            android:textColor="@color/preto"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/data_visualizarfragment"
+            app:layout_constraintBottom_toTopOf="@+id/categoria_visualizarfragment"/>
+
+        <TextView
+            android:id="@+id/categoria_visualizarfragment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/lato"
+            android:text="@string/categoria"
+            android:textColor="@color/preto"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horario_visualizarfragment"
+            app:layout_constraintBottom_toTopOf="@+id/compartilhar"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/compartilhar"
-            android:layout_width="151dp"
-            android:layout_height="66dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="32dp"
+            android:layout_width="60dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
             android:clickable="true"
             android:src="?attr/actionModeShareDrawable"
             android:tint="@color/btn"
-            app:backgroundTint="#FCFFFFFF"
+            app:backgroundTint="@color/branco"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.453"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/data_visualizarfragment"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="323dp"
-            android:layout_marginRight="323dp"
-            android:layout_marginBottom="40dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView_evento"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo" />
+            app:layout_constraintTop_toBottomOf="@+id/categoria_visualizarfragment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

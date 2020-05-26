@@ -5,27 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/backgroundwatercolor"
+    android:layout_marginBottom="8dp"
     tools:context="br.com.elasnojogo.views.MeusEventosFragment">
-
-    <TextView
-        android:id="@+id/favoritos"
-        android:layout_width="16dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/lato_bold"
-        android:textColor="@color/colorText"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView_favoritos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView_favoritos"
@@ -33,12 +14,10 @@
         android:layout_height="120dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="32dp"
         android:background="@color/container"
         android:orientation="horizontal"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/favoritos" />
@@ -47,14 +26,16 @@
         android:id="@+id/text_view_nomeevento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="42dp"
         android:fontFamily="@font/lato"
         android:text="@string/nome_evento"
+        android:textColor="@color/colorText"
         android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
-        app:layout_constraintTop_toBottomOf="@+id/favoritos" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_view_local"
@@ -66,6 +47,8 @@
         android:fontFamily="@font/lato"
         android:text="@string/local"
         android:textSize="12sp"
+        android:textColor="@color/colorText"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
         app:layout_constraintTop_toBottomOf="@+id/text_view_nomeevento" />
 
@@ -76,11 +59,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="4dp"
-
         android:fontFamily="@font/lato"
         android:text="@string/data_evento"
         android:textSize="12sp"
+        android:textColor="@color/colorText"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView_favoritos"
         app:layout_constraintTop_toBottomOf="@+id/text_view_local" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
